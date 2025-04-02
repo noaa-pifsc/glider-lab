@@ -1,0 +1,12 @@
+---
+title: Past Deployments
+---
+
+## Deployments
+
+The below table lists all glider deployments. 
+
+Todo: 
+- [ ] embed/include table directly here
+
+For now, see [this sheet](https://docs.google.com/spreadsheets/d/1cuMfl72pcrMxzPEMjluCLirsLtIb8wKwBYsVkrQ-fkU/edit?usp=sharing) (last updated XXXXXX).

@@ -1,0 +1,28 @@
+---
+title: Deployment Reports
+---
+# YEAR
+
+## Location
+
+| Deployment | Sensors |
+|------------------------------|------------------------------|
+| [serial number](link/to/report){target="_blank"} | CTD, WISPR, other sensors |
+
+# YEAR
+
+## Location
+
+| Deployment | Sensors |
+|------------------------------|------------------------------|
+| [serial number](link/to/report){target="_blank"} | CTD, WISPR, other sensors |
+| [serial number](link/to/report){target="_blank"} | CTD, WISPR, other sensors |
+| [serial number](link/to/report){target="_blank"} | CTD, WISPR, other sensors |
+
+
+## Other Location
+| Deployment | Sensors |
+|------------------------------|------------------------------|
+|[serial number](link/to/report){target="_blank"} | CTD, WISPR, other sensors |
+
+
