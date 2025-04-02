@@ -1,0 +1,75 @@
+project:
+  type: website
+
+website:
+  title: "PIFSC Glider Lab"
+  site-url: "https://noaa-pifsc.github.io/glider-lab/" 
+  repo-url: "https://github.com/noaa-pifsc/glider-lab/"
+  repo-actions: [edit, source, issue]
+  favicon: images/favicon.ico
+  page-navigation: false
+  back-to-top-navigation: true
+  bread-crumbs: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - Deployments
+      
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; [CC0-1.0](https://github.com/noaa-pifsc/glider-lab/blob/main/LICENSE)"
+  
+  sidebar:
+    background: $seaglider-yellow
+    logo: "content/images/hanging-glider-circle.png"
+    favicon: images/favicon.ico
+    pinned: true
+    align: center
+    tools: 
+      # - icon: globe
+      #   href: https://nmfs-opensci.github.io
+      #   text: "NMFS Open Science"
+      - icon: github
+        href: https://github.com/noaa-pifsc/glider-lab
+        text: "PIFSC Glider Lab"
+
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Home
+      # - section: "Glider Lab"
+      #   contents:
+      #     - content/lab.qmd
+      #     - content/pilot-tools.qmd
+      - section: "Deployments"
+        contents:
+          - deployments.qmd  
+          - reports.qmd
+      - content/data-management.qmd
+      - section: "Data Processing"
+        contents:
+          - href: dataproc-gliders.qmd
+            text: Gliders
+          - href: dataproc-acoustics.qmd
+            text: Acoustics
+
+format:
+  html:
+    theme:
+      light: theme.scss
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-depth: 4
+    link-external-newwindow: true
+    embed-resources: true
+
+filters:
+  # - include-files.lua
+  - quarto
+
+
