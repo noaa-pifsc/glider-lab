@@ -1,20 +1,17 @@
 project:
   type: website
+  preview:
+    port: 5165
 
 website:
   title: "PIFSC Glider Lab"
   site-url: "https://noaa-pifsc.github.io/glider-lab/" 
   repo-url: "https://github.com/noaa-pifsc/glider-lab/"
   repo-actions: [edit, source, issue]
-  favicon: images/favicon.ico
+  favicon: ../images/favicon.ico
   page-navigation: false
   back-to-top-navigation: true
   bread-crumbs: true
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - Deployments
       
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
@@ -22,7 +19,7 @@ website:
   
   sidebar:
     background: $seaglider-yellow
-    logo: "content/images/hanging-glider-circle.png"
+    logo: "../images/PSD.Dark.NoBackground.png"
     favicon: images/favicon.ico
     pinned: true
     align: center
@@ -59,7 +56,7 @@ website:
 format:
   html:
     theme:
-      light: theme.scss
+      light: [cosmo, theme.scss]
       dark: [cosmo, theme-dark.scss]
     code-copy: true
     code-overflow: wrap
