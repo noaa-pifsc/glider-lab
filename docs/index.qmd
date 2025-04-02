@@ -5,7 +5,7 @@ page-layout: full
 ---
 
 [![](https://img.shields.io/github/last-commit/noaa-pifsc/glider-lab)](https://github.com/noaa-pifsc/glider-lab/commits/main)
-![](../images/20230426_084840_glider_assembly_in_boat_creditDaveMellinger.jpeg){style="float:right;" fig-alt="A researcher prepares a Seaglider for deployment by installing the rudder while it rests on the floor of a small boat. " width="260"}
+![A researcher prepares a Seaglider for deployment by installing the rudder while it rests on the floor of a small boat.](../images/20230426_084840_glider_assembly_in_boat_creditDaveMellinger.jpeg){.bordered-image style="float:right;" width="260"} 
 
 The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/about/pacific-islands-fisheries-science-center) has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.
 
@@ -21,7 +21,7 @@ The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/ab
 
 ## Project Management
 
-For most current Seaglider Fleet Status information, see [this Sheet](https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?usp=sharing)
+For most current Seaglider Fleet Status information, see [this Google Sheet](https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?usp=sharing)
 
 <!-- The PIFSC glider team is using GitHub Issues and Projects for project management. Our efforts are heavily inspired and influenced by the Openscapes [GitHub for project management](https://openscapes.github.io/series/core-lessons/github/github-issues.html){target="_blank"} approach. -->
 

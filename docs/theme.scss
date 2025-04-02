@@ -13,3 +13,11 @@ $rogue-wave:        #0D5257 !default;
 $crater:            #8E9089 !default;
 $pine-stand:        #4A773C !default;
 $high-desert:       #7A6855 !default;
+
+
+/*-- create border for images --*/
+.bordered-image {
+  border: 3px solid black;
+  padding: 5px;
+  border-radius: 6px; /* Optional for rounded corners */
+}
