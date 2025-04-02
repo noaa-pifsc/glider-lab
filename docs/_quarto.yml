@@ -48,13 +48,13 @@ website:
         contents:
           - deployments.qmd  
           - reports.qmd
-      - content/data-management.qmd
-      - section: "Data Processing"
-        contents:
-          - href: dataproc-gliders.qmd
-            text: Gliders
-          - href: dataproc-acoustics.qmd
-            text: Acoustics
+      - data-management.qmd
+      # - section: "Data Processing"
+      #   contents:
+      #     - href: dataproc-gliders.qmd
+      #       text: Gliders
+      #     - href: dataproc-acoustics.qmd
+      #       text: Acoustics
 
 format:
   html:

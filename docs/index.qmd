@@ -1,0 +1,44 @@
+---
+title: PIFSC Glider Lab
+subtitle: Protected Species Division, NMFS/PIFSC
+page-layout: full
+---
+
+[![](https://img.shields.io/github/last-commit/noaa-pifsc/glider-lab)](https://github.com/noaa-pifsc/glider-lab/commits/main)
+![](../images/20230426_084840_glider_assembly_in_boat_creditDaveMellinger.jpeg){style="float:right;" fig-alt="A researcher prepares a Seaglider for deployment by installing the rudder while it rests on the floor of a small boat. " width="260"}
+
+The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/about/pacific-islands-fisheries-science-center) has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.
+
+## Team Members
+
+| Name | Job Title | Glider Team Role |
+|------|-----------|------------------|
+| [Erin Oleson](mailto:erin.oleson@noaa.gov)         | Director, Protected Species Division  | Principle Investigator |
+| [Erik Norris](mailto:erik.norris@noaa.gov)         | Research and Operations Technician  | Lab Manager, Pilot, Tech |
+| [Selene Fregosi](mailto:selene.fregosi@noaa.gov)   | Contractor, Cetacean Survey Scientist | Pilot, Analyst |
+| [Calla Lloyd-Lim](mailto:calla.lloyd-lim@noaa.gov) | Biological Science Technician | Pilot, Tech |
+| [Charles Littnan](mailto:charles.littnan@noaa.gov) | Director, PIFSC | |
+
+## Project Management
+
+For most current Seaglider Fleet Status information, see [this Sheet](https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?usp=sharing)
+
+<!-- The PIFSC glider team is using GitHub Issues and Projects for project management. Our efforts are heavily inspired and influenced by the Openscapes [GitHub for project management](https://openscapes.github.io/series/core-lessons/github/github-issues.html){target="_blank"} approach. -->
+
+<!-- The [PIFSC glider team project](https://github.com/orgs/noaa-pifsc/projects/){target="_blank"} pulls from issues from several repositories, but in particular [this repo](https://github.com/noaa-pifsc/glider-lab). For more details see the [best practices](content/best-practices.qmd) page. -->
+
+### GitHub Repositories
+
+GitHub repos developed by the PIFSC glider team. <!--Issues for these repos are tracked in the above-linked Project. -->
+
+| repo link | description |
+|-----------|-------------|
+| [glider-lab](https://github.com/noaa-pifsc/glider-lab){target="_blank"} | PIFSC Glider Lab website and repo glider lab issues/tasks |
+| [agate](https://github.com/sfregosi/agate) | agate: MATLAB-based tools for working with PAM Seagliders |
+| [glider-MHI](https://github.com/sfregosi-noaa/glider-MHI) | Mission-specific analysis repo for 2022-2023 MHI missions | 
+| [glider-CalCurCEAS](https://github.com/sfregosi-noaa/glider-CalCurCEAS) | Mission-specific analysis repo for 2024 CalCurCEAS missons |
+<!-- | [standard-glider-files](https://github.com/SWFSC/standard-glider-files){target="_blank"}       | ESD Glider cache files, as well as standard files that are put on all gliders before deployment | -->
+<!-- | [glider-utils](https://github.com/SWFSC/glider-utils){target="_blank"}                           | Utility functions for processing ESD glider data                                                | -->
+<!-- | [echoview_glider_template](https://github.com/SWFSC/echoview_glider_template){target="_blank"} | Echoview glider templates that are used for acoustic data analysis                              | -->
+<!-- | [glider_processing_code](https://github.com/SWFSC/glider_processing_code){target="_blank"}     | Compilation of code that is used to work with glider acoustic data                              | -->
+<!-- | [slocumRtDataVisTool](https://github.com/flaimC/slocumRtDataVisTool){target="_blank"}                 | Creates plots and generates useful statistics from slocum binary files -->
