@@ -1,7 +1,7 @@
 # =========================
 # Protected Information
 # =========================
-/scratch
+/scratch/
 
 
 # =========================
@@ -32,4 +32,7 @@
 
 # R Environment Variables
 .Renviron
+
+# Quarto preview files
+_site/
 
