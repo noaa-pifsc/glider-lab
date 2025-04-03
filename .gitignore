@@ -35,4 +35,5 @@
 
 # Quarto preview files
 _site/
+site_libs/
 

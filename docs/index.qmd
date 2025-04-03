@@ -14,7 +14,7 @@ The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/ab
 | Name | Job Title | Glider Team Role |
 |------|-----------|------------------|
 | [Erin Oleson](mailto:erin.oleson@noaa.gov)         | Director, Protected Species Division  | Principle Investigator |
-| [Erik Norris](mailto:erik.norris@noaa.gov)         | Research and Operations Technician  | Lab Manager, Pilot, Tech |
+| [Erik Norris](mailto:erik.norris@noaa.gov)         | Physical Science Technician  | Lab Manager, Pilot, Tech |
 | [Selene Fregosi](mailto:selene.fregosi@noaa.gov)   | Contractor, Cetacean Survey Scientist | Pilot, Analyst |
 | [Calla Lloyd-Lim](mailto:calla.lloyd-lim@noaa.gov) | Biological Science Technician | Pilot, Tech |
 | [Charles Littnan](mailto:charles.littnan@noaa.gov) | Director, PIFSC | |
