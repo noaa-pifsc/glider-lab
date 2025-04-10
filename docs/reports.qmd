@@ -1,6 +1,10 @@
 ---
 title: Deployment Reports
 ---
+
+*in development [Mission Report Template](https://docs.google.com/document/d/1n_gStQKpFswIsa8mMzGJQ2-xDK0fJE_6092rQl4_PAo/edit?tab=t.0)*
+
+
 # YEAR
 
 ## Location
