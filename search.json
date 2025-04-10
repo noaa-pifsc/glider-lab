@@ -66,7 +66,7 @@
     "href": "reports.html",
     "title": "Deployment Reports",
     "section": "",
-    "text": "Deployment\nSensors\n\n\n\n\nserial number\nCTD, WISPR, other sensors",
+    "text": "in development Mission Report Template",
     "crumbs": [
       "Deployments",
       "Deployment Reports"
@@ -76,8 +76,8 @@
     "objectID": "reports.html#location",
     "href": "reports.html#location",
     "title": "Deployment Reports",
-    "section": "",
-    "text": "Deployment\nSensors\n\n\n\n\nserial number\nCTD, WISPR, other sensors",
+    "section": "Location",
+    "text": "Location\n\n\n\nDeployment\nSensors\n\n\n\n\nserial number\nCTD, WISPR, other sensors",
     "crumbs": [
       "Deployments",
       "Deployment Reports"
