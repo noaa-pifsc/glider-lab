@@ -1,0 +1,9 @@
+---
+title: "Team Resources"
+format: html
+---
+
+
+
+
+[Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE/edit?tab=t.0#heading=h.jjpt2jqebw3e)
