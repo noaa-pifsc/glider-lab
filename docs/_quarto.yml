@@ -18,7 +18,7 @@ website:
     left: "&copy; [CC0-1.0](https://github.com/noaa-pifsc/glider-lab/blob/main/LICENSE)"
   
   sidebar:
-    background: $seaglider-yellow
+    background: $doc-yellow
     logo: "../images/PSD.Dark.NoBackground.png"
     favicon: images/favicon.ico
     pinned: true
