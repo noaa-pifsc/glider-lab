@@ -22,14 +22,11 @@
     ]
   },
   {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
+    "objectID": "cl-guide.html",
+    "href": "cl-guide.html",
+    "title": "Team Resources",
     "section": "",
-    "text": "Data management protocols will go here.\nLink to data availability (here or elsewhere?)\n\n\n\n Back to top",
-    "crumbs": [
-      "Data management"
-    ]
+    "text": "Command Line Guide\n\n\n\n Back to top"
   },
   {
     "objectID": "index.html",
@@ -59,6 +56,16 @@
     "text": "Project Management\nFor most current Seaglider Fleet Status information, see this Google Sheet\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
     "crumbs": [
       "Home"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
+    "section": "",
+    "text": "Data management protocols will go here.\nLink to data availability (here or elsewhere?)\n\n\n\n Back to top",
+    "crumbs": [
+      "Data management"
     ]
   },
   {

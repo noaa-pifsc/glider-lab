@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/deployments.html</loc>
-    <lastmod>2025-04-10T02:56:46.347Z</lastmod>
+    <lastmod>2025-04-11T22:15:19.212Z</lastmod>
   </url>
   <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
-    <lastmod>2025-04-10T02:56:46.347Z</lastmod>
+    <loc>https://noaa-pifsc.github.io/glider-lab/cl-guide.html</loc>
+    <lastmod>2025-04-11T22:15:19.212Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/index.html</loc>
-    <lastmod>2025-04-10T02:56:46.347Z</lastmod>
+    <lastmod>2025-04-11T22:15:19.212Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
+    <lastmod>2025-04-11T22:15:19.212Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/reports.html</loc>
-    <lastmod>2025-04-10T02:56:46.347Z</lastmod>
+    <lastmod>2025-04-11T22:15:19.213Z</lastmod>
   </url>
 </urlset>
