@@ -1,34 +1,5 @@
 [
   {
-    "objectID": "deployments.html",
-    "href": "deployments.html",
-    "title": "Past Deployments",
-    "section": "",
-    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
-    "crumbs": [
-      "Deployments",
-      "Past Deployments"
-    ]
-  },
-  {
-    "objectID": "deployments.html#deployments",
-    "href": "deployments.html#deployments",
-    "title": "Past Deployments",
-    "section": "",
-    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
-    "crumbs": [
-      "Deployments",
-      "Past Deployments"
-    ]
-  },
-  {
-    "objectID": "cl-guide.html",
-    "href": "cl-guide.html",
-    "title": "Team Resources",
-    "section": "",
-    "text": "Command Line Guide\n\n\n\n Back to top"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "PIFSC Glider Lab",
@@ -59,14 +30,11 @@
     ]
   },
   {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
+    "objectID": "cl-guide.html",
+    "href": "cl-guide.html",
+    "title": "Team Resources",
     "section": "",
-    "text": "Data management protocols will go here.\nLink to data availability (here or elsewhere?)\n\n\n\n Back to top",
-    "crumbs": [
-      "Data management"
-    ]
+    "text": "Command Line Guide\n\n\n\n Back to top"
   },
   {
     "objectID": "reports.html",
@@ -110,6 +78,38 @@
     "crumbs": [
       "Deployments",
       "Deployment Reports"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
+    "section": "",
+    "text": "Data management protocols will go here.\nLink to data availability (here or elsewhere?)\n\n\n\n Back to top",
+    "crumbs": [
+      "Data management"
+    ]
+  },
+  {
+    "objectID": "deployments.html",
+    "href": "deployments.html",
+    "title": "Past Deployments",
+    "section": "",
+    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
+    "crumbs": [
+      "Deployments",
+      "Past Deployments"
+    ]
+  },
+  {
+    "objectID": "deployments.html#deployments",
+    "href": "deployments.html#deployments",
+    "title": "Past Deployments",
+    "section": "",
+    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
+    "crumbs": [
+      "Deployments",
+      "Past Deployments"
     ]
   }
 ]
