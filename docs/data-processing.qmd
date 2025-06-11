@@ -1,0 +1,19 @@
+---
+title: "Data processing"
+---
+
+
+There are several steps for data processing following a mission and they fall into two main categories: (1) Glider mission data processing and (2) passive acoustic data processing. 
+
+### Glider mission data processing
+
+These data processing steps will generally follow the [Post-mission processing](https://sfregosi.github.io/agate/mission-processing.html) steps outlined in the _**agate**_ documentation. 
+
+*More to come soon...*
+
+### Passive acoustic data processing
+
+See excellent protocols and information on the NMFS PAM-Glider site: [Analysis Methods > Data Pre-Processing](https://nmfs-ost.github.io/PAM-Glider/content/data_processing/data-preprocessing.html)
+
+Specifically, the [Seaglider - WISPR](https://nmfs-ost.github.io/PAM-Glider/content/data_processing/seaglider-wispr.html) instructions will apply to the PIFSC Seagliders. 
+

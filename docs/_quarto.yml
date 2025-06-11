@@ -37,6 +37,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: best-practices.qmd
+        text: Best practices
       # - section: "Glider Lab"
       #   contents:
       #     - content/lab.qmd
@@ -45,9 +47,10 @@ website:
         contents:
           - deployments.qmd  
           - reports.qmd
-      - data-management.qmd
+      - data-management.qmd      
       # - section: "Data Processing"
       #   contents:
+      - data-processing.qmd
       #     - href: dataproc-gliders.qmd
       #       text: Gliders
       #     - href: dataproc-acoustics.qmd
