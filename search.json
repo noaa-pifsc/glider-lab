@@ -30,11 +30,14 @@
     ]
   },
   {
-    "objectID": "cl-guide.html",
-    "href": "cl-guide.html",
-    "title": "Team Resources",
+    "objectID": "data-processing.html",
+    "href": "data-processing.html",
+    "title": "Data processing",
     "section": "",
-    "text": "Command Line Guide\n\n\n\n Back to top"
+    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) Glider mission data processing and (2) passive acoustic data processing.\n\nGlider mission data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Data processing"
+    ]
   },
   {
     "objectID": "reports.html",
@@ -93,23 +96,50 @@
   {
     "objectID": "deployments.html",
     "href": "deployments.html",
-    "title": "Past Deployments",
+    "title": "Deployments",
     "section": "",
-    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
+    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\n\n\n\nSpreadsheet to track current and completed missions. Link restricted to NOAA personnel.",
     "crumbs": [
       "Deployments",
-      "Past Deployments"
+      "Deployments"
     ]
   },
   {
     "objectID": "deployments.html#deployments",
     "href": "deployments.html#deployments",
-    "title": "Past Deployments",
+    "title": "Deployments",
     "section": "",
-    "text": "The below table lists all glider deployments.\nTo do:\n\nembed/include table directly here\n\nFor now, see this sheet (last updated XXXXXX).",
+    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\n\n\n\nSpreadsheet to track current and completed missions. Link restricted to NOAA personnel.",
     "crumbs": [
       "Deployments",
-      "Past Deployments"
+      "Deployments"
     ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "Note\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
+    "href": "best-practices.html#pifsc-glider-lab-best-practices",
+    "title": "Best Practices",
+    "section": "PIFSC Glider Lab Best Practices",
+    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "cl-guide.html",
+    "href": "cl-guide.html",
+    "title": "Team Resources",
+    "section": "",
+    "text": "Command Line Guide\n\n\n\n Back to top"
   }
 ]
