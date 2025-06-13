@@ -2,7 +2,12 @@
 title: "Data management"
 ---
 
+Draft [Data Management Plan](https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.bphdsu7lbiaf)
 
-Data management protocols will go here.
 
-Link to data availability (here or elsewhere?)
+### Publically avaliable data sets
+
+NMFS-collected passive acoustic data is archived and publically available via the [NCEI Passive Acoustic Data Viewer](https://www.ncei.noaa.gov/maps/passive-acoustic-data/). 
+
+Select 'NOAA PIFSC' as the Source Organization and 'Glider' as the Platform Type to find our archived datasets
+
