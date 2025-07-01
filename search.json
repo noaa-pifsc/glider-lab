@@ -1,42 +1,12 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "PIFSC Glider Lab",
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
     "section": "",
-    "text": "The Pacific Islands Fisheries Science Center has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.",
+    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\n\n\n Back to top",
     "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#team-members",
-    "href": "index.html#team-members",
-    "title": "PIFSC Glider Lab",
-    "section": "Team Members",
-    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nContractor, Cetacean Survey Scientist\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nCharles Littnan\nDirector, PIFSC",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#project-management",
-    "href": "index.html#project-management",
-    "title": "PIFSC Glider Lab",
-    "section": "Project Management",
-    "text": "Project Management\nFor most current Seaglider Fleet Status information, see this Google Sheet\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "data-processing.html",
-    "href": "data-processing.html",
-    "title": "Data processing",
-    "section": "",
-    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) Glider mission data processing and (2) passive acoustic data processing.\n\nGlider mission data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data processing"
+      "Data management"
     ]
   },
   {
@@ -84,13 +54,33 @@
     ]
   },
   {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
+    "objectID": "data-processing.html",
+    "href": "data-processing.html",
+    "title": "Data processing",
     "section": "",
-    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\n\n\n Back to top",
+    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) Glider mission data processing and (2) passive acoustic data processing.\n\nGlider mission data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
     "crumbs": [
-      "Data management"
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "Note\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
+    "href": "best-practices.html#pifsc-glider-lab-best-practices",
+    "title": "Best Practices",
+    "section": "PIFSC Glider Lab Best Practices",
+    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
+    "crumbs": [
+      "Best practices"
     ]
   },
   {
@@ -116,30 +106,40 @@
     ]
   },
   {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "Note\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
-    "href": "best-practices.html#pifsc-glider-lab-best-practices",
-    "title": "Best Practices",
-    "section": "PIFSC Glider Lab Best Practices",
-    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
     "objectID": "cl-guide.html",
     "href": "cl-guide.html",
     "title": "Team Resources",
     "section": "",
     "text": "Command Line Guide\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PIFSC Glider Lab",
+    "section": "",
+    "text": "The Pacific Islands Fisheries Science Center has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#team-members",
+    "href": "index.html#team-members",
+    "title": "PIFSC Glider Lab",
+    "section": "Team Members",
+    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nContractor, Cetacean Survey Scientist\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nCharles Littnan\nDirector, PIFSC",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-management",
+    "href": "index.html#project-management",
+    "title": "PIFSC Glider Lab",
+    "section": "Project Management",
+    "text": "Project Management\nFor most current Seaglider Fleet Status information, see this Google Sheet\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
+    "crumbs": [
+      "Home"
+    ]
   }
 ]
