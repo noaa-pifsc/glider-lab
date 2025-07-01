@@ -1,0 +1,17 @@
+% SG680 CalCurCEAS Fall 2024 WISPR metadata
+% info complied from hardware config, pilot-set values, or from WISPR data file headers
+
+glider = 'sg639'; 				% glider serial number
+mission = 'CalCurCEAS_Sep2024'; % mission identifier from sg_calib_constants.m 
+wisprVer = 3; 					% WISPR version (should only be 2 or 3)
+wisprSN = 'no4'; 				% serial number from WISPR DAT file header (either sensor_id or instrument_id)
+firmwareVer = 'v1.3.0'; 			% firmware version from WISPR DAT file header
+sampling_rate = 200000; 		% sample rate, from WISPR DAT file	header
+sample_size = 3;				% bits per sample, from WISPR DAT file header
+adc_vref = 5; 					% reference voltage, from WISPR DAT file header
+adc_df = 4; 					% decimation factor, from WISPR DAT file header
+gain = 0; 						% system gain, from WISPR DAT file header 
+hpType = 'HTI92WB';				% hydrophone type
+hpSN = 635013; 					% hydrophone serial number
+hpSens = -164.5; 				% hydrophone nominal sensitivity from manufacturer
+hpFc = 25; 						% hydrophone high pass filter frequency, from manufacturer
