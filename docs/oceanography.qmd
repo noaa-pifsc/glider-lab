@@ -1,0 +1,90 @@
+---
+title: "Some oceanography basics"
+format: html
+---
+
+## CTD data
+
+
+### Temperature
+
+Seaglider CTD measures temperature, conductivity, and pressure and calculates salinity from the CTD data
+
+**temperature (_in-situ_)**: temperature measured at specific depth
+
+**potential temperature (${\theta}$)**: temperature a water parcel *would be* if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as *theta* ((${\theta}$))
+
+**conservative temperature**: temperature per TEOS-10. For more info see [teos-10.org: Conservative Temperature from in-situ temperature](https://www.teos-10.org/pubs/gsw/html/gsw_CT_from_t.html)
+
+Seaglider measures raw *in-situ* temperature, conducts some quality control (qc) assessment, and reports a final corrected temperature as well as a qc matrix on whether to trust that corrected temp or not. In `.nc` files these are `temperature_raw`, `temperature_raw_qc`,  `temperature`, and `temperature_qc` respectively. It also reports potential temperature, based on corrected salinity, reported as `theta` and conservative temperature as `conservative_temperature`.
+
+
+
+### Conductivity
+
+The CTD measures seawater electrical conductivity. Seaglider measures raw conductivity, conducts some qc, corrects for anomolies, and proivdes a qc matrix for corrected conductivity. In `.nc` files these are `conductivity_raw`, `conductivity_raw_qc`, `conductivity`, and `conductivity_qc` respectively. 
+
+
+
+### Salinity
+
+
+**salinity (_in-situ_)**: salinity calculated from *in-situ* temperature, conductivity, and pressure (aka practical salinity). It is unitless (PSU = pratical salinity units)
+
+**absolute salinity**: absolute salinity per TEOS-10. It is calculated with conductivity and some other factors and the units are g/kg. For more info see [teos-10.org: Absolute Salinity from Practical Salinity](https://www.teos-10.org/pubs/gsw/html/gsw_SA_from_SP.html)
+
+Salinity is calculated/provided in the Seaglider data as raw and corrected salinity. (1) From raw temperature and conductivity. In the `.nc` file, `salinity_raw` is from the `temperature_raw` and `conductivity_raw`. That has a corresponding qc matrix  `salinity_raw_qc`. (2) Corrected for termal-inertia effects. In the `.nc` file this is `salinity`. It also includes a qc matrix `salinity_qc`. Absolute salinity is included as `absolute_salinity`.
+
+
+
+### Density
+
+Seawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider. 
+
+**density (_in-situ_)**: density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as `density_insitu` in the Seaglider `.nc` file. The netCDF attribute states units are g/m\^3 but the values make more sense as either g/cm\^3 or kg/m\^3
+
+**potential density**: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in `.nc` file as `density`. The `.nc` attribute states its in units of g/m\^3 but the values make more sense as either g/cm\^3 or kg/m\^3
+
+**sigma (${\sigma}$)**: *in-situ* density calculated from *in-situ* temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm\^3 its 27.5 sigma units
+
+$$
+\sigma = \rho(S, T, P) - 1000 \, \frac{kg}{m^3}
+$$
+
+Where:
+
+- **${\sigma}$** is the in-situ density anomaly.
+- **${\rho(S, T, P)}$** is the density calculated from *in-situ* salinity ($S$), *in-situ* temperature ($T$), and *in-situ* pressure ($P$).
+
+
+**sigma-t (${\sigma_T}$)**: density calculated using *in-situ* temperature and salinity but with effect of pressure removed (reference pressure 0) 
+
+$$
+\sigma_T = \rho(S, T, 0) - 1000 \, \frac{kg}{m^3}
+$$
+
+Where:
+
+- **${\sigma_t}$** is the sigma-t density anomaly.
+- **${\rho(S, T, 0)}$** is the density calculated from *in-situ* salinity ($S$) and *in-situ* temperature ($T$), but at surface pressure (**0**).
+
+::: {.callout-warning}
+**Seaglider uses sigma-t for ballasting!!**
+:::
+
+**sigma-theta (${\sigma_\theta}$)**: potential density, calculated using potential temperature and *in-situ* salinity, also referenced to sea surface pressure 0. In the Seaglider `.nc` file this is `sigma_theta`
+
+
+$$
+\sigma_{\theta} = \rho(S, \theta, 0) - 1000 \, \frac{kg}{m^3}
+$$
+
+Where:
+
+- **${\sigma_\theta}$** is the potential density anomaly.
+- **${\rho}$** is the density of the seawater.
+- **$S$** is the *in-situ* salinity.
+- **${\theta}$** is the potential temperature.
+- The pressure is referenced to the surface (**0** decibars).
+
+The Seaglider `.nc` file also reports sigma_theta (${\sigma_\theta}$) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: `gsw_sigma0` with a reference pressure of 0 m, `gsw_sigma3` with a reference pressure of 3000 m, and `gsw_sigma4` with a reference pressure of 4000 m. `gsw_sigma0` and `sigma_theta` should be the same (but I haven't confirmed this!).

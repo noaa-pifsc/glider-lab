@@ -11,3 +11,6 @@ NMFS-collected passive acoustic data is archived and publically available via th
 
 Select 'NOAA PIFSC' as the Source Organization and 'Glider' as the Platform Type to find our archived datasets
 
+### Interacting with netCDF files
+
+Handy online viewer: [myhdf5](https://myhdf5.hdfgroup.org/)
