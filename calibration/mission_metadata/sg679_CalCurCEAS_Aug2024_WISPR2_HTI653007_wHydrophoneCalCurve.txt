@@ -1,4 +1,4 @@
-% SG679 CalCurCEAS Fall 2024 WISPR metadata
+% SG680 CalCurCEAS Fall 2024 WISPR metadata
 % info complied from hardware config, pilot-set values, or from WISPR data file headers
 
 glider = 'sg679'; 				% glider serial number
@@ -15,7 +15,9 @@ adc_df = 4; 					% decimation factor, from WISPR DAT file header
 gain = 0; 						% system gain, from WISPR DAT file header 
 hpType = 'HTI92WB';				% hydrophone type
 hpSN = 653007; 					% hydrophone serial number
-hpSens = -162.5; 				% hydrophone nominal sensitivity from manufacturer
+% hpSens = -162.5; 				% hydrophone nominal sensitivity from manufacturer
+hpSens = 'C:\Users\selene.fregosi\Documents\GitHub\glider-lab\calibration\hydrophones\653007HTI92WB_manualSensitivity_2025-06-30.xlsx'; 						% hydrophone calibration curve
 hpFc = 25; 						% hydrophone high pass filter frequency, from manufacturer 
-%paFile = 'C:\Users\selene.fregosi\Documents\GitHub\glider-lab\calibration\preamps\preamp_WISPR2_rev6_board15_2023-08-22.csv'; % optionally set full file path to preamp gain curve file, skip to prompt and select
-%aaFile =  'C:\Users\selene.fregosi\Documents\GitHub\glider-lab\calibration\adc\example_LTC2512-24_antialiasing_filter_180kHz_df4.xlsx';		% optionally set full file path to anti-aliasting filter curve file, skip to prompt and select
+paFile = 'C:\Users\selene.fregosi\Documents\GitHub\glider-lab\calibration\preamps\preamp_WISPR2_rev6_board15_2023-08-22.csv'; % optionally set full file path to preamp gain curve file, skip to prompt and select
+aaFile =  'C:\Users\selene.fregosi\Documents\GitHub\glider-lab\calibration\adc\example_LTC2512-24_antialiasing_filter_180kHz_df4.xlsx';		% optionally set full file path to anti-aliasting filter curve file, skip to prompt and select
+
