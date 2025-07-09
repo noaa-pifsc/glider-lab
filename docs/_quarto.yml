@@ -39,14 +39,18 @@ website:
         text: Home
       - href: best-practices.qmd
         text: Best practices
+      - href: missions.qmd
+        text: Missions
+      - section: Piloting
+        contents:
+        - href: team-resources.qmd
+          text: Team resources
+        - href: oceanography.qmd
+          text: Oceanography
       # - section: "Glider Lab"
       #   contents:
       #     - content/lab.qmd
       #     - content/pilot-tools.qmd
-      - section: "Deployments"
-        contents:
-          - deployments.qmd  
-          - reports.qmd
       - data-management.qmd      
       # - section: "Data Processing"
       #   contents:

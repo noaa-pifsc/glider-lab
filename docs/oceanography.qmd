@@ -3,6 +3,8 @@ title: "Some oceanography basics"
 format: html
 ---
 
+This page contains some useful definitions and explainations for the various oceanographic/environmental data collected by Seagliders. 
+
 ## CTD data
 
 
@@ -88,3 +90,9 @@ Where:
 - The pressure is referenced to the surface (**0** decibars).
 
 The Seaglider `.nc` file also reports sigma_theta (${\sigma_\theta}$) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: `gsw_sigma0` with a reference pressure of 0 m, `gsw_sigma3` with a reference pressure of 3000 m, and `gsw_sigma4` with a reference pressure of 4000 m. `gsw_sigma0` and `sigma_theta` should be the same (but I haven't confirmed this!).
+
+
+### Sound speed
+
+
+Seaglider `.nc` files provides speed of sound in sea water as the `sound_velocity` output (units m/s). This can be calculated from CTD data but there are several possible quations and it is not clear what equation is used to calculate this metric. I suspect it is the Gibbs Seawater Toolbox but need to ask IOP...

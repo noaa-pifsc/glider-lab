@@ -1,0 +1,39 @@
+---
+title: Missions
+---
+
+
+
+This page will house information for current and past glider missions. 
+
+To date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: [nmfs-ost/PAM-Glider Deployment Tracker](https://nmfs-ost.github.io/PAM-Glider/content/gliderRodeo.html#deployment-tracker)
+
+
+### PIFSC Seaglider Mission Tracker
+
+The below table will list basic information and links to reports and data for all in progress and past missions. See [below](#data-links) for details on data links and availability. 
+
+<!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-sYW-fETyx-6HpviyS7uU6wE8XhtSEpcCebbD66hkxxJ20HeFADeLBNzKIik46XsPskSGKFENOYQz/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" style="width:600px; height:400px; border:2px solid #1EBEC7;"></iframe> -->
+
+[Spreadsheet to track current and completed missions](https://docs.google.com/spreadsheets/d/1cuMfl72pcrMxzPEMjluCLirsLtIb8wKwBYsVkrQ-fkU/edit?usp=sharing)(NOAA internal)
+
+| Year | Project | Mission | Location | Sensors | Report | seaglider.pub | ERDDAP | Internal Data 
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| YYYY | proj_name | sgXXX_Location_MonYYYY | Location | CTD, WISPR, other sensors | [link](report_link) | {coming soon} | {coming soon} | {coming soon} |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|...|...|...|...|...|...|...|...|...|
+
+
+### Data Links
+
+The above table contains several links to different data products.
+
+The 'seaglider.pub' column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. All missions can be found at [pifsc.seaglider.pub](pifsc.seaglider.pub).
+
+The 'ERDDAP' column will contain the link to the glider dataset when it is published to the [ERDDAP](https://gliders.ioos.us/erddap/index.html) of the [IOOS National Glider Data Assembly Center](https://gliders.ioos.us/).
+
+The 'Internal Data' column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. Currently there are three different types of internal data links:
+
+- **glider**: Data products from the [mission post-processing](data-processing.qmd#mission-post-processing) workflow. The most relevant data products for users will likely be the 'gpsSurface' and 'CTD' tables
+- **plots**: Link the 'plots' folder, within the deployment folder. See a description of the structure of this folder [here](). 
+- **acoustic**: Raw (or processed?) acoustic data. See a description of the structure of this folder [here](). 
