@@ -14,7 +14,7 @@ Seaglider CTD measures temperature, conductivity, and pressure and calculates sa
 
 **temperature (_in-situ_)**: temperature measured at specific depth
 
-**potential temperature (${\theta}$)**: temperature a water parcel *would be* if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as *theta* ((${\theta}$))
+**potential temperature (${\theta}$)**: temperature a water parcel *would be* if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as *theta* (${\theta}$)
 
 **conservative temperature**: temperature per TEOS-10. For more info see [teos-10.org: Conservative Temperature from in-situ temperature](https://www.teos-10.org/pubs/gsw/html/gsw_CT_from_t.html)
 
@@ -43,11 +43,11 @@ Salinity is calculated/provided in the Seaglider data as raw and corrected salin
 
 Seawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider. 
 
-**density (_in-situ_)**: density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as `density_insitu` in the Seaglider `.nc` file. The netCDF attribute states units are g/m\^3 but the values make more sense as either g/cm\^3 or kg/m\^3
+**density (_in-situ_)**: density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as `density_insitu` in the Seaglider `.nc` file. The netCDF attribute states units are g/m^3^ but the values make more sense as either g/cm^3^ or kg/m^3^
 
-**potential density**: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in `.nc` file as `density`. The `.nc` attribute states its in units of g/m\^3 but the values make more sense as either g/cm\^3 or kg/m\^3
+**potential density**: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in `.nc` file as `density`. The `.nc` attribute states its in units of g/m^3^ but the values make more sense as either g/cm^3^ or kg/m^3^
 
-**sigma (${\sigma}$)**: *in-situ* density calculated from *in-situ* temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm\^3 its 27.5 sigma units
+**sigma (${\sigma}$)**: *in-situ* density calculated from *in-situ* temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm^3^ its 27.5 sigma units
 
 $$
 \sigma = \rho(S, T, P) - 1000 \, \frac{kg}{m^3}
