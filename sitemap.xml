@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <loc>https://noaa-pifsc.github.io/glider-lab/team-resources.html</loc>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
   <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/reports.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/oceanography.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/deployments.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/best-practices.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/data-processing.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/cl-guide.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/index.html</loc>
-    <lastmod>2025-07-04T00:15:46.894Z</lastmod>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/missions.html</loc>
+    <lastmod>2025-07-10T00:34:07.276Z</lastmod>
   </url>
 </urlset>
