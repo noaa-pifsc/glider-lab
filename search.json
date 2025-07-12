@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "team-resources.html",
-    "href": "team-resources.html",
-    "title": "Team Resources",
-    "section": "",
-    "text": "Command Line Guide\n\n\n\n Back to top",
-    "crumbs": [
-      "Piloting",
-      "Team resources"
-    ]
-  },
-  {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
-    "section": "",
-    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data management"
-    ]
-  },
-  {
     "objectID": "oceanography.html",
     "href": "oceanography.html",
     "title": "Some oceanography basics",
@@ -43,6 +22,17 @@
     ]
   },
   {
+    "objectID": "team-resources.html",
+    "href": "team-resources.html",
+    "title": "Team Resources",
+    "section": "",
+    "text": "Command Line Guide\n\n\n\n Back to top",
+    "crumbs": [
+      "Piloting",
+      "Team resources"
+    ]
+  },
+  {
     "objectID": "best-practices.html",
     "href": "best-practices.html",
     "title": "Best Practices",
@@ -60,6 +50,16 @@
     "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
     "crumbs": [
       "Best practices"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
+    "section": "",
+    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Data management"
     ]
   },
   {
