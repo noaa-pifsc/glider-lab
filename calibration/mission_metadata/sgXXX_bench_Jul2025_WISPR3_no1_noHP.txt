@@ -1,0 +1,18 @@
+% SG639 CalCurCEAS Fall 2024 WISPR metadata
+% info complied from hardware config, pilot-set values, or from WISPR data file headers
+
+glider = 'sgXXX'; 				% glider serial number
+mission = 'none'; % mission identifier from sg_calib_constants.m 
+wisprVer = 3; 					% WISPR version (should only be 2 or 3)
+wisprSN = 'no1'; 				% serial number from WISPR DAT file header (either sensor_id or instrument_id)
+firmwareVer = 'v1.0.0'; 		% firmware version from WISPR DAT file header
+sampling_rate = 200000; 		% sample rate, from WISPR DAT file	header
+sample_size = 3;				% bits per sample, from WISPR DAT file header
+adc_vref = 5; 					% reference voltage, from WISPR DAT file header
+adc_df = 4; 					% decimation factor, from WISPR DAT file header
+gain = 0; 						% system gain, from WISPR DAT file header 
+hpType = 'none';				% hydrophone type
+hpSN = []; 					% hydrophone serial number
+hpSens = 0; 				% hydrophone nominal sensitivity from manufacturer
+hpFc = 0; 						% hydrophone high pass filter frequency, from manufacturer
+paFile = 'C:\preamp_WISPR3_no1_2025-07-15.csv'; 	% optionally set full file path to preamp gain curve file, skip to prompt and select
