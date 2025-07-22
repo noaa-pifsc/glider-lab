@@ -8,7 +8,7 @@ website:
   site-url: "https://noaa-pifsc.github.io/glider-lab/" 
   repo-url: "https://github.com/noaa-pifsc/glider-lab/"
   repo-actions: [edit, source, issue]
-  favicon: ../images/favicon.ico
+  favicon: img/favicon.ico
   page-navigation: false
   back-to-top-navigation: true
   bread-crumbs: true
@@ -19,8 +19,8 @@ website:
   
   sidebar:
     background: $waves
-    logo: "../images/PSD.Dark.NoBackground.png"
-    favicon: images/favicon.ico
+    logo: "img/PSD.Dark.NoBackground.png"
+    favicon: img/favicon.ico
     pinned: true
     align: center
     tools: 
