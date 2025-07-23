@@ -28,12 +28,15 @@ The below table will list basic information and links to reports and data for al
 
 The above table contains several links to different data products.
 
-The 'seaglider.pub' column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. All missions can be found at [pifsc.seaglider.pub](pifsc.seaglider.pub).
+The 'seaglider.pub' column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at [noaaosu.seaglider.pub](noaaosu.seaglider.pub). Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (*not yet live*). 
+
+<!-- All missions can be found at [pifsc.seaglider.pub](pifsc.seaglider.pub)(link not yet set up). -->
 
 The 'ERDDAP' column will contain the link to the glider dataset when it is published to the [ERDDAP](https://gliders.ioos.us/erddap/index.html) of the [IOOS National Glider Data Assembly Center](https://gliders.ioos.us/).
 
-The 'Internal Data' column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. Currently there are three different types of internal data links:
+The 'Internal Data' column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. There are two types of Internal Data links:
 
-- **glider**: Data products from the [mission post-processing](data-processing.qmd#mission-post-processing) workflow. The most relevant data products for users will likely be the 'gpsSurface' and 'CTD' tables
-- **plots**: Link the 'plots' folder, within the deployment folder. See a description of the structure of this folder [here](). 
-- **acoustic**: Raw (or processed?) acoustic data. See a description of the structure of this folder [here](). 
+- **piloting**: Raw piloting basestation files, tracks, and data products from the [mission post-processing](data-processing.qmd#mission-post-processing) workflow. The most relevant data products for users will likely be in the 'profiles' folder, specificially the 'gpsSurface' and 'CTD' tables
+- **recordings**: Raw and/or processed acoustic data, typically in `.wav` or `.flac` format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals
+
+Additional detail on the GCP folder structure can be found in the [PIFSC Glider Lab Data Management Plan](https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.bphdsu7lbiaf)(noaa.gov account required).
