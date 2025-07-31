@@ -7,3 +7,9 @@ format: html
 
 
 [Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE/edit?tab=t.0#heading=h.jjpt2jqebw3e)
+
+{{< placeholder >}}
+
+#### Mapping resources
+
+Various kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the [shapefile_links.md](github.com/noaa-pifsc/glider-lab/tree/main/resources/mapping_resources/shapefile_links.md)
