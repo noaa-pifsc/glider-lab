@@ -1,0 +1,20 @@
+Wiring in SG607
+
+The cable that goes through the body of the glider has four wires (plus the sheath). These are connected to the male IE55 hydrophone connector on the aft end cap, as tested with a connectivity test, like this:
+
+white-blue:   pin 1 (top right*),   signal -
+dark blue:    pin 2 (top left*),    signal +
+orange:       pin 3 (center*),      +3.3V
+cable sheath: pin 4 (lower right*), ground
+white-orange: not used
+
+* The positions here are on the MALE side of the aft end-cap connector, and what signal the pin carries comes from PMAR-Hydrophone_Connector_IE55_pinouts_just_bulkhead.png .
+
+------------------------------
+The above cable was extended with a short length of 4- (5-)strand cable. Connections from the through-the-glider-body cable and this extension cable were as follows (through-body cable listed here first, then extension):
+
+white-blue   connect to black,     signal - (pin 1 on connector)
+dark blue    connect to red,       signal + (pin 2 on connector)
+orange       connect to white,     +3.3 V   (pin 3 on connector)
+cable sheath connect to bare wire, ground   (pin 4 on connector)
+--the green wire in the extension is not used--
