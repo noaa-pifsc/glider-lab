@@ -1,0 +1,13 @@
+name=WISPR
+prefix=ws
+cmdprefix=$WS_
+baud=9600
+voltage=10
+current=0.0592
+warmup=15000
+timeout=30000
+prompt=W>
+clock-sync=gps2
+datatype=z
+start="%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9$GMP,%a*ff%r%9%9%9%9%9%9%9%9%9%9%9$RUN*ee%r"
+stop="$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9"
