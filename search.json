@@ -1,5 +1,25 @@
 [
   {
+    "objectID": "data-processing.html",
+    "href": "data-processing.html",
+    "title": "Data processing",
+    "section": "",
+    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
+    "section": "",
+    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Data management"
+    ]
+  },
+  {
     "objectID": "oceanography.html",
     "href": "oceanography.html",
     "title": "Some oceanography basics",
@@ -22,14 +42,13 @@
     ]
   },
   {
-    "objectID": "team-resources.html",
-    "href": "team-resources.html",
-    "title": "Team Resources",
+    "objectID": "missions.html",
+    "href": "missions.html",
+    "title": "Missions",
     "section": "",
-    "text": "Command Line Guide\n\n\n\n Back to top",
+    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\nPIFSC Seaglider Mission Tracker\nThe below table will list basic information and links to reports and data for all in progress and past missions. See below for details on data links and availability.\n\nSpreadsheet to track current and completed missions(NOAA internal)\n\n\n\nYear\nProject\nMission\nLocation\nSensors\nReport\nseaglider.pub\nERDDAP\nInternal Data\n\n\n\n\nYYYY\nproj_name\nsgXXX_Location_MonYYYY\nLocation\nCTD, WISPR, other sensors\nlink\n{coming soon}\n{coming soon}\n{coming soon}\n\n\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n\n\nData Links\nThe above table contains several links to different data products.\nThe ‘seaglider.pub’ column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at noaaosu.seaglider.pub. Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (not yet live).\n\nThe ‘ERDDAP’ column will contain the link to the glider dataset when it is published to the ERDDAP of the IOOS National Glider Data Assembly Center.\nThe ‘Internal Data’ column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. There are two types of Internal Data links:\n\npiloting: Raw piloting basestation files, tracks, and data products from the mission post-processing workflow. The most relevant data products for users will likely be in the ‘profiles’ folder, specificially the ‘gpsSurface’ and ‘CTD’ tables\nrecordings: Raw and/or processed acoustic data, typically in .wav or .flac format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals\n\nAdditional detail on the GCP folder structure can be found in the PIFSC Glider Lab Data Management Plan(noaa.gov account required).\n\n\n\n\n Back to top",
     "crumbs": [
-      "Piloting",
-      "Team resources"
+      "Missions"
     ]
   },
   {
@@ -53,23 +72,14 @@
     ]
   },
   {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
+    "objectID": "team-resources.html",
+    "href": "team-resources.html",
+    "title": "Team Resources",
     "section": "",
-    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "text": "Command Line Guide\n\n\nMapping resources\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\n\n Back to top",
     "crumbs": [
-      "Data management"
-    ]
-  },
-  {
-    "objectID": "data-processing.html",
-    "href": "data-processing.html",
-    "title": "Data processing",
-    "section": "",
-    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) Glider mission data processing and (2) passive acoustic data processing.\n\nGlider mission data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data processing"
+      "Piloting",
+      "Team resources"
     ]
   },
   {
@@ -100,16 +110,6 @@
     "text": "Project Management\nFor most current Seaglider Fleet Status information, see this Google Sheet\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
     "crumbs": [
       "Home"
-    ]
-  },
-  {
-    "objectID": "missions.html",
-    "href": "missions.html",
-    "title": "Missions",
-    "section": "",
-    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\nPIFSC Seaglider Mission Tracker\nThe below table will list basic information and links to reports and data for all in progress and past missions. See below for details on data links and availability.\n\nSpreadsheet to track current and completed missions(NOAA internal)\n\n\n\nYear\nProject\nMission\nLocation\nSensors\nReport\nseaglider.pub\nERDDAP\nInternal Data\n\n\n\n\nYYYY\nproj_name\nsgXXX_Location_MonYYYY\nLocation\nCTD, WISPR, other sensors\nlink\n{coming soon}\n{coming soon}\n{coming soon}\n\n\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n\n\nData Links\nThe above table contains several links to different data products.\nThe ‘seaglider.pub’ column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at noaaosu.seaglider.pub. Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (not yet live).\n\nThe ‘ERDDAP’ column will contain the link to the glider dataset when it is published to the ERDDAP of the IOOS National Glider Data Assembly Center.\nThe ‘Internal Data’ column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. There are two types of Internal Data links:\n\npiloting: Raw piloting basestation files, tracks, and data products from the mission post-processing workflow. The most relevant data products for users will likely be in the ‘profiles’ folder, specificially the ‘gpsSurface’ and ‘CTD’ tables\nrecordings: Raw and/or processed acoustic data, typically in .wav or .flac format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals\n\nAdditional detail on the GCP folder structure can be found in the PIFSC Glider Lab Data Management Plan(noaa.gov account required).\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Missions"
     ]
   }
 ]
