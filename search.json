@@ -6,7 +6,50 @@
     "section": "",
     "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
     "crumbs": [
+      "Best practices",
       "Data processing"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html",
+    "href": "mission-prep.html",
+    "title": "Mission preparation",
+    "section": "",
+    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "wispr.html",
+    "href": "wispr.html",
+    "title": "WISPR Operation and Installation",
+    "section": "",
+    "text": "Useful links\n\nWISPR3 GitHub repository\nagate Matlab tools\nIOP logdev manual\n\n\n\nWISPR operation\nThese instructions are for the third generation WISPR3 recorder installed on a Seaglider\nWISPR is configured/controlled in three places:\n\nAs a logger device via Seaglider’s internal memory (with a wslog.cnf file)\nVia the Seaglider piloting cmdfile with settings that can be changed during a mission\nWISPR3’s own configuration file (wispr.txt) stored on the WISPR3 memory\n\n\n1. Configure WISPR as logger on Seaglider and Seaglider internal memory\nA wslog.cnf logger configuration file manages how the Seaglider communicates with and controls WISPR as a ‘logger’ device. This file can contain a variety of commands outlined in detail in the IOP logdev manual. This file is loaded durinng initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.\nThe exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a WISPR3 running firmware v1.2.20250829 without a real-time system.\nname=WISPR\nprefix=ws\ncmdprefix=$WS_\nbaud=9600\nvoltage=10\ncurrent=.0592\nwarmup=15000\ntimeout=7000\nprompt=W&gt;\ndatatype=z\nstart=\"%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9\"\nstop=\"$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9\"\nThis file can be found in the standard_files folder as wslog_sg680_20250829_sim_dives.cnf.\n\n\n2. Control WISPR operation via cmdfile (during mission)\nFour parameters in the cmdfile control WISPR operation. These are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed.\n\n$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record\n$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)\n$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)\n$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)\n\nIn this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.\nFor $WS_RECORDABOVE a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m).\nPseudo-parameters that are reported in the logfile:\n$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`\n$WS_NDIVE,1.0           # ?? psuedo-parameter\n\n\n3. Configure WISPR3 acoustic sampling settings\nThe WISPR system’s recording settings (sample rate, file duration, gain, etc.) are set using a wispr.txt configuration file that is loaded onto the WISPR3 memory (microSD) or set manually through direct serial communications with the WISPR3. If no wispr.txt is present, a default file will be created when WISPR3 powers on. Detailed descriptions of each input can be found in the WISPR3 File Formats Manual.\nA file with the desired settings and the sensor and platform IDs should be loaded onto both microSD cards before a mission; a copy of what was loaded should be saved with the date. Below is an example file that will record 120 second files at a 200 kHz sampling rate and 24-bit resolution with no additional system gain.\nWISPR 3.0 configuration\nsensor_id: 2402\nplatform_id: SG680\nstart_state: 2\nstart_mode: 3\nglider_mode: 0\nadc_type: LTC2512\nadc_sample_size: 3\nadc_sampling_rate: 200000\nadc_channels: 1\nadc_gain: 0\nadc_decimation: 4\nadc_timestamp: 0\nsecs_per_file: 120\nmax_file_size: 204800\nrun_time: 0\nduty_cycle: 0\ndebug_level: 1\nfft_size: 512\nfft_overlap: 0\nfft_window_type: 0\nrtc_aging: 0\nrtc_freq: 32767\nmsg_baud: 9600\nmsg_termination: 13\nmsg_handshake: 0\n\n\n\n\nWISPR hardware installation\nWISPR is installed via the Seaglider logdev interface meaning it is added as a “logger”.\nLoad wslog.cnf\nMore here later…\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Sensors",
+      "WISPR acoustics"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "Note\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
+    "href": "best-practices.html#pifsc-glider-lab-best-practices",
+    "title": "Best Practices",
+    "section": "PIFSC Glider Lab Best Practices",
+    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
+    "crumbs": [
+      "Best practices"
     ]
   },
   {
@@ -14,9 +57,51 @@
     "href": "data-management.html",
     "title": "Data management",
     "section": "",
-    "text": "Draft Data Management Plan\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "text": "Draft Data Management Plan\n\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
     "crumbs": [
+      "Best practices",
       "Data management"
+    ]
+  },
+  {
+    "objectID": "team-resources.html",
+    "href": "team-resources.html",
+    "title": "Team Resources",
+    "section": "",
+    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\n\n\n\nMapping resources\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\nWISPR PAM system resources\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Piloting",
+      "Team resources"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PIFSC Glider Lab",
+    "section": "",
+    "text": "The Pacific Islands Fisheries Science Center has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#team-members",
+    "href": "index.html#team-members",
+    "title": "PIFSC Glider Lab",
+    "section": "Team Members",
+    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nContractor, Cetacean Survey Scientist\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nJeremy Taylor\nMarine Scientist\nTech\n\n\nCharles Littnan\nDirector, PIFSC",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-management",
+    "href": "index.html#project-management",
+    "title": "PIFSC Glider Lab",
+    "section": "Project Management",
+    "text": "Project Management\nFor current Seaglider fleet status, see this Google Sheet(NOAA-only)\nPIFSC Glider Lab Google Drive Folder(NOAA-only)\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
+    "crumbs": [
+      "Home"
     ]
   },
   {
@@ -49,67 +134,6 @@
     "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\nPIFSC Seaglider Mission Tracker\nThe below table will list basic information and links to reports and data for all in progress and past missions. See below for details on data links and availability.\n\nSpreadsheet to track current and completed missions(NOAA internal)\n\n\n\nYear\nProject\nMission\nLocation\nSensors\nReport\nseaglider.pub\nERDDAP\nInternal Data\n\n\n\n\nYYYY\nproj_name\nsgXXX_Location_MonYYYY\nLocation\nCTD, WISPR, other sensors\nlink\n{coming soon}\n{coming soon}\n{coming soon}\n\n\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n\n\nData Links\nThe above table contains several links to different data products.\nThe ‘seaglider.pub’ column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at noaaosu.seaglider.pub. Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (not yet live).\n\nThe ‘ERDDAP’ column will contain the link to the glider dataset when it is published to the ERDDAP of the IOOS National Glider Data Assembly Center.\nThe ‘Internal Data’ column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. There are two types of Internal Data links:\n\npiloting: Raw piloting basestation files, tracks, and data products from the mission post-processing workflow. The most relevant data products for users will likely be in the ‘profiles’ folder, specificially the ‘gpsSurface’ and ‘CTD’ tables\nrecordings: Raw and/or processed acoustic data, typically in .wav or .flac format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals\n\nAdditional detail on the GCP folder structure can be found in the PIFSC Glider Lab Data Management Plan(noaa.gov account required).\n\n\n\n\n Back to top",
     "crumbs": [
       "Missions"
-    ]
-  },
-  {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "Note\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
-    "href": "best-practices.html#pifsc-glider-lab-best-practices",
-    "title": "Best Practices",
-    "section": "PIFSC Glider Lab Best Practices",
-    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "team-resources.html",
-    "href": "team-resources.html",
-    "title": "Team Resources",
-    "section": "",
-    "text": "Command Line Guide\n\n\nMapping resources\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Piloting",
-      "Team resources"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "PIFSC Glider Lab",
-    "section": "",
-    "text": "The Pacific Islands Fisheries Science Center has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#team-members",
-    "href": "index.html#team-members",
-    "title": "PIFSC Glider Lab",
-    "section": "Team Members",
-    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nContractor, Cetacean Survey Scientist\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nCharles Littnan\nDirector, PIFSC",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#project-management",
-    "href": "index.html#project-management",
-    "title": "PIFSC Glider Lab",
-    "section": "Project Management",
-    "text": "Project Management\nFor most current Seaglider Fleet Status information, see this Google Sheet\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
-    "crumbs": [
-      "Home"
     ]
   }
 ]
