@@ -1,0 +1,58 @@
+## This provides example scripts/string as possible 'start' and 'stop' logger commands for controlling WISPR3 with a Seaglider
+
+$TME,946684809*ff
+%n
+
+$DBG,3*ff
+
+$VMP,946684809,1,10,20,30,40*ff
+
+$STA*00
+
+$VER*ff
+
+%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$RUN*ee
+
+$TME,946684809*ff%r$VER*ff
+
+"$VER*ff%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$TME,946684809*ff%r"
+
+"$VER*ff%n"
+
+$VER*ff[%n]
+
+"$VER*ff%r%n%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$TME,946684809*ff%r"
+
+
+$VER*ff 0x0D 0x0A
+
+$VER*ff\r\n
+
+$VER*ff;$TME,946684809*ff
+
+%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%{$TME,%s*ff}
+
+$EXI*a6
+
+
+%{$TME,%s*ff}%r ***THIS WORKS****
+
+$RUN*ee%r%9%9%9%9%9%9%9%9%9%{$TME,%s*ff}%r *** THIS WORKED SOMETIMES****
+$RUN*ee%r%9%9%9%9%9%9%9%9%9%{$TME,%s*ff}%r
+%9%9%9%9%9%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%b$RUN*ee%r  ***THIS THREW ERROR 0x2 FRAME***
+
+edit sample="%9%9%9$RUN*ee%r%9%9%9%9%9%9%9%9%{$TME,%s,*ff}%r" ***THIS WORKED!!!!!***
+edit sample="%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9$RUN*ee%r%9%9%9%9%9%9" **THIS ALSO WORKED!!!***
+
+edit sample="%9%9%9%{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$VMP,%a*ff%r%9%9%9%9%9%9%9%9%9%9%9%9%9$RUN*ee%r" *** THIS DOES NOT WORK***
+
+
+edit sample="%{$TME,%s*ff}%r%9%9%9%9$VER*ff%r%9%9%9%9$VMP,%a*ff%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9" ##THIS WORKS!!! Wisper version Aug 22
+
+edit sample="%9%9%9%9%9%{$TME,%s*ff}%r%9%9%9%9$VER*ff%r%9%9%9%9$VMP,%a*ff%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9"
+edit sample="%{$TME,%s*ff}%r"
+
+edit sample="%9%9%9%9$TME,946684809*ff%r%9%9%9%9" ##WORKS
+
+edit sample="%9%9%9%9%9%9%9%{$TME,%s*ff}%r%9%9%9%9"
+
