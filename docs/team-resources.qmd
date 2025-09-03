@@ -1,15 +1,23 @@
 ---
 title: "Team Resources"
-format: html
+Subtitle: Links to various resources that don't belong elsewhere
 ---
 
 
 
 
-[Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE/edit?tab=t.0#heading=h.jjpt2jqebw3e)
+- [Command Line Guide](https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE/edit?tab=t.0#heading=h.jjpt2jqebw3e): A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation 
 
 {{< placeholder >}}
 
 #### Mapping resources
 
 Various kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the [shapefile_links.md](github.com/noaa-pifsc/glider-lab/tree/main/resources/mapping_resources/shapefile_links.md)
+
+### WISPR PAM system resources
+
+See the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: 
+[https://github.com/embeddedocean/wispr3](https://github.com/embeddedocean/wispr3)
+
+Specifically, this includes updated firmware files (and instructions to flash updated firmware) in the '[Release](https://github.com/embeddedocean/wispr3/tree/main/Release)' folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the '[Docs](https://github.com/embeddedocean/wispr3/tree/main/Docs)' folder. 
+

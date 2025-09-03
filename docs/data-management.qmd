@@ -4,6 +4,7 @@ title: "Data management"
 
 Draft [Data Management Plan](https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.bphdsu7lbiaf)
 
+{{< placeholder >}}
 
 ### Publically avaliable data sets
 

@@ -33,8 +33,8 @@ This is a living document which shall always be considered a "draft," as incomin
 
 ### **Data management**
 
-1. We use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. 
+1. We use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the [Data Management](data-management.qmd) page. 
 
 ### **Website Development**
 
-As described above, this website is intended to be a place for all glider team members to both use as a reference and contribute to. The website is built using Quarto, which uses text file `.qmd` files and markdown syntax to build content. `.qmd` files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the 'Report an issue' link on the top left of this page to create a GitHub Issue and request assistance.
+As described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file `.qmd` files and markdown syntax to build content. `.qmd` files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the 'Report an issue' link on the top left of this page to create a GitHub Issue and request assistance.

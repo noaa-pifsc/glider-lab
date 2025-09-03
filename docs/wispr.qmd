@@ -1,0 +1,116 @@
+---
+title: "WISPR Operation and Installation"
+subtitle: "Guidance for working with a WISPR acoustic system"
+---
+
+### Useful links
+
+- [WISPR3 GitHub repository](https://github.com/embeddedocean/wispr3)
+- [_**agate**_ Matlab tools](https://sfregosi.github.io/agate/)
+- [IOP logdev manual](https://iop.apl.washington.edu/iopsg/logdev.txt)
+
+
+### WISPR operation
+
+*These instructions are for the third generation WISPR3 recorder installed on a Seaglider*
+
+WISPR is configured/controlled in three places:
+
+1. As a logger device via Seaglider's internal memory (with a `wslog.cnf` file)
+2. Via the Seaglider piloting `cmdfile` with settings that can be changed during a mission
+3. WISPR3's own configuration file (`wispr.txt`) stored on the WISPR3 memory
+
+#### 1. Configure WISPR as logger on Seaglider and Seaglider internal memory
+
+A `wslog.cnf` logger configuration file manages how the Seaglider communicates with and controls WISPR as a 'logger' device. This file can contain a variety of commands outlined in detail in the [IOP logdev manual](https://iop.apl.washington.edu/iopsg/logdev.txt). This file is loaded durinng initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed. 
+
+The exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a *WISPR3 running firmware v1.2.20250829 without a real-time system*. 
+
+```text
+name=WISPR
+prefix=ws
+cmdprefix=$WS_
+baud=9600
+voltage=10
+current=.0592
+warmup=15000
+timeout=7000
+prompt=W>
+datatype=z
+start="%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9"
+stop="$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9"
+```
+
+This file can be found in the `standard_files` folder as [`wslog_sg680_20250829_sim_dives.cnf`](https://github.com/noaa-pifsc/glider-lab/tree/main/standard_files). 
+
+
+#### 2. Control WISPR operation via `cmdfile` (during mission)
+
+Four parameters in the `cmdfile` control WISPR operation. These are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed. 
+
+```text
+
+$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record
+$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)
+$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)
+$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)
+
+```
+
+In this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.
+
+For `$WS_RECORDABOVE` a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m). 
+
+Pseudo-parameters that are reported in the `logfile`:
+```text
+$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`
+$WS_NDIVE,1.0           # ?? psuedo-parameter
+```
+
+#### 3. Configure WISPR3 acoustic sampling settings
+
+The WISPR system's recording settings (sample rate, file duration, gain, etc.) are set using a `wispr.txt` configuration file that is loaded onto the WISPR3 memory (microSD) or set manually through direct serial communications with the WISPR3. If no `wispr.txt` is present, a default file will be created when WISPR3 powers on. Detailed descriptions of each input can be found in the [WISPR3 File Formats Manual](https://github.com/embeddedocean/wispr3/blob/main/Docs/wispr3_file_format.pdf).
+
+A file with the desired settings and the sensor and platform IDs should be loaded onto both microSD cards before a mission; a copy of what was loaded should be saved with the date. Below is an example file that will record 120 second files at a 200 kHz sampling rate and 24-bit resolution with no additional system gain. 
+
+```text
+WISPR 3.0 configuration
+sensor_id: 2402
+platform_id: SG680
+start_state: 2
+start_mode: 3
+glider_mode: 0
+adc_type: LTC2512
+adc_sample_size: 3
+adc_sampling_rate: 200000
+adc_channels: 1
+adc_gain: 0
+adc_decimation: 4
+adc_timestamp: 0
+secs_per_file: 120
+max_file_size: 204800
+run_time: 0
+duty_cycle: 0
+debug_level: 1
+fft_size: 512
+fft_overlap: 0
+fft_window_type: 0
+rtc_aging: 0
+rtc_freq: 32767
+msg_baud: 9600
+msg_termination: 13
+msg_handshake: 0
+```
+
+
+
+---
+
+### WISPR hardware installation
+
+WISPR is installed via the Seaglider logdev interface meaning it is added as a "logger". 
+
+[Load wslog.cnf](https://docs.google.com/document/d/1G_gupxgJEFnkTFvc0wSHgR8QZJDmqX2DFKEXKdLPN5Q/edit?tab=t.0#heading=h.v91o4q54occj)
+
+More here later...
+

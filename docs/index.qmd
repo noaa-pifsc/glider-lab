@@ -17,11 +17,14 @@ The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/ab
 | [Erik Norris](mailto:erik.norris@noaa.gov)         | Physical Science Technician  | Lab Manager, Pilot, Tech |
 | [Selene Fregosi](mailto:selene.fregosi@noaa.gov)   | Contractor, Cetacean Survey Scientist | Pilot, Analyst |
 | [Calla Lloyd-Lim](mailto:calla.lloyd-lim@noaa.gov) | Biological Science Technician | Pilot, Tech |
+| [Jeremy Taylor](mailto:jeremy.taylor@noaa.gov)     | Marine Scientist | Tech | 
 | [Charles Littnan](mailto:charles.littnan@noaa.gov) | Director, PIFSC | |
 
 ## Project Management
 
-For most current Seaglider Fleet Status information, see [this Google Sheet](https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?usp=sharing)
+For current Seaglider fleet status, see [this Google Sheet](https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?usp=sharing)(NOAA-only)
+
+[PIFSC Glider Lab Google Drive Folder](https://drive.google.com/drive/folders/1MBrtyggbtyZzmqVsYDh3059URfRvPO6N?usp=drive_link)(NOAA-only)
 
 <!-- The PIFSC glider team is using GitHub Issues and Projects for project management. Our efforts are heavily inspired and influenced by the Openscapes [GitHub for project management](https://openscapes.github.io/series/core-lessons/github/github-issues.html){target="_blank"} approach. -->
 

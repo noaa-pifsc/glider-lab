@@ -1,0 +1,10 @@
+---
+title: "Mission preparation"
+subtitle: Protocols/resources for preparing a glider for a mission
+---
+
+
+*More to come soon...*
+
+- [Mission Prep Task List - TEMPLATE](https://docs.google.com/document/d/1TMXsop5GJW_rMxrP8zSuazALNi_j8nHq24RIIzfw7_A/edit?tab=t.0#heading=h.7xtkyk82v1ni)
+- [PIFSC Ballasting Procedure - DRAFT](https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?tab=t.0)

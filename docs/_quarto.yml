@@ -37,10 +37,14 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: best-practices.qmd
-        text: Best practices
       - href: missions.qmd
         text: Missions
+      - href: best-practices.qmd
+        text: Best practices
+        contents:
+        - mission-prep.qmd
+        - data-processing.qmd
+        - data-management.qmd
       - section: Piloting
         contents:
         - href: team-resources.qmd
@@ -51,14 +55,16 @@ website:
       #   contents:
       #     - content/lab.qmd
       #     - content/pilot-tools.qmd
-      - data-management.qmd      
       # - section: "Data Processing"
       #   contents:
-      - data-processing.qmd
       #     - href: dataproc-gliders.qmd
       #       text: Gliders
       #     - href: dataproc-acoustics.qmd
       #       text: Acoustics
+      - section: Sensors
+        contents:
+        - href: wispr.qmd
+          text: WISPR acoustics
 
 format:
   html:
