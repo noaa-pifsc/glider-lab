@@ -22,6 +22,53 @@ This repository contains the website and resources for the in-development PIFSC 
   <img src="images/glider_in_tank_thin_edited.jpg" width ="600">
 </p>
 
+#### Folder tree
+
+```
+📦 glider-lab
+├─ 📂 calibration
+│  ├─ 📂 collaborators
+│  │  ├─ 📂 osu_archive
+│  │  └─ 📂 swfsc
+│  ├─ 📂 hydrophones
+│  ├─ 📂 mission_metadata
+│  └─ 📂 wispr
+│  │  ├─ 📂 adc
+│  │  └─ 📂 preamps
+├─ 📂 docs 
+│  ├─ 📂 _site
+│  ├─ 📂 img
+│  ├─ 📜 _quarto.yml
+│  └─ 📜 index.qmd
+├─ 📂 mission_configs
+│  ├─ __init__.py
+│  ├─ main.py
+│  └─ utils.py
+├─ 📂 resources
+│  ├─ 📂 DMON
+│  ├─ 📂 mapping_resources
+│  ├─ 📂 Seaglider User Manuals
+│  ├─ 📂 WISPR
+│  └─ 📜 various loose PDFs
+├─ 📂 scratch
+├─ 📂 standard_files
+├─ 📜 LICENSE
+├─ 📜 README.md
+└─ 📜 README.rmd
+```
+
+#### Folder details
+
+| Path                | Description                                         |
+|---------------------|-----------------------------------------------------|
+| `calibration/`      | acoustic (for now) calibration data                 |
+| `docs/`             | raw and rendered (`_site/`) noaa-pifsc/glider-lab website |
+| `mission_configs/`  | mission-specific configuration files                |
+| `resources/`        | external resources e.g., manuals, data sheets       |
+| `scratch/`          | draft docs/files that don't belong elsewhere        |
+| `standard_files/`   | example standard mission piloting/config files      |
+<!-- | `` |               | -->
+
 
 ## Disclaimer
 
