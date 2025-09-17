@@ -1,15 +1,15 @@
 ## This provides example scripts/string as possible 'start' and 'stop' logger commands for controlling WISPR3 with a Seaglider
 
+# basic serial commands (for copy/paste into terminal)
 $TME,946684809*ff
-%n
-
 $DBG,3*ff
-
 $VMP,946684809,1,10,20,30,40*ff
-
 $STA*00
-
 $VER*ff
+$EXI*a6
+$RUN*ee
+
+# combinations attempted via the Seaglider menio
 
 %{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$RUN*ee
 
@@ -23,7 +23,6 @@ $VER*ff[%n]
 
 "$VER*ff%r%n%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9$TME,946684809*ff%r"
 
-
 $VER*ff 0x0D 0x0A
 
 $VER*ff\r\n
@@ -31,9 +30,6 @@ $VER*ff\r\n
 $VER*ff;$TME,946684809*ff
 
 %{$TME,%s*ff}%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%{$TME,%s*ff}
-
-$EXI*a6
-
 
 %{$TME,%s*ff}%r ***THIS WORKS****
 

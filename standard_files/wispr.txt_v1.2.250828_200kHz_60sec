@@ -1,0 +1,26 @@
+WISPR 3.0 configuration
+sensor_id: 2404
+platform_id: SG639
+start_state: 2
+start_mode: 3
+glider_mode: 0
+adc_type: LTC2512
+adc_sample_size: 3
+adc_sampling_rate: 200000
+adc_channels: 1
+adc_gain: 0
+adc_decimation: 4
+adc_timestamp: 0
+secs_per_file: 60
+max_file_size: 204800
+run_time: 0
+duty_cycle: 0
+debug_level: 1
+fft_size: 512
+fft_overlap: 0
+fft_window_type: 0
+rtc_aging: 0
+rtc_freq: 32767
+msg_baud: 9600
+msg_termination: 13
+msg_handshake: 1
