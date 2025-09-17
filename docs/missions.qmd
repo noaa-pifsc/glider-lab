@@ -6,7 +6,7 @@ title: Missions
 
 This page will house information for current and past glider missions. 
 
-To date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: [nmfs-ost/PAM-Glider Deployment Tracker](https://nmfs-ost.github.io/PAM-Glider/content/gliderRodeo.html#deployment-tracker)
+To date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: [nmfs-ost/PAM-Glider Deployment Tracker](https://stunning-adventure-z2nw12l.pages.github.io/missions.html#pifsc-seaglider-mission-tracker)
 
 
 ### PIFSC Seaglider Mission Tracker
@@ -15,11 +15,11 @@ The below table will list basic information and links to reports and data for al
 
 <!-- <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-sYW-fETyx-6HpviyS7uU6wE8XhtSEpcCebbD66hkxxJ20HeFADeLBNzKIik46XsPskSGKFENOYQz/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" style="width:600px; height:400px; border:2px solid #1EBEC7;"></iframe> -->
 
-[Spreadsheet to track current and completed missions](https://docs.google.com/spreadsheets/d/1cuMfl72pcrMxzPEMjluCLirsLtIb8wKwBYsVkrQ-fkU/edit?usp=sharing)(NOAA internal)
+[Spreadsheet to track current and completed missions](https://docs.google.com/spreadsheets/d/1cuMfl72pcrMxzPEMjluCLirsLtIb8wKwBYsVkrQ-fkU/edit?usp=sharing)(NOAA only)
 
 | Year | Project | Mission | Location | Sensors | Report | seaglider.pub | ERDDAP | Internal Data 
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| YYYY | proj_name | sgXXX_Location_MonYYYY | Location | CTD, WISPR, other sensors | [link](report_link) | {coming soon} | {coming soon} | {coming soon} |
+| YYYY | proj_name | sgXXX_Location_MonYYYY | Location | CTD, WISPR, other sensors | [link](report_link) | {coming soon} | {coming soon} | [pifsc-1 GCP](https://console.cloud.google.com/storage/browser/pifsc-1/glider;tab=objects?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&invt=Abtsgw&project=ggn-nmfs-pamdata-prod-1&prefix=&forceOnObjectsSortingFiltering=false) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |...|...|...|...|...|...|...|...|...|
 
@@ -28,15 +28,15 @@ The below table will list basic information and links to reports and data for al
 
 The above table contains several links to different data products.
 
-The 'seaglider.pub' column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at [noaaosu.seaglider.pub](noaaosu.seaglider.pub). Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (*not yet live*). 
+The 'seaglider.pub' column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at [noaaosu.seaglider.pub](https://noaaosu.seaglider.pub). Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (*not yet live*). 
 
-<!-- All missions can be found at [pifsc.seaglider.pub](pifsc.seaglider.pub)(link not yet set up). -->
+<!-- All missions can be found at [pifsc.seaglider.pub](https://pifsc.seaglider.pub)(link not yet set up). -->
 
 The 'ERDDAP' column will contain the link to the glider dataset when it is published to the [ERDDAP](https://gliders.ioos.us/erddap/index.html) of the [IOOS National Glider Data Assembly Center](https://gliders.ioos.us/).
 
-The 'Internal Data' column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate permissions within the project. There are two types of Internal Data links:
+The 'Internal Data' column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate access and permissions for that project. There are two types of Internal Data links:
 
 - **piloting**: Raw piloting basestation files, tracks, and data products from the [mission post-processing](data-processing.qmd#mission-post-processing) workflow. The most relevant data products for users will likely be in the 'profiles' folder, specificially the 'gpsSurface' and 'CTD' tables
 - **recordings**: Raw and/or processed acoustic data, typically in `.wav` or `.flac` format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals
 
-Additional detail on the GCP folder structure can be found in the [PIFSC Glider Lab Data Management Plan](https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.bphdsu7lbiaf)(noaa.gov account required).
+Additional detail on the GCP folder structure can be found in the [PIFSC Glider Lab Data Management Plan](https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.bphdsu7lbiaf)(NOAA only).
