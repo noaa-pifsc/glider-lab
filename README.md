@@ -5,7 +5,7 @@
 This repository contains the website and resources for the in-development PIFSC glider lab. The purpose of this website is to document and make visible various aspects of the PIFSC glider lab and serve as a central hub for important lab resources such as glider maintenance records and schedules, standard operationg protocols, data processing workflows, and a directory of data archives.
 
 <p align="center">
-<img src="docs/img/glider_in_tank_thin_edited.jpg" width ="600">
+<img src="https://github.com/noaa-pifsc/glider-lab/blob/main/docs/img/glider_in_tank_thin_edited.jpg" width ="600">
 </p>
 
 ## Disclaimer
