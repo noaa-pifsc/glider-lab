@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Best Practices – PIFSC Glider Lab</title>
+<title>WISPR calibration – PIFSC Glider Lab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,6 +18,41 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -3998,7 +4033,7 @@ vertical-align: -.125em;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./best-practices.html">Best practices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">WISPR calibration</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -4042,13 +4077,13 @@ vertical-align: -.125em;
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./best-practices.html" class="sidebar-item-text sidebar-link active">
+            <a href="./best-practices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Best practices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mission-prep.html" class="sidebar-item-text sidebar-link">
@@ -4119,15 +4154,17 @@ vertical-align: -.125em;
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pifsc-glider-lab-best-practices" id="toc-pifsc-glider-lab-best-practices" class="nav-link active" data-scroll-target="#pifsc-glider-lab-best-practices"><strong>PIFSC Glider Lab Best Practices</strong></a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals:</a></li>
+  <li><a href="#equipment" id="toc-equipment" class="nav-link" data-scroll-target="#equipment">Equipment</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure</a>
   <ul>
-  <li><a href="#communication" id="toc-communication" class="nav-link" data-scroll-target="#communication"><strong>Communication</strong></a></li>
-  <li><a href="#safety" id="toc-safety" class="nav-link" data-scroll-target="#safety"><strong>Safety</strong></a></li>
-  <li><a href="#data-management" id="toc-data-management" class="nav-link" data-scroll-target="#data-management"><strong>Data management</strong></a></li>
-  <li><a href="#website-development" id="toc-website-development" class="nav-link" data-scroll-target="#website-development"><strong>Website Development</strong></a></li>
+  <li><a href="#record-calibration-signals" id="toc-record-calibration-signals" class="nav-link" data-scroll-target="#record-calibration-signals">Record calibration signals</a></li>
+  <li><a href="#process-calibration-sweep-recordings" id="toc-process-calibration-sweep-recordings" class="nav-link" data-scroll-target="#process-calibration-sweep-recordings">Process calibration sweep recordings</a></li>
+  <li><a href="#assemble-system-sensitivity-curve" id="toc-assemble-system-sensitivity-curve" class="nav-link" data-scroll-target="#assemble-system-sensitivity-curve">Assemble system sensitivity curve</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/best-practices.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/best-practices.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/wispr-calibration.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/wispr-calibration.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -4135,7 +4172,8 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Best Practices</h1>
+<h1 class="title">WISPR calibration</h1>
+<p class="subtitle lead">Guide for measuring and formatting WISPR system sensitivity</p>
 </div>
 
 
@@ -4152,48 +4190,133 @@ vertical-align: -.125em;
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after <a href="https://sael-swfsc.github.io/SAEL-lab-manual/content/SharedValues-BestPractices.html">SWFSC SAEL Lab Manual Shared values and best pratcies</a>.</p>
-</div>
-</div>
-<section id="pifsc-glider-lab-best-practices" class="level2">
-<h2 class="anchored" data-anchor-id="pifsc-glider-lab-best-practices"><strong>PIFSC Glider Lab Best Practices</strong></h2>
-<section id="communication" class="level3">
-<h3 class="anchored" data-anchor-id="communication"><strong>Communication</strong></h3>
-<!-- 1.  We hold lab meetings regularly in which all members are expected to attend if their schedule allows. During these meetings all members are expected to contribute by sharing progress reports, discussing challenges, and celebrating successes. -->
-<ol start="2" type="1">
-<li><p>We use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi <a href="selene.fregosi@noaa.gov">selene.fregosi@noaa.gov</a></p></li>
-<li><p>We use GitHub projects to keep track of tasks and projects. All lab members are expected to check &amp; respond to email, chats, and GitHub Projects regularly.</p></li>
-</ol>
-</section>
-<section id="safety" class="level3">
-<h3 class="anchored" data-anchor-id="safety"><strong>Safety</strong></h3>
+<p><em>DRAFT</em></p>
+<p><em>This page was assembled from a more chaotic but possibly more detailed Google Doc <a href="https://docs.google.com/document/d/1Rx4ZI_vU_zIv3D66HPnFLJdk0iMx67Wh25fIO6qGQ50/edit?tab=t.0#heading=h.p6aqnfpw5pme">WISPR Sensitivity Measurement</a></em></p>
+<section id="goals" class="level3">
+<h3 class="anchored" data-anchor-id="goals">Goals:</h3>
 <ol type="1">
-<li><p>Lab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.</p></li>
-<li><p>Lab members should never feel obligated to perform a task that they do not feel is safe.</p></li>
-<li><p>Lab members are encouraged to speak up if they feel they need training to perform a specific task safely.</p></li>
-<li><p>If lab members have a safety concern, they should bring it up with their supervisor or the other lab members.</p></li>
-<li><p>If a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer <contact info to be added>.</contact></p></li>
+<li>Measure frequency-dependent sensitivity of a Seaglider-type WISPR3 and integrated preamplifier (preamp gain curve)</li>
+<li>Combine the preamp gain curve with other system calibration info (hydrophone sensitivity, system gain) to produce an overall system response curve that can be used to produce calibrated noise measurements and be uploaded with raw data to NCEI, in a format that is compatibile with noise and soundscape analyses</li>
 </ol>
+<p>Ideally this process is conducted before and after each deployment to track any possible changes in preamplifier sensitivity over time as the WISPR3 system sits on the shelf or is out on a mission.</p>
 </section>
-<section id="data-management" class="level3">
-<h3 class="anchored" data-anchor-id="data-management"><strong>Data management</strong></h3>
-<ol type="1">
-<li>We use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the <a href="./data-management.html">Data Management</a> page.</li>
-</ol>
+<section id="equipment" class="level3">
+<h3 class="anchored" data-anchor-id="equipment">Equipment</h3>
+<ul>
+<li>Laptop
+<ul>
+<li>Needs to have at least 2 USB-B ports and 1 USB-C port or a hub</li>
+<li>Install Waveforms software from Digilent (<a href="https://digilent.com/reference/software/waveforms/waveforms-3/start?srsltid=AfmBOoqQFAVA5bOYY3qVcSi-L1BjduXonW3feLVdlmE9vslEZtLLzPh3">Download here</a>)</li>
+<li>MATLAB with <a href="sfregosi.github.io/agate"><strong><em>agate</em></strong></a> toolbox</li>
+</ul></li>
+<li>Digilent Analog Discovery 3</li>
+<li>Bench power supply (for powering WISPR)</li>
+<li>Homemade cables
+<ul>
+<li>Power cable to power WISPR3. Requires three wires - ground, power, and ‘enable’ that is used by the glider to turn WISPR on and off</li>
+<li>Two UART (univeral asynchronous receiver transmitter) cables
+<ul>
+<li>Built from WISPR3 docs section 1.2.3 but skipped wire 6 - PWR out to hydrophone because not needed here. Far right, square is pin 1/ground</li>
+<li>Both use a USB to TTL/CMOS (purchased from digikey) that reduces the USB voltage to the CMOS (transistor) level that the WISPR3 board can accept. <strong>Set Power Supply swithch to 3.3 v to talk WISPR3</strong></li>
+<li>UART0 cable has ground, UART0 transmit, UART0 receive</li>
+<li>UART1 cable has ground, UART1 transmit, UART1 receive</li>
+</ul></li>
+<li>Hydrophone cable to receive the calibration signal. Requires three wires - ground, positive, and negative inputs</li>
+<li>Digilent BNC connector (purchased) and BNC cables (two - one for positive and one for negative inputs on hydrophone cable)</li>
+</ul></li>
+<li>20 dB attenuators</li>
+</ul>
 </section>
-<section id="website-development" class="level3">
-<h3 class="anchored" data-anchor-id="website-development"><strong>Website Development</strong></h3>
-<p>As described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file <code>.qmd</code> files and markdown syntax to build content. <code>.qmd</code> files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.</p>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set up</h2>
+<p><img role="img" src="full-set-up.png" class="img-fluid"></p>
+</section>
+<section id="procedure" class="level2">
+<h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
+<section id="record-calibration-signals" class="level3">
+<h3 class="anchored" data-anchor-id="record-calibration-signals">Record calibration signals</h3>
+<p>…</p>
+</section>
+<section id="process-calibration-sweep-recordings" class="level3">
+<h3 class="anchored" data-anchor-id="process-calibration-sweep-recordings">Process calibration sweep recordings</h3>
+<p>Use <code>agate</code> to measure the WISPR3 board and preamp sensitivity from the recorded calibration sweep signals. See <code>workflow_wisprSystemSensitivity.m</code> in the <code>agate/example_workflows</code> folder for an example or follow the below steps.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">% make sure agate is on the path</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">addpath</span>(<span class="va">genpath</span>(<span class="ss">&#39;C:\Users\User.Name\Documents\MATLAB\agate&#39;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To preview or browse through the recordings in your preferred analysis software, convert the recorded <code>.dat</code> files to <code>.flac</code> or <code>.wav</code>. This can be useful to pick which file has a full calibration signal that you will want to select in the measurement step.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">convertWispr</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">% this call with no input arguments will prompt to select raw file location</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">% and output file location and will default to writing flac. Alternatively,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">% specify input arguments to avoid prompts and write to .wav. E.g.,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">% convertWispr(&#39;inDir&#39;, &#39;E:/wisprFiles&#39;, &#39;outDir&#39;, &#39;E:/wav&#39;, &#39;outExt&#39;, &#39;.wav&#39;)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Review the files and find one that has a nice complete calibration signal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img role="img" src="img/wispr_calibration/wispr_calibration_signal_20sec.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Example showing three 20 second sweeps from 0 to 100 kHz.</figcaption>
+</figure>
+</div>
+<p>Define the input arguments needed for the measurement step.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">% serial number of the WISPR preamp/adc board - must be a string &lt; 16 chars</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">% used for filename generation and output file header info</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">sn</span> <span class="op">=</span> <span class="ss">&#39;WISPR3_no#&#39;</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">% fullfile path of calibration recording (as raw .dat file)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">sweep_file</span> <span class="op">=</span> []<span class="op">;</span> <span class="co">% set to [] to be prompted to select file OR define</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">% sweep_file = &quot;E:\wispr_calibration\wispr_no2\250514\WISPR_250514_213247.dat&quot;; </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">% define hydrophone sensitivity, not required, used in output file header</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="va">hydro_sens</span> <span class="op">=</span> <span class="op">-</span><span class="fl">164.5</span><span class="op">;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">% define the amplitude of sine wave sweep (in volts) and sweep duration</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">% typically 10 mV and 20 or 60 seconds</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="va">amp</span> <span class="op">=</span> <span class="fl">0.010</span><span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="va">dur</span> <span class="op">=</span> <span class="fl">20</span><span class="op">;</span> <span class="co">% in seconds</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">% was a 20 dB attenuator used?</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="va">attenuator</span> <span class="op">=</span> <span class="va">true</span><span class="op">;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">% path to save output calibration files</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="va">path_out</span> <span class="op">=</span> <span class="ss">&#39;C:\Users\User.Name\calibration\wispr\preamps&#39;</span><span class="op">;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">% OPTIONAL</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">% specify an output filename. Default is SN_preamp_gain_YYYY-MM-DD</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">% where the timestamp is the date of creation. Do not specify an extension.</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="va">out_file_name</span> <span class="op">=</span> []<span class="op">;</span> <span class="co">% set to [] to use default</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co">% out_file_name = &#39;testFile&#39;;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Run the measurement function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">% this function will plot the waveform of the specified calibration sweep</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">% file, prompt the user to select the start of one complete sweep,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">% calculate the spectrum over the duration of one sweep, save the</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">% frequency-dependent gain curve as a .mat and .txt and the plot as .png</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>[<span class="va">paFreq</span><span class="op">,</span> <span class="va">paGain</span>] <span class="op">=</span> <span class="va">measureWisprPreampSensitivity</span>(<span class="va">sn</span><span class="op">,</span> <span class="va">sweep_file</span><span class="op">,</span> <span class="op">...</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="va">hydro_sens</span><span class="op">,</span> <span class="va">amp</span><span class="op">,</span> <span class="va">dur</span><span class="op">,</span> <span class="va">attenuator</span><span class="op">,</span> <span class="va">path_out</span><span class="op">,</span> <span class="va">out_file_name</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This will plot the waveform of the selected sweep file and prompt the user to select the start of a single sweep. This should be the initial increase in the waveform. A single sweep will be extracted from this point and based on the specified sweep duration.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img role="img" src="img/wispr_calibration/wispr_calibration_select_sweep_20sec.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Example showing selection of a single 20 second sweep from the waveform.</figcaption>
+</figure>
+</div>
+<p>The spectrum of the single sweep will then be calculated and a frequency-dependent sensitivity gain curve will be plotted and saved. The plot will be saved as a .png and the gain curve frequency and gain values will be saved as a .mat file and a .txt file. The .txt file will contain some header information:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img role="img" src="img/wispr_calibration/wispr_calibration_output_gain_curve.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Example sensitivity gain curve output. This curve shape is typical for a WISPR3 sampling at 200 kHz with decimation factor 4. Sensitivity reduced below 10 kHz and then is relatively flat from 10 to 70 kHz after which the anti-aliasing filter causes a steep drop-off in sensitivity to about 90 kHz.</figcaption>
+</figure>
+</div>
+</section>
+<section id="assemble-system-sensitivity-curve" class="level3">
+<h3 class="anchored" data-anchor-id="assemble-system-sensitivity-curve">Assemble system sensitivity curve</h3>
 
 
 </section>
@@ -4626,7 +4749,7 @@ vertical-align: -.125em;
 </div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/best-practices.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/best-practices.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/wispr-calibration.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/wispr-calibration.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

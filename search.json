@@ -1,100 +1,24 @@
 [
   {
-    "objectID": "data-processing.html",
-    "href": "data-processing.html",
-    "title": "Data processing",
+    "objectID": "wispr-calibration.html",
+    "href": "wispr-calibration.html",
+    "title": "WISPR calibration",
     "section": "",
-    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Best practices",
-      "Data processing"
-    ]
+    "text": "DRAFT\nThis page was assembled from a more chaotic but possibly more detailed Google Doc WISPR Sensitivity Measurement"
   },
   {
-    "objectID": "mission-prep.html",
-    "href": "mission-prep.html",
-    "title": "Mission preparation",
-    "section": "",
-    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Best practices",
-      "Mission preparation"
-    ]
+    "objectID": "wispr-calibration.html#set-up",
+    "href": "wispr-calibration.html#set-up",
+    "title": "WISPR calibration",
+    "section": "Set up",
+    "text": "Set up"
   },
   {
-    "objectID": "wispr.html",
-    "href": "wispr.html",
-    "title": "WISPR passive acoustic sensor",
-    "section": "",
-    "text": "WISPR stands for Wideband Intelligent Signal Processor and Recorder. It is commercially available from Embedded Ocean Systems.",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#useful-links",
-    "href": "wispr.html#useful-links",
-    "title": "WISPR passive acoustic sensor",
-    "section": "Useful links",
-    "text": "Useful links\n\nWISPR3 GitHub repository\nagate MATLAB tools\nIOP logdev manual",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#wispr-operation",
-    "href": "wispr.html#wispr-operation",
-    "title": "WISPR passive acoustic sensor",
-    "section": "WISPR operation",
-    "text": "WISPR operation\nThese instructions are for the third generation WISPR3 recorder installed on a Seaglider\n\nBefore a mission\nWISPR is installed on a Seaglider as a logger device. Configuration for the logger device (when the Seaglider should turn WISPR on and off, etc.) is set using a wslog.cnf file. This is typically set up once during installation and not changed. See detailed installation instructions below.\nSpecific settings for the WISPR system itself (sampling rate, gain, etc) are set via a wispr.txt file stored on the WISPR memory cards. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission.\nThe WISPR system’s recording settings (sample rate, file duration, gain, etc.) are set using a wispr.txt configuration file that is loaded onto the WISPR3 memory (microSD) or set manually through direct serial communications with the WISPR3. If no wispr.txt is present, a default file will be created when WISPR3 powers on. Detailed descriptions of each input can be found in the WISPR3 File Formats Manual.\nA file with the desired settings and the sensor and platform IDs should be loaded onto both microSD cards before a mission; a copy of what was loaded should be saved with the date for reference. Below is an example file that will record 120 second files at a 200 kHz sampling rate and 24-bit resolution with no additional system gain. This example file and others are available in the standard_files folder wispr.txt_v1.2.250828_200kHz_120sec\nWISPR 3.0 configuration\nsensor_id: 2402\nplatform_id: SG680\nstart_state: 2\nstart_mode: 3\nglider_mode: 0\nadc_type: LTC2512\nadc_sample_size: 3\nadc_sampling_rate: 200000\nadc_channels: 1\nadc_gain: 0\nadc_decimation: 4\nadc_timestamp: 0\nsecs_per_file: 120\nmax_file_size: 204800\nrun_time: 0\nduty_cycle: 0\ndebug_level: 1\nfft_size: 512\nfft_overlap: 0\nfft_window_type: 0\nrtc_aging: 0\nrtc_freq: 32767\nmsg_baud: 9600\nmsg_termination: 13\nmsg_handshake: 0\n\n\nDuring a mission\nThe Seaglider piloting cmdfile has four parameters that control WISPR operation while the glider is deployed. While these can be changed during a mission, these are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed (e.g., turning off WISPR to reduce battery consumption or only sampling on ascents but not descents).\n$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record\n$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)\n$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)\n$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)\nIn this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.\nFor $WS_RECORDABOVE a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m).\nPseudo-parameters that are reported in the logfile:\n$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`\n$WS_NDIVE,1.0           # ?? psuedo-parameter",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#wispr-installation",
-    "href": "wispr.html#wispr-installation",
-    "title": "WISPR passive acoustic sensor",
-    "section": "WISPR installation",
-    "text": "WISPR installation\n\nHardware installation\nMore here later on how to physically install a WISPR3 system on a Seaglider…\nThis should include information on mounting, cabling, and hydrophone connections.\n\n\nSeaglider logdev configuration\nWISPR is controlled by the Seaglider logdev interface meaning it must be added/loaded as a “logger” once it has been installed. A wslog.cnf logger configuration file manages how the Seaglider communicates with and controls WISPR as a ‘logger’ device. This file can contain a variety of commands outlined in detail in the IOP logdev manual. This file is loaded durinng initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.\nThe exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a WISPR3 running firmware v1.2.20250828 without a real-time system (firmware copies can be found in this repo’s resources folder).\nname=WISPR\nprefix=ws\ncmdprefix=$WS_\nbaud=9600\nvoltage=10\ncurrent=.0592\nwarmup=15000\ntimeout=7000\nprompt=W&gt;\ndatatype=z\nstart=\"%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9\"\nstop=\"$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9\"\nAn example wslog.cnf for WISPR3 firmware version 1.2.250828 is located in the standard_files folder: wslog.cnf_v1.2.250828_for_seaglider.\n\nLoad wslog.cnf\nInstructions to load a new wslog.cnf are available below or as a Google Doc here: Load wslog.cnf.\nTo update a wslog.cnf file on a Seaglider, the previously loaded configuration must be deleted from the logger and the file deleted from the Seaglider, then the new file must be transferred to the Seaglider memory and then loaded into the logger.\nOn the Seaglider, the WISPR configuration file must be called wslog.cnf so in order to track different versions, always save a copy of the uploaded file with a unique name such as wslog.cnf_sg680_20250829 so it can be referenced later if needed. The Seaglider manufacturer logger installation/logdev documentation can be found at iop.apl.washington.edu/iopsg/logdev.txt.\n\nSteps:\n\nClear the currently loaded configuration\n\nNavigate through the main menu to param &gt; config &gt; logdel\nChoose 0 for WISPR (or whichever slot WISPR is loaded into)\nAfter hitting [CR] it will ask to confirm reinitializing the logger and select Y to do so\n\nDelete old wslog.cnf using pdos\n\nAccess pdos from the glider main menu\nUse ls to list all currently loaded files and check for presence of wslog.cnf\nUse cat wslog.cnf to view an existing configuration file\nUse del wslog.cnf to delete the existing file\nUse ls to confirm it has been removed\n\nUpload the new wslog.cnf using pdos\n\nFirst use ls to confirm wslog.cnf isn’t there any more\nPrepare the Seaglider to receive the file via XMODEM by typing xr wslog.cnf\nThe glider console will then be waiting for the file. Within TeraTerm navigate to File &gt; Transfer &gt; XMODEM &gt; Send and select the desired file\nA window will pop up showing the transfer progress; it should only take a few seconds. If it is taking a long time, hit cancel and try again\nVerify the correct new file has been uploaded with cat wslog.cnf\nType strip1a wslog.cnf to remove any extra lines or spaces\n\nAdd logger back in with params &gt; config &gt; logadd\n\nChoose slot 0 and then type in name of file wslog.cnf\nIt will then prompt if you want to reinitalize hardware configuration and choose Y\n\nCheck things\n\nVia the Seaglider menu navigate to hardware &gt; config &gt; logger\nSelect slot 1\nConfirm it says WISPR USART2 pwr f6\nSelect Y when prompted to re-initialize",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
-    "href": "best-practices.html#pifsc-glider-lab-best-practices",
-    "title": "Best Practices",
-    "section": "PIFSC Glider Lab Best Practices",
-    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
-    "section": "",
-    "text": "Quick links (NOAA-only)\nNMFS PIC Glider Google Shared Drive\npifsc-1 GCP\n\n\n\nData management plan\nDraft Data Management Plan\n\n\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Best practices",
-      "Data management"
-    ]
+    "objectID": "wispr-calibration.html#procedure",
+    "href": "wispr-calibration.html#procedure",
+    "title": "WISPR calibration",
+    "section": "Procedure",
+    "text": "Procedure\n\nRecord calibration signals\n…\n\n\nProcess calibration sweep recordings\nUse agate to measure the WISPR3 board and preamp sensitivity from the recorded calibration sweep signals. See workflow_wisprSystemSensitivity.m in the agate/example_workflows folder for an example or follow the below steps.\n\n% make sure agate is on the path\naddpath(genpath('C:\\Users\\User.Name\\Documents\\MATLAB\\agate'))\n\nTo preview or browse through the recordings in your preferred analysis software, convert the recorded .dat files to .flac or .wav. This can be useful to pick which file has a full calibration signal that you will want to select in the measurement step.\n\nconvertWispr;\n\n% this call with no input arguments will prompt to select raw file location\n% and output file location and will default to writing flac. Alternatively,\n% specify input arguments to avoid prompts and write to .wav. E.g.,\n% convertWispr('inDir', 'E:/wisprFiles', 'outDir', 'E:/wav', 'outExt', '.wav')\n\nReview the files and find one that has a nice complete calibration signal.\n\n\n\nExample showing three 20 second sweeps from 0 to 100 kHz.\n\n\nDefine the input arguments needed for the measurement step.\n\n% serial number of the WISPR preamp/adc board - must be a string &lt; 16 chars\n% used for filename generation and output file header info\nsn = 'WISPR3_no#';\n\n% fullfile path of calibration recording (as raw .dat file)\nsweep_file = []; % set to [] to be prompted to select file OR define\n% sweep_file = \"E:\\wispr_calibration\\wispr_no2\\250514\\WISPR_250514_213247.dat\"; \n\n% define hydrophone sensitivity, not required, used in output file header\nhydro_sens = -164.5;\n\n% define the amplitude of sine wave sweep (in volts) and sweep duration\n% typically 10 mV and 20 or 60 seconds\namp = 0.010;\ndur = 20; % in seconds\n\n% was a 20 dB attenuator used?\nattenuator = true;\n\n% path to save output calibration files\npath_out = 'C:\\Users\\User.Name\\calibration\\wispr\\preamps';\n\n% OPTIONAL\n% specify an output filename. Default is SN_preamp_gain_YYYY-MM-DD\n% where the timestamp is the date of creation. Do not specify an extension.\nout_file_name = []; % set to [] to use default\n% out_file_name = 'testFile';\n\nRun the measurement function.\n\n% this function will plot the waveform of the specified calibration sweep\n% file, prompt the user to select the start of one complete sweep,\n% calculate the spectrum over the duration of one sweep, save the\n% frequency-dependent gain curve as a .mat and .txt and the plot as .png\n\n[paFreq, paGain] = measureWisprPreampSensitivity(sn, sweep_file, ...\n    hydro_sens, amp, dur, attenuator, path_out, out_file_name);\n\nThis will plot the waveform of the selected sweep file and prompt the user to select the start of a single sweep. This should be the initial increase in the waveform. A single sweep will be extracted from this point and based on the specified sweep duration.\n\n\n\nExample showing selection of a single 20 second sweep from the waveform.\n\n\nThe spectrum of the single sweep will then be calculated and a frequency-dependent sensitivity gain curve will be plotted and saved. The plot will be saved as a .png and the gain curve frequency and gain values will be saved as a .mat file and a .txt file. The .txt file will contain some header information:\n\n\n\nExample sensitivity gain curve output. This curve shape is typical for a WISPR3 sampling at 200 kHz with decimation factor 4. Sensitivity reduced below 10 kHz and then is relatively flat from 10 to 70 kHz after which the anti-aliasing filter causes a steep drop-off in sensitivity to about 90 kHz.\n\n\n\n\nAssemble system sensitivity curve"
   },
   {
     "objectID": "test.html",
@@ -122,6 +46,92 @@
     ]
   },
   {
+    "objectID": "data-processing.html",
+    "href": "data-processing.html",
+    "title": "Data processing",
+    "section": "",
+    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Best Practices",
+    "section": "",
+    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
+    "href": "best-practices.html#pifsc-glider-lab-best-practices",
+    "title": "Best Practices",
+    "section": "PIFSC Glider Lab Best Practices",
+    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
+    "crumbs": [
+      "Best practices"
+    ]
+  },
+  {
+    "objectID": "wispr.html",
+    "href": "wispr.html",
+    "title": "WISPR passive acoustic sensor",
+    "section": "",
+    "text": "DRAFT\nWISPR stands for Wideband Intelligent Signal Processor and Recorder. It is commercially available from Embedded Ocean Systems and has been implemented in a variety of glider types (Seaglider, Slocum, and Oceanscout).",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#wispr-operation",
+    "href": "wispr.html#wispr-operation",
+    "title": "WISPR passive acoustic sensor",
+    "section": "WISPR operation",
+    "text": "WISPR operation\nThese instructions are for the third generation WISPR3 recorder installed on a Seaglider\n\nBench testing\nAdd info here or links to WISPR3 documentation for recording from a WISPR system on the bench, either installed on a glider or free on the bench.\n\n\nProgram for a mission\nWISPR is installed on a Seaglider as a logger device. Configuration for the logger device (when the Seaglider should turn WISPR on and off, etc.) is set using a wslog.cnf file. This is typically set up once during installation and not changed. See detailed installation instructions below.\nSpecific settings for the WISPR system itself (sampling rate, gain, etc) are set via a wispr.txt file stored on the WISPR memory cards. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission.\nThe WISPR system’s recording settings (sample rate, file duration, gain, etc.) are set using a wispr.txt configuration file that is loaded onto the WISPR3 memory (microSD) or set manually through direct serial communications with the WISPR3. If no wispr.txt is present, a default file will be created when WISPR3 powers on. Detailed descriptions of each input can be found in the WISPR3 File Formats Manual.\nA file with the desired settings and the sensor and platform IDs should be loaded onto both microSD cards before a mission; a copy of what was loaded should be saved with the date for reference. Below is an example file that will record 120 second files at a 200 kHz sampling rate and 24-bit resolution with no additional system gain. This example file and others are available in the standard_files folder wispr.txt_v1.2.250828_200kHz_120sec\nWISPR 3.0 configuration\nsensor_id: 2402\nplatform_id: SG680\nstart_state: 2\nstart_mode: 3\nglider_mode: 0\nadc_type: LTC2512\nadc_sample_size: 3\nadc_sampling_rate: 200000\nadc_channels: 1\nadc_gain: 0\nadc_decimation: 4\nadc_timestamp: 0\nsecs_per_file: 120\nmax_file_size: 204800\nrun_time: 0\nduty_cycle: 0\ndebug_level: 1\nfft_size: 512\nfft_overlap: 0\nfft_window_type: 0\nrtc_aging: 0\nrtc_freq: 32767\nmsg_baud: 9600\nmsg_termination: 13\nmsg_handshake: 0\n\n\nDuring a mission\nThe Seaglider piloting cmdfile has four parameters that control WISPR operation while the glider is deployed. While these can be changed during a mission, these are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed (e.g., turning off WISPR to reduce battery consumption or only sampling on ascents but not descents).\n$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record\n$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)\n$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)\n$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)\nIn this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.\nFor $WS_RECORDABOVE a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m).\nPseudo-parameters that are reported in the logfile:\n$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`\n$WS_NDIVE,1.0           # ?? psuedo-parameter",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#seaglider-installation",
+    "href": "wispr.html#seaglider-installation",
+    "title": "WISPR passive acoustic sensor",
+    "section": "Seaglider installation",
+    "text": "Seaglider installation\n\nHardware installation\nMore here later on how to physically install a WISPR3 system on a Seaglider…\nThis should include information on mounting, cabling, and hydrophone connections.\n\n\nSeaglider logdev configuration\nWISPR is controlled by the Seaglider logdev interface meaning it must be added/loaded as a “logger” once it has been installed. A wslog.cnf logger configuration file manages how the Seaglider communicates with and controls WISPR as a ‘logger’ device. This file can contain a variety of commands outlined in detail in the IOP logdev manual. This file is loaded durinng initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.\nThe exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a WISPR3 running firmware v1.2.20250828 without a real-time system (firmware copies can be found in this repo’s resources folder).\nname=WISPR\nprefix=ws\ncmdprefix=$WS_\nbaud=9600\nvoltage=10\ncurrent=.0592\nwarmup=15000\ntimeout=7000\nprompt=W&gt;\ndatatype=z\nstart=\"%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9\"\nstop=\"$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9\"\nAn example wslog.cnf for WISPR3 firmware version 1.2.250828 is located in the standard_files folder: wslog.cnf_v1.2.250828_for_seaglider.\n\nLoad wslog.cnf\nInstructions to load a new wslog.cnf are available below or as a Google Doc here: Load wslog.cnf.\nTo update a wslog.cnf file on a Seaglider, the previously loaded configuration must be deleted from the logger and the file deleted from the Seaglider, then the new file must be transferred to the Seaglider memory and then loaded into the logger.\nOn the Seaglider, the WISPR configuration file must be called wslog.cnf so in order to track different versions, always save a copy of the uploaded file with a unique name such as wslog.cnf_sg680_20250829 so it can be referenced later if needed. The Seaglider manufacturer logger installation/logdev documentation can be found at iop.apl.washington.edu/iopsg/logdev.txt.\n\nSteps:\n\nClear the currently loaded configuration\n\nNavigate through the main menu to param &gt; config &gt; logdel\nChoose 0 for WISPR (or whichever slot WISPR is loaded into)\nAfter hitting [CR] it will ask to confirm reinitializing the logger and select Y to do so\n\nDelete old wslog.cnf using pdos\n\nAccess pdos from the glider main menu\nUse ls to list all currently loaded files and check for presence of wslog.cnf\nUse cat wslog.cnf to view an existing configuration file\nUse del wslog.cnf to delete the existing file\nUse ls to confirm it has been removed\n\nUpload the new wslog.cnf using pdos\n\nFirst use ls to confirm wslog.cnf isn’t there any more\nPrepare the Seaglider to receive the file via XMODEM by typing xr wslog.cnf\nThe glider console will then be waiting for the file. Within TeraTerm navigate to File &gt; Transfer &gt; XMODEM &gt; Send and select the desired file\nA window will pop up showing the transfer progress; it should only take a few seconds. If it is taking a long time, hit cancel and try again\nVerify the correct new file has been uploaded with cat wslog.cnf\nType strip1a wslog.cnf to remove any extra lines or spaces\n\nAdd logger back in with params &gt; config &gt; logadd\n\nChoose slot 0 and then type in name of file wslog.cnf\nIt will then prompt if you want to reinitalize hardware configuration and choose Y\n\nCheck things\n\nVia the Seaglider menu navigate to hardware &gt; config &gt; logger\nSelect slot 1\nConfirm it says WISPR USART2 pwr f6\nSelect Y when prompted to re-initialize",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#wispr-calibration",
+    "href": "wispr.html#wispr-calibration",
+    "title": "WISPR passive acoustic sensor",
+    "section": "WISPR calibration",
+    "text": "WISPR calibration\nOwn page - WISPR calibration",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html",
+    "href": "mission-prep.html",
+    "title": "Mission preparation",
+    "section": "",
+    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "PIFSC Glider Lab",
@@ -146,9 +156,20 @@
     "href": "index.html#project-management",
     "title": "PIFSC Glider Lab",
     "section": "Project Management",
-    "text": "Project Management\nFor current Seaglider fleet status, see this Google Sheet(NOAA-only)\nNMFS PIC Gliders Google Shared Drive(NOAA-only)\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo glider lab issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons",
+    "text": "Project Management\nFor current Seaglider fleet status, see this Google Sheet(NOAA-only)\nNMFS PIC Gliders Google Shared Drive(NOAA-only)\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo for glider lab resources/issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons\n\n\n\n\n\n\n\n\n\nDisclaimer\nThis repository is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.",
     "crumbs": [
       "Home"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
+    "section": "",
+    "text": "Quick links (NOAA-only)\nNMFS PIC Glider Google Shared Drive\npifsc-1 GCP\n\n\n\nData management plan\nDraft Data Management Plan\n\n\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Data management"
     ]
   },
   {
