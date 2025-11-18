@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -4135,6 +4135,7 @@ vertical-align: -.125em;
   <li><a href="#load-wslog.cnf" id="toc-load-wslog.cnf" class="nav-link" data-scroll-target="#load-wslog.cnf">Load <code>wslog.cnf</code></a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#wispr-updates" id="toc-wispr-updates" class="nav-link" data-scroll-target="#wispr-updates">WISPR updates</a></li>
   <li><a href="#wispr-calibration" id="toc-wispr-calibration" class="nav-link" data-scroll-target="#wispr-calibration">WISPR calibration</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/wispr.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/wispr.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -4176,8 +4177,8 @@ vertical-align: -.125em;
 <section id="table-of-contents" class="level4">
 <h4 class="anchored" data-anchor-id="table-of-contents">Table of contents</h4>
 <p><a href="#wispr-operation">WISPR operation</a><br>
-<a href="#wispr-installation">Seaglider installation</a><br>
-<a href="./wispr-calibration.html">Calibration</a> (separate page)</p>
+<a href="#seaglider-installation">Seaglider installation</a><br>
+<a href="#wispr-upgrades">WISPR upgrades</a> <a href="./wispr-calibration.html">Calibration</a> (separate page)</p>
 </section>
 <section id="wispr-operation" class="level2">
 <h2 class="anchored" data-anchor-id="wispr-operation">WISPR operation</h2>
@@ -4188,10 +4189,10 @@ vertical-align: -.125em;
 </section>
 <section id="program-for-a-mission" class="level3">
 <h3 class="anchored" data-anchor-id="program-for-a-mission">Program for a mission</h3>
-<p>WISPR is installed on a Seaglider as a logger device. Configuration for the logger device (when the Seaglider should turn WISPR on and off, etc.) is set using a <code>wslog.cnf</code> file. This is typically set up once during installation and not changed. See detailed <a href="#wispr-installation">installation instructions</a> below.</p>
-<p>Specific settings for the WISPR system itself (sampling rate, gain, etc) are set via a <code>wispr.txt</code> file stored on the WISPR memory cards. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission.</p>
-<p>The WISPR system’s recording settings (sample rate, file duration, gain, etc.) are set using a <code>wispr.txt</code> configuration file that is loaded onto the WISPR3 memory (microSD) or set manually through direct serial communications with the WISPR3. If no <code>wispr.txt</code> is present, a default file will be created when WISPR3 powers on. Detailed descriptions of each input can be found in the <a href="https://github.com/embeddedocean/wispr3/blob/main/Docs/wispr3_file_format.pdf">WISPR3 File Formats Manual</a>.</p>
-<p>A file with the desired settings and the sensor and platform IDs should be loaded onto both microSD cards before a mission; a copy of what was loaded should be saved with the date for reference. Below is an example file that will record 120 second files at a 200 kHz sampling rate and 24-bit resolution with no additional system gain. This example file and others are available in the <code>standard_files</code> folder <a href="https://github.com/noaa-pifsc/glider-lab/blob/main/standard_files/wispr.txt_v1.2.250828_200kHz_120sec">wispr.txt_v1.2.250828_200kHz_120sec</a></p>
+<p>Specific settings for the WISPR system (sampling rate, gain, etc) are set via a <code>wispr.txt</code> file stored on the WISPR memory (microSD) or set manually through direct serial communications. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission. If no <code>wispr.txt</code> is present, a default <code>wispr.txt</code> file will be created when WISPR powers on.</p>
+<p>Detailed descriptions of each input can be found in the <a href="https://github.com/embeddedocean/wispr3/blob/main/Docs/wispr3_file_format.pdf">WISPR3 File Formats Manual</a>.</p>
+<p>Example files can be found in the <a href="https://github.com/noaa-pifsc/glider-lab/blob/main/standard_files/"><code>standard_files</code></a> folder of this repository. <a href="https://github.com/noaa-pifsc/glider-lab/blob/main/standard_files/wispr.txt_v1.2.250828_200kHz_120sec">wispr.txt_v1.2.250828_200kHz_120sec</a> provides an example for a WISPR3 with firmware viresion 1.2.250828 that will sample at 200 kHz with 24-bit resolution and no additional gain and will create 120 sec files. Note the sensor and platform IDs would need to be updated for the specific board and glider.</p>
+<p>A copy of the <code>wispr.txt</code> file that was lodaed should be saved with the date and glider serial number for reference (<em>E.g.</em>, <a href="https://drive.google.com/drive/u/0/folders/1Qy8vW8_8bo2QL4RQRdI5xMULWgb6VCEe">wispr.txt_v1.2.250828_200kHz_120sec_sg679_loaded_20251117 in SG679’s summer 2025 refurb folder</a>).</p>
 <pre><code>WISPR 3.0 configuration
 sensor_id: 2402
 platform_id: SG680
@@ -4240,11 +4241,12 @@ $WS_NDIVE,1.0           # ?? psuedo-parameter</code></pre>
 <h3 class="anchored" data-anchor-id="hardware-installation">Hardware installation</h3>
 <p>More here later on how to physically install a WISPR3 system on a Seaglider…</p>
 <p>This should include information on mounting, cabling, and hydrophone connections.</p>
+<p>A shortcut to documents from the OSU Bioacoustics Seaglider Group related to WISPR and WISPR3 hardware installation can be found in the <a href="https://drive.google.com/drive/u/0/folders/1g-9Le4moGOG-IGkVKmtwBpyUlHdioA8F">NMFS PIC Gliders Shared Drive</a>. This includes links to folders of photos of WISPR3 systems installed on SG607 and SG679.</p>
 </section>
 <section id="seaglider-logdev-configuration" class="level3">
 <h3 class="anchored" data-anchor-id="seaglider-logdev-configuration">Seaglider logdev configuration</h3>
-<p>WISPR is controlled by the Seaglider logdev interface meaning it must be added/loaded as a “logger” once it has been installed. A <code>wslog.cnf</code> logger configuration file manages how the Seaglider communicates with and controls WISPR as a ‘logger’ device. This file can contain a variety of commands outlined in detail in the <a href="https://iop.apl.washington.edu/iopsg/logdev.txt">IOP logdev manual</a>. This file is loaded durinng initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.</p>
-<p>The exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a <em>WISPR3 running firmware v1.2.20250828 without a real-time system</em> (firmware copies can be found in this repo’s <a href="https://github.com/noaa-pifsc/glider-lab/tree/main/resources/wispr/firmware">resources</a> folder).</p>
+<p>WISPR is controlled by the Seaglider logdev interface where it is installed as a logger device. A <code>wslog.cnf</code> logger configuration file manages how the Seaglider communicates with and controls WISPR. This file can contain a variety of commands outlined in detail in the <a href="https://iop.apl.washington.edu/iopsg/logdev.txt">IOP logdev manual</a>. This file is loaded during initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.</p>
+<p>The exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a <em>WISPR3 running firmware v1.2.20250828 without a real-time system</em> (historical firmware copies can be found in this repo’s <a href="https://github.com/noaa-pifsc/glider-lab/tree/main/resources/wispr/firmware">resources</a> folder).</p>
 <pre><code>name=WISPR
 prefix=ws
 cmdprefix=$WS_
@@ -4302,9 +4304,20 @@ stop=&quot;$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9&quot;</code></p
 <li>Select <code>Y</code> when prompted to re-initialize</li>
 </ol></li>
 </ol>
+<p>–</p>
 </section>
 </section>
 </section>
+</section>
+<section id="wispr-updates" class="level2">
+<h2 class="anchored" data-anchor-id="wispr-updates">WISPR updates</h2>
+<p>WISPR3 firmware updates must be flashed to the WISPR system. The latest <code>wispr3.bin</code> and <code>wispr3_bl.bin</code> files are available on the <a href="https://github.com/embeddedocean/wispr3/tree/main/Release">wispr3 GitHub repo Release folder</a>. It has a README with instructions.</p>
+<p>WISPR3s purchased after 2025 come with a bootloader pre-installed. If there is no bootloader on the system, you must first flash the file <code>wispr3_bl.bin</code> using atmel ice programmer. You can tell if there is a bootloader on the system at WISPR startup if it displays the following message:</p>
+<pre><code>EOS WISPR 3.0 Bootloader v1.0
+Start Application at flash address 0x10000</code></pre>
+<p>If a bootloader is present, firmware can be flashed by simply loading the <code>wispr3.bin</code> file onto a blank microSD and starting up the system. This will overwrite any existing <code>wispr.txt</code> sampling configuration and replace it with a default so after you update the firmware, you should modify the created default with the desired glider and mission specific settings and run a test to make sure they have been implemented.</p>
+<p>Records of firmware versions can be found the <a href="https://github.com/noaa-pifsc/glider-lab/tree/main/resources/WISPR/firmware">resources/WISPR/firmware</a> folder of this GitHub repository.</p>
+<p>–</p>
 </section>
 <section id="wispr-calibration" class="level2">
 <h2 class="anchored" data-anchor-id="wispr-calibration">WISPR calibration</h2>
