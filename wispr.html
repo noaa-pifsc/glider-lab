@@ -4042,13 +4042,19 @@ vertical-align: -.125em;
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./best-practices.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Best practices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./best-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab values &amp; best practices</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mission-prep.html" class="sidebar-item-text sidebar-link">
@@ -4057,27 +4063,27 @@ vertical-align: -.125em;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data processing</span></a>
+  <a href="./data-management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-management.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data management</span></a>
+  <a href="./data-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data processing</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Piloting</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./team-resources.html" class="sidebar-item-text sidebar-link">
@@ -4092,15 +4098,21 @@ vertical-align: -.125em;
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gliders.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gliders</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Sensors</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wispr.html" class="sidebar-item-text sidebar-link active">
@@ -4178,7 +4190,8 @@ vertical-align: -.125em;
 <h4 class="anchored" data-anchor-id="table-of-contents">Table of contents</h4>
 <p><a href="#wispr-operation">WISPR operation</a><br>
 <a href="#seaglider-installation">Seaglider installation</a><br>
-<a href="#wispr-upgrades">WISPR upgrades</a> <a href="./wispr-calibration.html">Calibration</a> (separate page)</p>
+<a href="#wispr-upgrades">WISPR upgrades</a><br>
+<a href="./wispr-calibration.html">Calibration</a> (separate page)</p>
 </section>
 <section id="wispr-operation" class="level2">
 <h2 class="anchored" data-anchor-id="wispr-operation">WISPR operation</h2>
@@ -4304,7 +4317,7 @@ stop=&quot;$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9&quot;</code></p
 <li>Select <code>Y</code> when prompted to re-initialize</li>
 </ol></li>
 </ol>
-<p>–</p>
+<hr>
 </section>
 </section>
 </section>
@@ -4317,7 +4330,7 @@ stop=&quot;$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9&quot;</code></p
 Start Application at flash address 0x10000</code></pre>
 <p>If a bootloader is present, firmware can be flashed by simply loading the <code>wispr3.bin</code> file onto a blank microSD and starting up the system. This will overwrite any existing <code>wispr.txt</code> sampling configuration and replace it with a default so after you update the firmware, you should modify the created default with the desired glider and mission specific settings and run a test to make sure they have been implemented.</p>
 <p>Records of firmware versions can be found the <a href="https://github.com/noaa-pifsc/glider-lab/tree/main/resources/WISPR/firmware">resources/WISPR/firmware</a> folder of this GitHub repository.</p>
-<p>–</p>
+<hr>
 </section>
 <section id="wispr-calibration" class="level2">
 <h2 class="anchored" data-anchor-id="wispr-calibration">WISPR calibration</h2>

@@ -35,111 +35,36 @@
     "text": "More text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that"
   },
   {
-    "objectID": "team-resources.html",
-    "href": "team-resources.html",
-    "title": "Team Resources",
+    "objectID": "oceanography.html",
+    "href": "oceanography.html",
+    "title": "Some oceanography basics",
     "section": "",
-    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\n\n\n\nMapping resources\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\nWISPR PAM system resources\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\nRandom things…\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\nTest phone connection on Seaglider\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\nSet up a new mission on seaglider.pub\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\nCreate the new mission directory\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\nAdd the mission to missions.yml\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}\n\n\n\n\n\n\n Back to top",
+    "text": "This page contains some useful definitions and explainations for the various oceanographic/environmental data collected by Seagliders.",
     "crumbs": [
       "Piloting",
-      "Team resources"
+      "Oceanography"
     ]
   },
   {
-    "objectID": "data-processing.html",
-    "href": "data-processing.html",
-    "title": "Data processing",
+    "objectID": "oceanography.html#ctd-data",
+    "href": "oceanography.html#ctd-data",
+    "title": "Some oceanography basics",
+    "section": "CTD data",
+    "text": "CTD data\n\nTemperature\nSeaglider CTD measures temperature, conductivity, and pressure and calculates salinity from the CTD data\ntemperature (in-situ): temperature measured at specific depth\npotential temperature (\\({\\theta}\\)): temperature a water parcel would be if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as theta (\\({\\theta}\\))\nconservative temperature: temperature per TEOS-10. For more info see teos-10.org: Conservative Temperature from in-situ temperature\nSeaglider measures raw in-situ temperature, conducts some quality control (qc) assessment, and reports a final corrected temperature as well as a qc matrix on whether to trust that corrected temp or not. In .nc files these are temperature_raw, temperature_raw_qc, temperature, and temperature_qc respectively. It also reports potential temperature, based on corrected salinity, reported as theta and conservative temperature as conservative_temperature.\n\n\nConductivity\nThe CTD measures seawater electrical conductivity. Seaglider measures raw conductivity, conducts some qc, corrects for anomolies, and proivdes a qc matrix for corrected conductivity. In .nc files these are conductivity_raw, conductivity_raw_qc, conductivity, and conductivity_qc respectively.\n\n\nSalinity\nsalinity (in-situ): salinity calculated from in-situ temperature, conductivity, and pressure (aka practical salinity). It is unitless (PSU = pratical salinity units)\nabsolute salinity: absolute salinity per TEOS-10. It is calculated with conductivity and some other factors and the units are g/kg. For more info see teos-10.org: Absolute Salinity from Practical Salinity\nSalinity is calculated/provided in the Seaglider data as raw and corrected salinity. (1) From raw temperature and conductivity. In the .nc file, salinity_raw is from the temperature_raw and conductivity_raw. That has a corresponding qc matrix salinity_raw_qc. (2) Corrected for termal-inertia effects. In the .nc file this is salinity. It also includes a qc matrix salinity_qc. Absolute salinity is included as absolute_salinity.\n\n\nDensity\nSeawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider.\ndensity (in-situ): density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as density_insitu in the Seaglider .nc file. The netCDF attribute states units are g/m3 but the values make more sense as either g/cm3 or kg/m3\npotential density: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in .nc file as density. The .nc attribute states its in units of g/m3 but the values make more sense as either g/cm3 or kg/m3\nsigma (\\({\\sigma}\\)): in-situ density calculated from in-situ temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm3 its 27.5 sigma units\n\\[\n\\sigma = \\rho(S, T, P) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma}\\) is the in-situ density anomaly.\n\\({\\rho(S, T, P)}\\) is the density calculated from in-situ salinity (\\(S\\)), in-situ temperature (\\(T\\)), and in-situ pressure (\\(P\\)).\n\nsigma-t (\\({\\sigma_T}\\)): density calculated using in-situ temperature and salinity but with effect of pressure removed (reference pressure 0)\n\\[\n\\sigma_T = \\rho(S, T, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_t}\\) is the sigma-t density anomaly.\n\\({\\rho(S, T, 0)}\\) is the density calculated from in-situ salinity (\\(S\\)) and in-situ temperature (\\(T\\)), but at surface pressure (0).\n\n\n\n\n\n\n\nWarning\n\n\n\nSeaglider uses sigma-t for ballasting!!\n\n\nsigma-theta (\\({\\sigma_\\theta}\\)): potential density, calculated using potential temperature and in-situ salinity, also referenced to sea surface pressure 0. In the Seaglider .nc file this is sigma_theta\n\\[\n\\sigma_{\\theta} = \\rho(S, \\theta, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_\\theta}\\) is the potential density anomaly.\n\\({\\rho}\\) is the density of the seawater.\n\\(S\\) is the in-situ salinity.\n\\({\\theta}\\) is the potential temperature.\nThe pressure is referenced to the surface (0 decibars).\n\nThe Seaglider .nc file also reports sigma_theta (\\({\\sigma_\\theta}\\)) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: gsw_sigma0 with a reference pressure of 0 m, gsw_sigma3 with a reference pressure of 3000 m, and gsw_sigma4 with a reference pressure of 4000 m. gsw_sigma0 and sigma_theta should be the same (but I haven’t confirmed this!).\n\n\nSound speed\nSeaglider .nc files provides speed of sound in sea water as the sound_velocity output (units m/s). This is also calculated using the the Gibbs-Seawater (GSW) Oceanographic Toolbox, equation gsw_sound_speed.",
+    "crumbs": [
+      "Piloting",
+      "Oceanography"
+    ]
+  },
+  {
+    "objectID": "data-management.html",
+    "href": "data-management.html",
+    "title": "Data management",
     "section": "",
-    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
+    "text": "Quick links (NOAA only)\nNMFS PIC Glider Google Shared Drive\npifsc-1 GCP Bucket\n\n\n\nData management plan\nDraft Data Management Plan(NOAA only)\n Overview of different places glider lab data are stored and what types of data and resources should be stored where\n\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
     "crumbs": [
       "Best practices",
-      "Data processing"
-    ]
-  },
-  {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Best Practices",
-    "section": "",
-    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "best-practices.html#pifsc-glider-lab-best-practices",
-    "href": "best-practices.html#pifsc-glider-lab-best-practices",
-    "title": "Best Practices",
-    "section": "PIFSC Glider Lab Best Practices",
-    "text": "PIFSC Glider Lab Best Practices\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to be a place glider team members can both use as a reference and contribute to. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.",
-    "crumbs": [
-      "Best practices"
-    ]
-  },
-  {
-    "objectID": "wispr.html",
-    "href": "wispr.html",
-    "title": "WISPR passive acoustic sensor",
-    "section": "",
-    "text": "DRAFT\nWISPR stands for Wideband Intelligent Signal Processor and Recorder. It is commercially available from Embedded Ocean Systems and has been implemented in a variety of glider types (Seaglider, Slocum, and Oceanscout).",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#wispr-operation",
-    "href": "wispr.html#wispr-operation",
-    "title": "WISPR passive acoustic sensor",
-    "section": "WISPR operation",
-    "text": "WISPR operation\nThese instructions are for the third generation WISPR3 recorder installed on a Seaglider\n\nBench testing\nAdd info here or links to WISPR3 documentation for recording from a WISPR system on the bench, either installed on a glider or free on the bench.\n\n\nProgram for a mission\nSpecific settings for the WISPR system (sampling rate, gain, etc) are set via a wispr.txt file stored on the WISPR memory (microSD) or set manually through direct serial communications. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission. If no wispr.txt is present, a default wispr.txt file will be created when WISPR powers on.\nDetailed descriptions of each input can be found in the WISPR3 File Formats Manual.\nExample files can be found in the standard_files folder of this repository. wispr.txt_v1.2.250828_200kHz_120sec provides an example for a WISPR3 with firmware viresion 1.2.250828 that will sample at 200 kHz with 24-bit resolution and no additional gain and will create 120 sec files. Note the sensor and platform IDs would need to be updated for the specific board and glider.\nA copy of the wispr.txt file that was lodaed should be saved with the date and glider serial number for reference (E.g., wispr.txt_v1.2.250828_200kHz_120sec_sg679_loaded_20251117 in SG679’s summer 2025 refurb folder).\nWISPR 3.0 configuration\nsensor_id: 2402\nplatform_id: SG680\nstart_state: 2\nstart_mode: 3\nglider_mode: 0\nadc_type: LTC2512\nadc_sample_size: 3\nadc_sampling_rate: 200000\nadc_channels: 1\nadc_gain: 0\nadc_decimation: 4\nadc_timestamp: 0\nsecs_per_file: 120\nmax_file_size: 204800\nrun_time: 0\nduty_cycle: 0\ndebug_level: 1\nfft_size: 512\nfft_overlap: 0\nfft_window_type: 0\nrtc_aging: 0\nrtc_freq: 32767\nmsg_baud: 9600\nmsg_termination: 13\nmsg_handshake: 0\n\n\nDuring a mission\nThe Seaglider piloting cmdfile has four parameters that control WISPR operation while the glider is deployed. While these can be changed during a mission, these are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed (e.g., turning off WISPR to reduce battery consumption or only sampling on ascents but not descents).\n$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record\n$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)\n$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)\n$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)\nIn this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.\nFor $WS_RECORDABOVE a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m).\nPseudo-parameters that are reported in the logfile:\n$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`\n$WS_NDIVE,1.0           # ?? psuedo-parameter",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#seaglider-installation",
-    "href": "wispr.html#seaglider-installation",
-    "title": "WISPR passive acoustic sensor",
-    "section": "Seaglider installation",
-    "text": "Seaglider installation\n\nHardware installation\nMore here later on how to physically install a WISPR3 system on a Seaglider…\nThis should include information on mounting, cabling, and hydrophone connections.\nA shortcut to documents from the OSU Bioacoustics Seaglider Group related to WISPR and WISPR3 hardware installation can be found in the NMFS PIC Gliders Shared Drive. This includes links to folders of photos of WISPR3 systems installed on SG607 and SG679.\n\n\nSeaglider logdev configuration\nWISPR is controlled by the Seaglider logdev interface where it is installed as a logger device. A wslog.cnf logger configuration file manages how the Seaglider communicates with and controls WISPR. This file can contain a variety of commands outlined in detail in the IOP logdev manual. This file is loaded during initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.\nThe exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a WISPR3 running firmware v1.2.20250828 without a real-time system (historical firmware copies can be found in this repo’s resources folder).\nname=WISPR\nprefix=ws\ncmdprefix=$WS_\nbaud=9600\nvoltage=10\ncurrent=.0592\nwarmup=15000\ntimeout=7000\nprompt=W&gt;\ndatatype=z\nstart=\"%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9\"\nstop=\"$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9\"\nAn example wslog.cnf for WISPR3 firmware version 1.2.250828 is located in the standard_files folder: wslog.cnf_v1.2.250828_for_seaglider.\n\nLoad wslog.cnf\nInstructions to load a new wslog.cnf are available below or as a Google Doc here: Load wslog.cnf.\nTo update a wslog.cnf file on a Seaglider, the previously loaded configuration must be deleted from the logger and the file deleted from the Seaglider, then the new file must be transferred to the Seaglider memory and then loaded into the logger.\nOn the Seaglider, the WISPR configuration file must be called wslog.cnf so in order to track different versions, always save a copy of the uploaded file with a unique name such as wslog.cnf_sg680_20250829 so it can be referenced later if needed. The Seaglider manufacturer logger installation/logdev documentation can be found at iop.apl.washington.edu/iopsg/logdev.txt.\n\nSteps:\n\nClear the currently loaded configuration\n\nNavigate through the main menu to param &gt; config &gt; logdel\nChoose 0 for WISPR (or whichever slot WISPR is loaded into)\nAfter hitting [CR] it will ask to confirm reinitializing the logger and select Y to do so\n\nDelete old wslog.cnf using pdos\n\nAccess pdos from the glider main menu\nUse ls to list all currently loaded files and check for presence of wslog.cnf\nUse cat wslog.cnf to view an existing configuration file\nUse del wslog.cnf to delete the existing file\nUse ls to confirm it has been removed\n\nUpload the new wslog.cnf using pdos\n\nFirst use ls to confirm wslog.cnf isn’t there any more\nPrepare the Seaglider to receive the file via XMODEM by typing xr wslog.cnf\nThe glider console will then be waiting for the file. Within TeraTerm navigate to File &gt; Transfer &gt; XMODEM &gt; Send and select the desired file\nA window will pop up showing the transfer progress; it should only take a few seconds. If it is taking a long time, hit cancel and try again\nVerify the correct new file has been uploaded with cat wslog.cnf\nType strip1a wslog.cnf to remove any extra lines or spaces\n\nAdd logger back in with params &gt; config &gt; logadd\n\nChoose slot 0 and then type in name of file wslog.cnf\nIt will then prompt if you want to reinitalize hardware configuration and choose Y\n\nCheck things\n\nVia the Seaglider menu navigate to hardware &gt; config &gt; logger\nSelect slot 1\nConfirm it says WISPR USART2 pwr f6\nSelect Y when prompted to re-initialize\n\n\n–",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#wispr-updates",
-    "href": "wispr.html#wispr-updates",
-    "title": "WISPR passive acoustic sensor",
-    "section": "WISPR updates",
-    "text": "WISPR updates\nWISPR3 firmware updates must be flashed to the WISPR system. The latest wispr3.bin and wispr3_bl.bin files are available on the wispr3 GitHub repo Release folder. It has a README with instructions.\nWISPR3s purchased after 2025 come with a bootloader pre-installed. If there is no bootloader on the system, you must first flash the file wispr3_bl.bin using atmel ice programmer. You can tell if there is a bootloader on the system at WISPR startup if it displays the following message:\nEOS WISPR 3.0 Bootloader v1.0\nStart Application at flash address 0x10000\nIf a bootloader is present, firmware can be flashed by simply loading the wispr3.bin file onto a blank microSD and starting up the system. This will overwrite any existing wispr.txt sampling configuration and replace it with a default so after you update the firmware, you should modify the created default with the desired glider and mission specific settings and run a test to make sure they have been implemented.\nRecords of firmware versions can be found the resources/WISPR/firmware folder of this GitHub repository.\n–",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "wispr.html#wispr-calibration",
-    "href": "wispr.html#wispr-calibration",
-    "title": "WISPR passive acoustic sensor",
-    "section": "WISPR calibration",
-    "text": "WISPR calibration\nOwn page - WISPR calibration",
-    "crumbs": [
-      "Sensors",
-      "WISPR passive acoustics"
-    ]
-  },
-  {
-    "objectID": "mission-prep.html",
-    "href": "mission-prep.html",
-    "title": "Mission preparation",
-    "section": "",
-    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Best practices",
-      "Mission preparation"
+      "Data management"
     ]
   },
   {
@@ -173,36 +98,122 @@
     ]
   },
   {
-    "objectID": "data-management.html",
-    "href": "data-management.html",
-    "title": "Data management",
+    "objectID": "mission-prep.html",
+    "href": "mission-prep.html",
+    "title": "Mission preparation",
     "section": "",
-    "text": "Quick links (NOAA only)\nNMFS PIC Glider Google Shared Drive\npifsc-1 GCP Bucket\n\n\n\nData management plan\nDraft Data Management Plan (NOAA only\n Data management diagram will go here\n\n\nPublically avaliable data sets\nNMFS-collected passive acoustic data is archived and publically available via the NCEI Passive Acoustic Data Viewer.\nSelect ‘NOAA PIFSC’ as the Source Organization and ‘Glider’ as the Platform Type to find our archived datasets\n\n\nInteracting with netCDF files\nHandy online viewer: myhdf5\n\n\n\n\n Back to top",
+    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
     "crumbs": [
       "Best practices",
-      "Data management"
+      "Mission preparation"
     ]
   },
   {
-    "objectID": "oceanography.html",
-    "href": "oceanography.html",
-    "title": "Some oceanography basics",
+    "objectID": "wispr.html",
+    "href": "wispr.html",
+    "title": "WISPR passive acoustic sensor",
     "section": "",
-    "text": "This page contains some useful definitions and explainations for the various oceanographic/environmental data collected by Seagliders.",
+    "text": "DRAFT\nWISPR stands for Wideband Intelligent Signal Processor and Recorder. It is commercially available from Embedded Ocean Systems and has been implemented in a variety of glider types (Seaglider, Slocum, and Oceanscout).",
     "crumbs": [
-      "Piloting",
-      "Oceanography"
+      "Sensors",
+      "WISPR passive acoustics"
     ]
   },
   {
-    "objectID": "oceanography.html#ctd-data",
-    "href": "oceanography.html#ctd-data",
-    "title": "Some oceanography basics",
-    "section": "CTD data",
-    "text": "CTD data\n\nTemperature\nSeaglider CTD measures temperature, conductivity, and pressure and calculates salinity from the CTD data\ntemperature (in-situ): temperature measured at specific depth\npotential temperature (\\({\\theta}\\)): temperature a water parcel would be if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as theta (\\({\\theta}\\))\nconservative temperature: temperature per TEOS-10. For more info see teos-10.org: Conservative Temperature from in-situ temperature\nSeaglider measures raw in-situ temperature, conducts some quality control (qc) assessment, and reports a final corrected temperature as well as a qc matrix on whether to trust that corrected temp or not. In .nc files these are temperature_raw, temperature_raw_qc, temperature, and temperature_qc respectively. It also reports potential temperature, based on corrected salinity, reported as theta and conservative temperature as conservative_temperature.\n\n\nConductivity\nThe CTD measures seawater electrical conductivity. Seaglider measures raw conductivity, conducts some qc, corrects for anomolies, and proivdes a qc matrix for corrected conductivity. In .nc files these are conductivity_raw, conductivity_raw_qc, conductivity, and conductivity_qc respectively.\n\n\nSalinity\nsalinity (in-situ): salinity calculated from in-situ temperature, conductivity, and pressure (aka practical salinity). It is unitless (PSU = pratical salinity units)\nabsolute salinity: absolute salinity per TEOS-10. It is calculated with conductivity and some other factors and the units are g/kg. For more info see teos-10.org: Absolute Salinity from Practical Salinity\nSalinity is calculated/provided in the Seaglider data as raw and corrected salinity. (1) From raw temperature and conductivity. In the .nc file, salinity_raw is from the temperature_raw and conductivity_raw. That has a corresponding qc matrix salinity_raw_qc. (2) Corrected for termal-inertia effects. In the .nc file this is salinity. It also includes a qc matrix salinity_qc. Absolute salinity is included as absolute_salinity.\n\n\nDensity\nSeawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider.\ndensity (in-situ): density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as density_insitu in the Seaglider .nc file. The netCDF attribute states units are g/m3 but the values make more sense as either g/cm3 or kg/m3\npotential density: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in .nc file as density. The .nc attribute states its in units of g/m3 but the values make more sense as either g/cm3 or kg/m3\nsigma (\\({\\sigma}\\)): in-situ density calculated from in-situ temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm3 its 27.5 sigma units\n\\[\n\\sigma = \\rho(S, T, P) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma}\\) is the in-situ density anomaly.\n\\({\\rho(S, T, P)}\\) is the density calculated from in-situ salinity (\\(S\\)), in-situ temperature (\\(T\\)), and in-situ pressure (\\(P\\)).\n\nsigma-t (\\({\\sigma_T}\\)): density calculated using in-situ temperature and salinity but with effect of pressure removed (reference pressure 0)\n\\[\n\\sigma_T = \\rho(S, T, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_t}\\) is the sigma-t density anomaly.\n\\({\\rho(S, T, 0)}\\) is the density calculated from in-situ salinity (\\(S\\)) and in-situ temperature (\\(T\\)), but at surface pressure (0).\n\n\n\n\n\n\n\nWarning\n\n\n\nSeaglider uses sigma-t for ballasting!!\n\n\nsigma-theta (\\({\\sigma_\\theta}\\)): potential density, calculated using potential temperature and in-situ salinity, also referenced to sea surface pressure 0. In the Seaglider .nc file this is sigma_theta\n\\[\n\\sigma_{\\theta} = \\rho(S, \\theta, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_\\theta}\\) is the potential density anomaly.\n\\({\\rho}\\) is the density of the seawater.\n\\(S\\) is the in-situ salinity.\n\\({\\theta}\\) is the potential temperature.\nThe pressure is referenced to the surface (0 decibars).\n\nThe Seaglider .nc file also reports sigma_theta (\\({\\sigma_\\theta}\\)) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: gsw_sigma0 with a reference pressure of 0 m, gsw_sigma3 with a reference pressure of 3000 m, and gsw_sigma4 with a reference pressure of 4000 m. gsw_sigma0 and sigma_theta should be the same (but I haven’t confirmed this!).\n\n\nSound speed\nSeaglider .nc files provides speed of sound in sea water as the sound_velocity output (units m/s). This can be calculated from CTD data but there are several possible quations and it is not clear what equation is used to calculate this metric. I suspect it is the Gibbs Seawater Toolbox but need to ask IOP…",
+    "objectID": "wispr.html#wispr-operation",
+    "href": "wispr.html#wispr-operation",
+    "title": "WISPR passive acoustic sensor",
+    "section": "WISPR operation",
+    "text": "WISPR operation\nThese instructions are for the third generation WISPR3 recorder installed on a Seaglider\n\nBench testing\nAdd info here or links to WISPR3 documentation for recording from a WISPR system on the bench, either installed on a glider or free on the bench.\n\n\nProgram for a mission\nSpecific settings for the WISPR system (sampling rate, gain, etc) are set via a wispr.txt file stored on the WISPR memory (microSD) or set manually through direct serial communications. These must be set before a mission when the Seaglider is opened up and being refurbished and prepped for the mission. If no wispr.txt is present, a default wispr.txt file will be created when WISPR powers on.\nDetailed descriptions of each input can be found in the WISPR3 File Formats Manual.\nExample files can be found in the standard_files folder of this repository. wispr.txt_v1.2.250828_200kHz_120sec provides an example for a WISPR3 with firmware viresion 1.2.250828 that will sample at 200 kHz with 24-bit resolution and no additional gain and will create 120 sec files. Note the sensor and platform IDs would need to be updated for the specific board and glider.\nA copy of the wispr.txt file that was lodaed should be saved with the date and glider serial number for reference (E.g., wispr.txt_v1.2.250828_200kHz_120sec_sg679_loaded_20251117 in SG679’s summer 2025 refurb folder).\nWISPR 3.0 configuration\nsensor_id: 2402\nplatform_id: SG680\nstart_state: 2\nstart_mode: 3\nglider_mode: 0\nadc_type: LTC2512\nadc_sample_size: 3\nadc_sampling_rate: 200000\nadc_channels: 1\nadc_gain: 0\nadc_decimation: 4\nadc_timestamp: 0\nsecs_per_file: 120\nmax_file_size: 204800\nrun_time: 0\nduty_cycle: 0\ndebug_level: 1\nfft_size: 512\nfft_overlap: 0\nfft_window_type: 0\nrtc_aging: 0\nrtc_freq: 32767\nmsg_baud: 9600\nmsg_termination: 13\nmsg_handshake: 0\n\n\nDuring a mission\nThe Seaglider piloting cmdfile has four parameters that control WISPR operation while the glider is deployed. While these can be changed during a mission, these are typically set once at the start of a mission and should only be changed if the sampling scheme needs to be changed (e.g., turning off WISPR to reduce battery consumption or only sampling on ascents but not descents).\n$WS_RECORDABOVE,-10.0   # depth at which WISPR will record, 0 will never record\n$WS_PROFILE,3.0         # which profiles to record (1-descent, 2-ascent, 3-both)\n$WS_XMITPROFILE,3.0     # which profiles to transmit (1-descent, 2-ascent, 3-both)\n$WS_UPLOADMAX,100.0     # max upload size (in ?? bytes)\nIn this example WISPR will turn on and record at all depths below 10 m, on both descents and ascents, will transmit data back for both profiles (only relevant with a real-time system), and transmitted files will not be bigger than 100 bytes.\nFor $WS_RECORDABOVE a positive value indicates to sampling shallower than the specified depth (e.g., setting to 500 will record at depths from 0 to 500 m) and a negative value indicates to sample below the specified depth (e.g., setting to -20 will record at all depths below 20 m).\nPseudo-parameters that are reported in the logfile:\n$WS_STARTS,0.0          # pseudo-parameter, number of starts is reported in `logfile`\n$WS_NDIVE,1.0           # ?? psuedo-parameter",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#seaglider-installation",
+    "href": "wispr.html#seaglider-installation",
+    "title": "WISPR passive acoustic sensor",
+    "section": "Seaglider installation",
+    "text": "Seaglider installation\n\nHardware installation\nMore here later on how to physically install a WISPR3 system on a Seaglider…\nThis should include information on mounting, cabling, and hydrophone connections.\nA shortcut to documents from the OSU Bioacoustics Seaglider Group related to WISPR and WISPR3 hardware installation can be found in the NMFS PIC Gliders Shared Drive. This includes links to folders of photos of WISPR3 systems installed on SG607 and SG679.\n\n\nSeaglider logdev configuration\nWISPR is controlled by the Seaglider logdev interface where it is installed as a logger device. A wslog.cnf logger configuration file manages how the Seaglider communicates with and controls WISPR. This file can contain a variety of commands outlined in detail in the IOP logdev manual. This file is loaded during initial WISPR installation and otherwise should not need to be modified unless the WISPR hardware or software is changed.\nThe exact contents of this file (the amount of pauses and warmups) appears to be sensitive to changes in WISPR3 firmware so thorough testing is required after updating any firmware. Through testing, the below file should operate a WISPR3 running firmware v1.2.20250828 without a real-time system (historical firmware copies can be found in this repo’s resources folder).\nname=WISPR\nprefix=ws\ncmdprefix=$WS_\nbaud=9600\nvoltage=10\ncurrent=.0592\nwarmup=15000\ntimeout=7000\nprompt=W&gt;\ndatatype=z\nstart=\"%{$TME,%s*ff}%r%9%9%9%9$RUN*ee%r%9%9%9%9%9%9\"\nstop=\"$EXI*a6%r%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9%9\"\nAn example wslog.cnf for WISPR3 firmware version 1.2.250828 is located in the standard_files folder: wslog.cnf_v1.2.250828_for_seaglider.\n\nLoad wslog.cnf\nInstructions to load a new wslog.cnf are available below or as a Google Doc here: Load wslog.cnf.\nTo update a wslog.cnf file on a Seaglider, the previously loaded configuration must be deleted from the logger and the file deleted from the Seaglider, then the new file must be transferred to the Seaglider memory and then loaded into the logger.\nOn the Seaglider, the WISPR configuration file must be called wslog.cnf so in order to track different versions, always save a copy of the uploaded file with a unique name such as wslog.cnf_sg680_20250829 so it can be referenced later if needed. The Seaglider manufacturer logger installation/logdev documentation can be found at iop.apl.washington.edu/iopsg/logdev.txt.\n\nSteps:\n\nClear the currently loaded configuration\n\nNavigate through the main menu to param &gt; config &gt; logdel\nChoose 0 for WISPR (or whichever slot WISPR is loaded into)\nAfter hitting [CR] it will ask to confirm reinitializing the logger and select Y to do so\n\nDelete old wslog.cnf using pdos\n\nAccess pdos from the glider main menu\nUse ls to list all currently loaded files and check for presence of wslog.cnf\nUse cat wslog.cnf to view an existing configuration file\nUse del wslog.cnf to delete the existing file\nUse ls to confirm it has been removed\n\nUpload the new wslog.cnf using pdos\n\nFirst use ls to confirm wslog.cnf isn’t there any more\nPrepare the Seaglider to receive the file via XMODEM by typing xr wslog.cnf\nThe glider console will then be waiting for the file. Within TeraTerm navigate to File &gt; Transfer &gt; XMODEM &gt; Send and select the desired file\nA window will pop up showing the transfer progress; it should only take a few seconds. If it is taking a long time, hit cancel and try again\nVerify the correct new file has been uploaded with cat wslog.cnf\nType strip1a wslog.cnf to remove any extra lines or spaces\n\nAdd logger back in with params &gt; config &gt; logadd\n\nChoose slot 0 and then type in name of file wslog.cnf\nIt will then prompt if you want to reinitalize hardware configuration and choose Y\n\nCheck things\n\nVia the Seaglider menu navigate to hardware &gt; config &gt; logger\nSelect slot 1\nConfirm it says WISPR USART2 pwr f6\nSelect Y when prompted to re-initialize",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#wispr-updates",
+    "href": "wispr.html#wispr-updates",
+    "title": "WISPR passive acoustic sensor",
+    "section": "WISPR updates",
+    "text": "WISPR updates\nWISPR3 firmware updates must be flashed to the WISPR system. The latest wispr3.bin and wispr3_bl.bin files are available on the wispr3 GitHub repo Release folder. It has a README with instructions.\nWISPR3s purchased after 2025 come with a bootloader pre-installed. If there is no bootloader on the system, you must first flash the file wispr3_bl.bin using atmel ice programmer. You can tell if there is a bootloader on the system at WISPR startup if it displays the following message:\nEOS WISPR 3.0 Bootloader v1.0\nStart Application at flash address 0x10000\nIf a bootloader is present, firmware can be flashed by simply loading the wispr3.bin file onto a blank microSD and starting up the system. This will overwrite any existing wispr.txt sampling configuration and replace it with a default so after you update the firmware, you should modify the created default with the desired glider and mission specific settings and run a test to make sure they have been implemented.\nRecords of firmware versions can be found the resources/WISPR/firmware folder of this GitHub repository.",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "wispr.html#wispr-calibration",
+    "href": "wispr.html#wispr-calibration",
+    "title": "WISPR passive acoustic sensor",
+    "section": "WISPR calibration",
+    "text": "WISPR calibration\nOwn page - WISPR calibration",
+    "crumbs": [
+      "Sensors",
+      "WISPR passive acoustics"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Lab values and best practices",
+    "section": "",
+    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.\n\n\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to serve as a central resource for glider team members where all can contribute. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Lab values & best practices"
+    ]
+  },
+  {
+    "objectID": "data-processing.html",
+    "href": "data-processing.html",
+    "title": "Data processing",
+    "section": "",
+    "text": "There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing.\n\nGlider operational and environmental data processing\nThese data processing steps will generally follow the Post-mission processing steps outlined in the agate documentation.\nMore to come soon…\n\n\nPassive acoustic data processing\nSee excellent protocols and information on the NMFS PAM-Glider site: Analysis Methods &gt; Acoustic Data Pre-Processing\nSpecifically, the Seaglider - WISPR instructions will apply to the PIFSC Seagliders.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Data processing"
+    ]
+  },
+  {
+    "objectID": "team-resources.html",
+    "href": "team-resources.html",
+    "title": "Team Resources",
+    "section": "",
+    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\n\n\n\nMapping resources\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\nWISPR PAM system resources\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\nRandom things…\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\nTest phone connection on Seaglider\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\nSet up a new mission on seaglider.pub\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\nCreate the new mission directory\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\nAdd the mission to missions.yml\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}\n\n\n\n\n\n\n Back to top",
     "crumbs": [
       "Piloting",
-      "Oceanography"
+      "Team resources"
+    ]
+  },
+  {
+    "objectID": "gliders.html",
+    "href": "gliders.html",
+    "title": "Gliders",
+    "section": "",
+    "text": "We have two Seaglider SGX gliders. These gliders were developed at the University of Washington Applied Physics Laboratory and are currently manufacturered and supported by the Integrated Observational Platforms (IOP) group at UW-APL. These buoyancy driven, autonomous underwater gliders are capable of diving to 1000 m, survey 15-20 km per day, and can be deployed for many weeks. Each glider is equipped with an RBR Legato CTD and WISPR passive acoustic monitoring sensor.",
+    "crumbs": [
+      "Gliders"
+    ]
+  },
+  {
+    "objectID": "gliders.html#fleet-info-and-status",
+    "href": "gliders.html#fleet-info-and-status",
+    "title": "Gliders",
+    "section": "Fleet info and status",
+    "text": "Fleet info and status\nPIFSC Seaglider Inventory Tracker\nPIFSC Seaglider Work Record\n\nSG273\nName and pics coming soon…\n\n\nSG274\nName and pics coming soon…",
+    "crumbs": [
+      "Gliders"
     ]
   },
   {
@@ -210,7 +221,7 @@
     "href": "missions.html",
     "title": "Missions",
     "section": "",
-    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\nPIFSC Seaglider Mission Tracker\nThe below table will list basic information and links to reports and data for all in progress and past missions. See below for details on data links and availability.\n\nSpreadsheet to track current and completed missions(NOAA only)\n\n\n\nYear\nProject\nMission\nLocation\nSensors\nReport\nseaglider.pub\nERDDAP\nInternal Data\n\n\n\n\nYYYY\nproj_name\nsgXXX_Location_MonYYYY\nLocation\nCTD, WISPR, other sensors\nlink\n{coming soon}\n{coming soon}\npifsc-1 GCP\n\n\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n\n\n2023\nUxS-MHI\nsg639_MHI_Apr2023\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\n{coming soon}\npifsc-1 GCP\n\n\n2023\nUxS-MHI\nsg679_MHI_May2023\nMain Hawaiian Islands\nCTD, WISPR (PAM with near-real-time sperm whale detector)\nlink\nOSU basestation\n{coming soon}\npifsc-1 GCP\n\n\n2022\nUxS-MHI\nsg639_MHI_Apr2022\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\n{coming soon}\npifsc-1 GCP\n\n\n2022\nUxS-MHI\nsg680_MHI_Apr2022\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\n{coming soon}\npifsc-1 GCP\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n*Early missions using gliders SG639, SG679, and SG680 were conducted in collaboration with the Cooperative Institute for Marine Ecosystem and Resources Studies, Oregon State University.\n\n\nData Links\nThe above table contains several links to different data products.\nThe ‘seaglider.pub’ column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at noaaosu.seaglider.pub. Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (not yet live).\n\nThe ‘ERDDAP’ column will contain the link to the glider dataset when it is published to the ERDDAP of the IOOS National Glider Data Assembly Center.\nThe ‘Internal Data’ column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate access and permissions for that project. There are two types of Internal Data links:\n\npiloting: Raw piloting basestation files, tracks, and data products from the mission post-processing workflow. The most relevant data products for users will likely be in the ‘profiles’ folder, specificially the ‘gpsSurface’ and ‘CTD’ tables\nrecordings: Raw and/or processed acoustic data, typically in .wav or .flac format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals\n\nAdditional detail on the GCP folder structure can be found in the PIFSC Glider Lab Data Management Plan(NOAA only).\n\n\n\n\n Back to top",
+    "text": "This page will house information for current and past glider missions.\nTo date we have conducted several glider missions in collaboration with Oregon State University and SWFSC. Deployments that are part of the PAM-SI can be found here: nmfs-ost/PAM-Glider Deployment Tracker\n\nPIFSC Seaglider Mission Tracker\nThe below table will list basic information and links to reports and data for all in progress and past missions. See below for details on data links and availability.\n\nSpreadsheet to track current and completed missions(NOAA only)\n\n\n\nYear\nProject\nMission\nLocation\nSensors\nReport\nseaglider.pub\nERDDAP\nInternal Data\n\n\n\n\nYYYY\nproj_name\nsgXXX_Location_MonYYYY\nLocation\nCTD, WISPR, other sensors\nlink\n{coming soon}\n{coming soon}\npifsc-1 GCP\n\n\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n—–\n\n\n2023\nUxS-MHI\nsg639_MHI_Apr2023\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\nNA\npifsc-1 GCP\n\n\n2023\nUxS-MHI\nsg679_MHI_May2023\nMain Hawaiian Islands\nCTD, WISPR (PAM with near-real-time sperm whale detector)\nlink\nOSU basestation\nNA\npifsc-1 GCP\n\n\n2022\nUxS-MHI\nsg639_MHI_Apr2022\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\nNA\npifsc-1 GCP\n\n\n2022\nUxS-MHI\nsg680_MHI_Apr2022\nMain Hawaiian Islands\nCTD, PMARXL (PAM)\nlink\nOSU basestation\nNA\npifsc-1 GCP\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n*Early missions using gliders SG639, SG679, and SG680 were conducted in collaboration with the Cooperative Institute for Marine Ecosystem and Resources Studies, Oregon State University.\n\n\nData Links\nThe above table contains several links to different data products.\nThe ‘seaglider.pub’ column will contain the link the mission piloting/basestation outputs on the public-facing seaglider.pub vis. Missions conducted in collaboration with OSU will be found at noaaosu.seaglider.pub. Future PIFSC-owned glider missions will be at pifsc.seaglider.pub (not yet live).\n\nThe ‘ERDDAP’ column will contain the link to the glider dataset when it is published to the ERDDAP of the IOOS National Glider Data Assembly Center.\nThe ‘Internal Data’ column contains links to various PIFSC-internal data products, stored within the NMFS PAM-SI Google Cloud Platform (GCP) project. Users will only be able to access these data if they have been granted appropriate access and permissions for that project. There are two types of Internal Data links:\n\npiloting: Raw piloting basestation files, tracks, and data products from the mission post-processing workflow. The most relevant data products for users will likely be in the ‘profiles’ folder, specificially the ‘gpsSurface’ and ‘CTD’ tables\nrecordings: Raw and/or processed acoustic data, typically in .wav or .flac format. May contain decimated datasets (e.g., 1 and 10 kHz sample rate) depending on mission analysis goals\n\nAdditional detail on the GCP folder structure can be found in the PIFSC Glider Lab Data Management Plan(NOAA only).\n\n\n\n\n Back to top",
     "crumbs": [
       "Missions"
     ]
