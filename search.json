@@ -102,7 +102,62 @@
     "href": "mission-prep.html",
     "title": "Mission preparation",
     "section": "",
-    "text": "More to come soon…\n\nMission Prep Task List - TEMPLATE\nPIFSC Ballasting Procedure - DRAFT\n\n\n\n\n Back to top",
+    "text": "This page is under construction and feedback is very welcome! Hit “Report an issue” on the right to provide suggestions.\nClickable/editable Google Doc version - Mission Prep Task List - TEMPLATE. Suggest making a copy of this template for each glider/mission to track tasks and take notes.\nMain categories of prep steps:\n*(this page currently covers the items with a check)",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html#logistics",
+    "href": "mission-prep.html#logistics",
+    "title": "Mission preparation",
+    "section": "Logistics",
+    "text": "Logistics\n\nDraft survey plans\nMake final track (generate map and summary info, generate targets vfile, generate CSV of planned survey at 5 km resolution for Navy)\nDraft deployment plan/float plan\nArrange shipping (pickup, storage on arrival, hazmat paperwork)\nDraft pilot schedule",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html#set-up-local-and-cloud-file-structure",
+    "href": "mission-prep.html#set-up-local-and-cloud-file-structure",
+    "title": "Mission preparation",
+    "section": "Set up local and cloud file structure",
+    "text": "Set up local and cloud file structure\nSet up folder structure for this mission following the PIFSC Glider Data Management Plan. Mission planning and documentation (not related to the basestation) will be stored here.\n\nCreate a mission folder on Google Drive\nIn the NMFS PIC Gliders Shared Drive, navigate to the ‘missions’ folder and create a new folder named with the glider and mission title. Follow the below structure to create the relevant folders and documents. Template files for a pilot log, pilot schedule, and mission report are available in the main ‘missions’ folder.\nThis folder structure is still underdevelopment (we have to see how some projects and missions go to assess what is working or not working!) so the organization at the start of a mission is not critical or set in stone. However, we do want all relevant parts to be created and stored generally together before the mission begins.\nFor example, if more than one glider is being flown for a single project, and thus a single pilot schedule exists, it can just live in the main ‘missions’ folder and shortcuts can be added to the glider-specific folder. Alternatively, it may make sense to create a ‘project’ folder (e.g., WHICEAS) within the ‘missions’ folder and have each glider within that project folder.\nsgXXX_YYYYMMDD_location/project\n│   mission report\n├── photos\n│   pilot log\n│   pilot schedule\n└── prep\n    ├── acoustic configuration\n    │   ballasting worksheet\n    │   check sheet\n    └── tracks\nSee the ‘missions’ folder section for full details.\n\n\nOPTIONAL: Create a local mission folder\nIf you’ll be processing files mid-mission with agate it’s helpful to set up that local folder structure.\n\nCreate a ‘mission’ folder on the desktop or somewhere else easily accessible for downloading any glider basestation or piloting files locally. Suggest naming by the glider and mission name e.g., sgxxx_YYYYMMDD_location to match the conventions used in agate\nEither manually create the basestationFiles and flightStatus folders within this mission folder, or use mkdir in MATLAB to create them\n\n\n\nOPTIONAL: Setup agate\n\nCheck for any updates to agate from GitHub (https://github.com/sfregosi/agate), if desired\nSet up a configuration file for this glider and mission\nCreate a download script for easy downloading of basestation files to the local machine and generating some summary stats for the mission\nSee agate documentation for more detail on these steps\n\nBack to top",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html#update-constants-files",
+    "href": "mission-prep.html#update-constants-files",
+    "title": "Mission preparation",
+    "section": "Update “constants” files",
+    "text": "Update “constants” files\nThese two files exist/have copies in the glider’s home folder and the latest version will be copied to the mission folder when it is created below, so update them in the home directory first.\n\nUpdate the mission title in sg_calib_constants.m\nCheck, and if needed, update the mission title in sg_calib_constants.m and check that mass is valid from most recent work records.\nSee Update sg_calib_constants.m section above for more detail\n\n\nUpdate coordinates in sg_plot_constants.m\nsg_plot_constants.m sets the latitude and longitude bounds/extent for the map in the mission tile on seaglider.pub. The home directory may have some examples for common locations (e.g., Shilshole) that can be copied or new coordinates can be entered.",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html#create-the-new-mission-directory",
+    "href": "mission-prep.html#create-the-new-mission-directory",
+    "title": "Mission preparation",
+    "section": "Create the new mission directory",
+    "text": "Create the new mission directory\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets, sg_calib_constants.m, and sg_plot_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name that should match the mission title string from sg_calib_constants.m that follows the format of YYYYMMDD_location/project where location/project is something like Oahu or WHICEAS\n\nExample: 20251202_tests_wispr\n\nCheck that it was set up properly by running ls -la from the home directory",
+    "crumbs": [
+      "Best practices",
+      "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "mission-prep.html#add-the-mission-to-missions.yml",
+    "href": "mission-prep.html#add-the-mission-to-missions.yml",
+    "title": "Mission preparation",
+    "section": "Add the mission to missions.yml",
+    "text": "Add the mission to missions.yml\nUpdate the missions.yml file to properly display this mission as a tile and linked page on the seaglider.pub site (vis).\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes - Navigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\n\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\n\nMark the previous mission as complete by adding the line status: complete\n\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax (note the below examples use the OSU naming scheme)\n# long form\n  - \n    glider: 273\n    mission: 20251202_tests_wispr\n    path: sg273/20251202_tests_wispr\n    \n# condensed\n  - { glider: 273, mission: 20251202_tests_wispr, path: sg273/20251202_tests_wispr, status: complete}\nBack to top",
     "crumbs": [
       "Best practices",
       "Mission preparation"

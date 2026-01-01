@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -4126,8 +4161,41 @@ vertical-align: -.125em;
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#hardware-checks" id="toc-hardware-checks" class="nav-link active" data-scroll-target="#hardware-checks">Hardware checks</a>
+  <ul>
+  <li><a href="#update-sg_calib_constants.m" id="toc-update-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a></li>
+  </ul></li>
+  <li><a href="#mission-planning" id="toc-mission-planning" class="nav-link" data-scroll-target="#mission-planning">Mission planning</a>
+  <ul>
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
+  <li><a href="#set-up-local-and-cloud-file-structure" id="toc-set-up-local-and-cloud-file-structure" class="nav-link" data-scroll-target="#set-up-local-and-cloud-file-structure">Set up local and cloud file structure</a>
+  <ul class="collapse">
+  <li><a href="#create-a-mission-folder-on-google-drive" id="toc-create-a-mission-folder-on-google-drive" class="nav-link" data-scroll-target="#create-a-mission-folder-on-google-drive">Create a mission folder on Google Drive</a></li>
+  <li><a href="#optional-create-a-local-mission-folder" id="toc-optional-create-a-local-mission-folder" class="nav-link" data-scroll-target="#optional-create-a-local-mission-folder">OPTIONAL: Create a local mission folder</a></li>
+  <li><a href="#optional-setup-agate" id="toc-optional-setup-agate" class="nav-link" data-scroll-target="#optional-setup-agate">OPTIONAL: Setup <strong><em>agate</em></strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#prepare-basestation" id="toc-prepare-basestation" class="nav-link" data-scroll-target="#prepare-basestation">Prepare basestation</a>
+  <ul>
+  <li><a href="#update-constants-files" id="toc-update-constants-files" class="nav-link" data-scroll-target="#update-constants-files">Update “constants” files</a>
+  <ul class="collapse">
+  <li><a href="#update-the-mission-title-in-sg_calib_constants.m" id="toc-update-the-mission-title-in-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-the-mission-title-in-sg_calib_constants.m">Update the mission title in <code>sg_calib_constants.m</code></a></li>
+  <li><a href="#update-coordinates-in-sg_plot_constants.m" id="toc-update-coordinates-in-sg_plot_constants.m" class="nav-link" data-scroll-target="#update-coordinates-in-sg_plot_constants.m">Update coordinates in <code>sg_plot_constants.m</code></a></li>
+  </ul></li>
+  <li><a href="#create-the-new-mission-directory" id="toc-create-the-new-mission-directory" class="nav-link" data-scroll-target="#create-the-new-mission-directory">Create the new mission directory</a></li>
+  <li><a href="#add-the-mission-to-missions.yml" id="toc-add-the-mission-to-missions.yml" class="nav-link" data-scroll-target="#add-the-mission-to-missions.yml">Add the mission to <code>missions.yml</code></a></li>
+  </ul></li>
+  <li><a href="#launch-day-tasks" id="toc-launch-day-tasks" class="nav-link" data-scroll-target="#launch-day-tasks">Launch day tasks</a>
+  <ul>
+  <li><a href="#prep-and-upload-final-piloting-files" id="toc-prep-and-upload-final-piloting-files" class="nav-link" data-scroll-target="#prep-and-upload-final-piloting-files">Prep and upload final piloting files</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/mission-prep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/mission-prep.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -4153,13 +4221,255 @@ vertical-align: -.125em;
 </header>
 
 
+<p><em>This page is under construction and feedback is very welcome! Hit “Report an issue” on the right to provide suggestions.</em></p>
+<p>Clickable/editable Google Doc version - <a href="https://docs.google.com/document/d/1TMXsop5GJW_rMxrP8zSuazALNi_j8nHq24RIIzfw7_A/edit?tab=t.0#heading=h.7xtkyk82v1ni">Mission Prep Task List - TEMPLATE</a>. Suggest making a copy of this template for each glider/mission to track tasks and take notes.</p>
+<p><strong>Main categories of prep steps:</strong><br>
+<em>*(this page currently covers the items with a check)</em></p>
+<ul>
+<li><a href="#hardware-checks">Hardware checks</a>
+<ul>
+<li>ballasting</li>
+<li>✓ updating mass in <code>sg_calib_constants.m</code></li>
+<li>work record updates</li>
+</ul></li>
+<li><a href="#mission-planning">Mission planning</a>
+<ul>
+<li>✓ Set up Shared Drive folders</li>
+<li>✓ Set up local folders</li>
+<li>track/endurance planning</li>
+<li>shipping</li>
+</ul></li>
+<li><a href="#prepare-basestation">Basestation prep</a>
+<ul>
+<li>✓ Update constants (<code>sg_calib_constants.m</code>, <code>sg_plot_constants.m</code>)</li>
+<li>✓ Initiate new mission</li>
+<li>✓ Add mission to <code>mission.yml</code></li>
+<li>Check/prep piloting files</li>
+</ul></li>
+<li>Launch day prep
+<ul>
+<li>Self test review</li>
+<li>Parameter checks</li>
+<li>Final file checks</li>
+</ul></li>
+<li>??</li>
+</ul>
+<hr>
+<section id="hardware-checks" class="level1">
+<h1>Hardware checks</h1>
+<ul class="task-list">
+<li><label><input type="checkbox">Complete refurbishment and bench tests of any new sensors (tracked in <a href="https://drive.google.com/drive/u/0/folders/1Jcx4QQY_ujkqmqNBxfgTCHX-VeUrRU9r">work records</a>)</label></li>
+<li><label><input type="checkbox">Complete tank ballasting procedure to get approximate centers and check buoyancy - <a href="https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?tab=t.0">PIFSC Ballasting Procedure - DRAFT</a></label></li>
+</ul>
+<section id="update-sg_calib_constants.m" class="level3">
+<h3 class="anchored" data-anchor-id="update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Update <code>sg_calib_constants.m</code> on basestation with any mass or calibration changes from refurbishment or repairs and new mission title</label>
+<ul>
+<li><code>sg_calib_constants.m</code> is located in each gliders home folder (<code>/gliderjail/home/sgXXX</code> ). This will be copied to the mission folder when it is created with <code>newMission.py</code> below</li>
+<li>Before editing, first confirm the existing <code>sg_calib_constants.m</code> is backed up as a copy with the date modified in the name (e.g., <code>sg_calib_constants_2025-08-28.m</code>). If a copy does not exist, make one</li>
+<li>Then, modify the primary <code>sg_calib_constants.m</code> with any needed changes. Note these changes as comments and update the “Last updated” line. Make a copy with the date</li>
+</ul></li>
+</ul>
+<p>If shipping:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Complete and review a pre-shipment self test (either run this with the refurbishment mission or with the upcoming mission set on the basestation)</label></li>
+<li><label><input type="checkbox">Review final packing list and pack crates</label></li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+</section>
+<section id="mission-planning" class="level1">
+<h1>Mission planning</h1>
+<section id="logistics" class="level2">
+<h2 class="anchored" data-anchor-id="logistics">Logistics</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Draft survey plans</label></li>
+<li><label><input type="checkbox">Make final track (generate map and summary info, generate targets vfile, generate CSV of planned survey at 5 km resolution for Navy)</label></li>
+<li><label><input type="checkbox">Draft deployment plan/float plan</label></li>
+<li><label><input type="checkbox">Arrange shipping (pickup, storage on arrival, hazmat paperwork)</label></li>
+<li><label><input type="checkbox">Draft pilot schedule</label></li>
+</ul>
+</section>
+<section id="set-up-local-and-cloud-file-structure" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-local-and-cloud-file-structure">Set up local and cloud file structure</h2>
+<p>Set up folder structure for this mission following the <a href="https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.78r6l01m6htp">PIFSC Glider Data Management Plan</a>. Mission planning and documentation (not related to the basestation) will be stored here.</p>
+<section id="create-a-mission-folder-on-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-mission-folder-on-google-drive">Create a mission folder on Google Drive</h3>
+<p>In the <a href="https://drive.google.com/drive/u/0/folders/0ADBCQZl7LcMGUk9PVA">NMFS PIC Gliders Shared Drive</a>, navigate to the ‘missions’ folder and create a new folder named with the glider and mission title. Follow the below structure to create the relevant folders and documents. Template files for a pilot log, pilot schedule, and mission report are available in the main ‘missions’ folder.</p>
+<p>This folder structure is still underdevelopment (we have to see how some projects and missions go to assess what is working or not working!) so the organization at the start of a mission is not critical or set in stone. However, we do want all relevant parts to be created and stored generally together before the mission begins.</p>
+<p>For example, if more than one glider is being flown for a single project, and thus a single pilot schedule exists, it can just live in the main ‘missions’ folder and shortcuts can be added to the glider-specific folder. Alternatively, it may make sense to create a ‘project’ folder (e.g., WHICEAS) within the ‘missions’ folder and have each glider within that project folder.</p>
+<pre><code>sgXXX_YYYYMMDD_location/project
+│   mission report
+├── photos
+│   pilot log
+│   pilot schedule
+└── prep
+    ├── acoustic configuration
+    │   ballasting worksheet
+    │   check sheet
+    └── tracks</code></pre>
+<p>See the <a href="https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.78r6l01m6htp">‘missions’ folder section</a> for full details.</p>
+</section>
+<section id="optional-create-a-local-mission-folder" class="level3">
+<h3 class="anchored" data-anchor-id="optional-create-a-local-mission-folder">OPTIONAL: Create a local mission folder</h3>
+<p>If you’ll be processing files mid-mission with <strong><em>agate</em></strong> it’s helpful to set up that local folder structure.</p>
+<ul>
+<li>Create a ‘mission’ folder on the desktop or somewhere else easily accessible for downloading any glider basestation or piloting files locally. Suggest naming by the glider and mission name <em>e.g.</em>, <code>sgxxx_YYYYMMDD_location</code> to match the conventions used in <strong><em>agate</em></strong></li>
+<li>Either manually create the <code>basestationFiles</code> and <code>flightStatus</code> folders within this mission folder, or use <code>mkdir</code> in MATLAB to create them</li>
+</ul>
+</section>
+<section id="optional-setup-agate" class="level3">
+<h3 class="anchored" data-anchor-id="optional-setup-agate">OPTIONAL: Setup <strong><em>agate</em></strong></h3>
+<ul>
+<li>Check for any updates to <strong><em>agate</em></strong> from GitHub (<a href="https://github.com/sfregosi/agate">https://github.com/sfregosi/agate</a>), if desired</li>
+<li>Set up a configuration file for this glider and mission</li>
+<li>Create a download script for easy downloading of basestation files to the local machine and generating some summary stats for the mission</li>
+<li>See <strong><em>agate</em></strong> documentation for more detail on these steps</li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+</section>
+</section>
+<section id="prepare-basestation" class="level1">
+<h1>Prepare basestation</h1>
+<p><em>These instructions are for seaglider.pub/basestation3</em></p>
+<ul>
+<li>Connect to <code>seaglider.pub</code> via terminal (see <a href="https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE">Command Line Guide</a> for help with the command line)</li>
+<li>Navigate to the glider’s home directory <code>/home/jails/noaaosu/gliderjail/home/SGxxx</code></li>
+<li>All piloting files from the last mission should be in a mission-specific folder (named with <code>YYYYMMDD_location</code>) that is also mapped as the current folder
+<ul>
+<li>Check the current folder with the command <code>ls -la</code> from the home directory. This will display all files with details and the current folder will be listed with <code>-&gt;</code> with the folder it is currently mapped to</li>
+</ul></li>
+<li>If there are mission-specific piloting files (e.g. <code>baselog</code>, <code>p######.log</code>, <code>.nc</code>, etc.) those need to be moved using <code>MoveData.py</code> (this is unlikely as it was the old approach) BEFORE setting up the new mission or they may be overwritten</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>Old mission files need to be moved with <code>MoveData.py</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><em>(only if <code>NewMission.py</code> was NOT used to set up the previous mission)</em></p>
+<ul>
+<li>Navigate to the glider’s home directory <em>e.g.</em>, <code>/home/jails/noaaosu/gliderjail/home/SGxxx</code> or the folder with the files to be moved</li>
+<li>Run <code>basepy MoveData.py -m &lt;currentLocation&gt; -t &lt;newLocation&gt;</code>
+<ul>
+<li><code>&lt;currentLocation&gt;</code> is the location of the files to be moved. Use <code>.</code> if you are in the home directory. Alternatively it can be specified as the full path to <code>/home/jails/noaaosu/gliderjail/home/sgxxx</code> (the glider’s home directory) or a different folder</li>
+<li><code>&lt;newLocation&gt;</code> should be <code>YYYY-MM-DD_deployment_location</code> or if it is just sim dives to be moved, <code>YYYY-MM_DD_sim_dives</code>. Path only has to be specified relative to the present working directory</li>
+</ul></li>
+</ul>
+<p><strong>NOTE:</strong> I think this script <strong>does not</strong> move wispr files (<code>ws0001az.x00</code>, etc) and so those must be moved manually</p>
+</div>
+</div>
+</div>
+<section id="update-constants-files" class="level2">
+<h2 class="anchored" data-anchor-id="update-constants-files">Update “constants” files</h2>
+<p>These two files exist/have copies in the glider’s home folder and the latest version will be copied to the mission folder when it is created below, so update them in the home directory first.</p>
+<section id="update-the-mission-title-in-sg_calib_constants.m" class="level3">
+<h3 class="anchored" data-anchor-id="update-the-mission-title-in-sg_calib_constants.m">Update the mission title in <code>sg_calib_constants.m</code></h3>
+<p>Check, and if needed, update the mission title in <code>sg_calib_constants.m</code> and check that mass is valid from most recent work records.</p>
+<p>See <a href="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a> section above for more detail</p>
+</section>
+<section id="update-coordinates-in-sg_plot_constants.m" class="level3">
+<h3 class="anchored" data-anchor-id="update-coordinates-in-sg_plot_constants.m">Update coordinates in <code>sg_plot_constants.m</code></h3>
+<p><code>sg_plot_constants.m</code> sets the latitude and longitude bounds/extent for the map in the mission tile on seaglider.pub. The home directory may have some examples for common locations (e.g., Shilshole) that can be copied or new coordinates can be entered.</p>
+</section>
+</section>
+<section id="create-the-new-mission-directory" class="level2">
+<h2 class="anchored" data-anchor-id="create-the-new-mission-directory">Create the new mission directory</h2>
+<ul>
+<li>Navigate to the glider’s home directory <em>e.g.</em>, <code>/home/jails/noaaosu/gliderjail/home/sgXXX</code></li>
+<li>Use <code>NewMission.py</code> to create a new folder for this specific mission
+<ul>
+<li>The function will set up the mapping of the <code>current</code> folder so all newly created piloting files will be saved here when the glider calls in</li>
+<li>It will also copy general files from the home directory like <code>pagers.yml</code>, all the files that start with <code>.</code> that we don’t really use except <code>.pagers</code>, and piloting files like <code>science</code>, <code>cmdfile</code>, <code>targets</code>, <code>sg_calib_constants.m</code>, and <code>sg_plot_constants.m</code>. The originals stay in the home directory but this provides a starting point for this particular mission</li>
+</ul></li>
+<li>To run the function use:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>basepy NewMission.py ./ &lt;newMissionFolderName&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a># note the above uses seaglider.pub&#39;s shortcut to map full python paths</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a># alternatively could use full paths</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>&lt;newMissionFolderName&gt;</code> is the folder name that should match the mission title string from <code>sg_calib_constants.m</code> that follows the format of <code>YYYYMMDD_location/project</code> where location/project is something like <code>Oahu</code> or <code>WHICEAS</code>
+<ul>
+<li>Example: <code>20251202_tests_wispr</code></li>
+</ul></li>
+<li>Check that it was set up properly by running <code>ls -la</code> from the home directory</li>
+</ul>
+</section>
+<section id="add-the-mission-to-missions.yml" class="level2">
+<h2 class="anchored" data-anchor-id="add-the-mission-to-missions.yml">Add the mission to <code>missions.yml</code></h2>
+<p>Update the <code>missions.yml</code> file to properly display this mission as a tile and linked page on the seaglider.pub site (vis).</p>
+<p>The syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes - Navigate to your user folder (<code>/home/jails/noaaosu/username</code>) and use <code>cp ../gliderjail/home/missions.yml missions.orig</code> to create a backup of the existing <code>missions.yml</code> in your user directory</p>
+<ul>
+<li>Navigate to <code>/home/jails/noaaosu/gliderjail/home</code></li>
+<li>Open <code>missions.yml</code> for editing (using vi or nano)</li>
+<li>Copy the previous mission to the <code># past missions</code> section if needed
+<ul>
+<li>Mark the previous mission as complete by adding the line <code>status: complete</code></li>
+</ul></li>
+<li>Update the mission name and folder path in the <code># current missions</code> section</li>
+</ul>
+<p>Example syntax <em>(note the below examples use the OSU naming scheme)</em></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a># long form</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  - </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    glider: 273</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    mission: 20251202_tests_wispr</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    path: sg273/20251202_tests_wispr</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a># condensed</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  - { glider: 273, mission: 20251202_tests_wispr, path: sg273/20251202_tests_wispr, status: complete}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><sub><a href="#">Back to top</a></sub></p>
+</section>
+</section>
+<section id="launch-day-tasks" class="level1">
+<h1>Launch day tasks</h1>
+<section id="prep-and-upload-final-piloting-files" class="level3">
+<h3 class="anchored" data-anchor-id="prep-and-upload-final-piloting-files">Prep and upload final piloting files</h3>
+<p>Review the below files and upload them to the current mission folder. These can either be edited directly via the command line (using either <code>vi</code> or <code>nano</code> editors if using <code>seaglider.pub</code>) or by downloading and re-uploading manually using WinSCP. See the <a href="https://docs.google.com/document/d/1Kb-Txhg0VRp1Su7b27i2SznoJHQzJHwh0H2XGFuCZoE">Command Line Guide</a> for help with the command line.</p>
+<ul>
+<li><code>sg_calib_constants.m</code>
+<ul>
+<li>Change mission name and mass and update any calibration coefficients</li>
+<li>If not using basestation3, also update <code>rho0</code>, <code>volmax</code> and the hydrodynamic parameters</li>
+</ul></li>
+<li><code>sg_plot_constants.m</code>
+<ul>
+<li>Set vis map figure lat/lon extents</li>
+</ul></li>
+<li>Upload <code>cmdfile</code>
+<ul>
+<li>Check all params and update where needed for first short dive</li>
+</ul></li>
+<li>Check/update <code>science</code> (note format varies slightly for v66.12 or v67.0 gliders)</li>
+<li>Upload <code>targets</code>
+<ul>
+<li>For help creating a targets file, see the <a href="https://sfregosi.github.io/agate/mission-planning.html">Mission planning</a> page of the <strong><em>agate</em></strong> documentation</li>
+</ul></li>
+<li>Check <code>pmar.cnf</code> (if PMAR system only)</li>
+<li>Check/update <code>pagers.yml</code> (basestation3) or <code>.pagers</code> (OSU basestation)</li>
+<li>Check/update any <code>pdoscmds.bat</code> or create placeholders
+<ul>
+<li>Shouldn’t need one to start a mission but sometimes is useful to have a placeholder such as <code>pdoscmds.bat_target</code> that is loaded and ready to be copied/modified as needed. Examples of these can be stored in your user directory and copied into the specific glider’s mission folder</li>
+</ul></li>
+</ul>
+<p><sub><a href="#">Back to top</a></sub></p>
 <p><em>More to come soon…</em></p>
 <ul>
 <li><a href="https://docs.google.com/document/d/1TMXsop5GJW_rMxrP8zSuazALNi_j8nHq24RIIzfw7_A/edit?tab=t.0#heading=h.7xtkyk82v1ni">Mission Prep Task List - TEMPLATE</a></li>
-<li><a href="https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?tab=t.0">PIFSC Ballasting Procedure - DRAFT</a></li>
 </ul>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -4588,7 +4898,7 @@ vertical-align: -.125em;
 </div>   
     <div class="nav-footer-center">
        
-    <div class="toc-actions"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/mission-prep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/mission-prep.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/noaa-pifsc/glider-lab/edit/main/mission-prep.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/blob/main/mission-prep.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/noaa-pifsc/glider-lab/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
