@@ -4168,7 +4168,9 @@ vertical-align: -.125em;
   <ul>
   <li><a href="#hardware-checks" id="toc-hardware-checks" class="nav-link active" data-scroll-target="#hardware-checks">Hardware checks</a>
   <ul>
+  <li><a href="#ballast-or-tank-test" id="toc-ballast-or-tank-test" class="nav-link" data-scroll-target="#ballast-or-tank-test">Ballast or tank test</a></li>
   <li><a href="#update-sg_calib_constants.m" id="toc-update-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a></li>
+  <li><a href="#if-shipping" id="toc-if-shipping" class="nav-link" data-scroll-target="#if-shipping">If shipping…</a></li>
   </ul></li>
   <li><a href="#mission-planning" id="toc-mission-planning" class="nav-link" data-scroll-target="#mission-planning">Mission planning</a>
   <ul>
@@ -4228,8 +4230,8 @@ vertical-align: -.125em;
 <ul>
 <li><a href="#hardware-checks">Hardware checks</a>
 <ul>
-<li>ballasting</li>
-<li>✓ updating mass in <code>sg_calib_constants.m</code></li>
+<li>✓ Ballast or tank test</li>
+<li>✓ Update mass in <code>sg_calib_constants.m</code></li>
 <li>work record updates</li>
 </ul></li>
 <li><a href="#mission-planning">Mission planning</a>
@@ -4259,8 +4261,15 @@ vertical-align: -.125em;
 <h1>Hardware checks</h1>
 <ul class="task-list">
 <li><label><input type="checkbox">Complete refurbishment and bench tests of any new sensors (tracked in <a href="https://drive.google.com/drive/u/0/folders/1Jcx4QQY_ujkqmqNBxfgTCHX-VeUrRU9r">work records</a>)</label></li>
-<li><label><input type="checkbox">Complete tank ballasting procedure to get approximate centers and check buoyancy - <a href="https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?tab=t.0">PIFSC Ballasting Procedure - DRAFT</a></label></li>
 </ul>
+<section id="ballast-or-tank-test" class="level3">
+<h3 class="anchored" data-anchor-id="ballast-or-tank-test">Ballast or tank test</h3>
+<p>After a refurbishment or any new sensors have been installed, ballast (if major mass/volume changes) or tank test (if minor changes) to get preliminary/approximate trim centers and check glider buoyancy for the planned mission conditions.</p>
+<p>See <a href="https://docs.google.com/document/d/1Sx_tv-fnL69xdCXWQwYgJ5MQdmun7sLenrywtFPlwvY/edit?tab=t.0#heading=h.2m0cz7fh78at">Tank Ballasting Procedure</a> for a detailed guide of the operational steps (main menu guidance, etc.) to check centers and buoyancy in a tank.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Use <a href="https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?usp=drive_link">Tank test and Ballast Calculations</a> to run some calculations on the values collected with the above procedure to confirm that the observed buoyancy and trim centers are appropriate for the planned mission.</label></li>
+</ul>
+</section>
 <section id="update-sg_calib_constants.m" class="level3">
 <h3 class="anchored" data-anchor-id="update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></h3>
 <ul class="task-list">
@@ -4271,7 +4280,9 @@ vertical-align: -.125em;
 <li>Then, modify the primary <code>sg_calib_constants.m</code> with any needed changes. Note these changes as comments and update the “Last updated” line. Make a copy with the date</li>
 </ul></li>
 </ul>
-<p>If shipping:</p>
+</section>
+<section id="if-shipping" class="level3">
+<h3 class="anchored" data-anchor-id="if-shipping">If shipping…</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Complete and review a pre-shipment self test (either run this with the refurbishment mission or with the upcoming mission set on the basestation)</label></li>
 <li><label><input type="checkbox">Review final packing list and pack crates</label></li>
