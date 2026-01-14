@@ -4169,7 +4169,7 @@ vertical-align: -.125em;
   <li><a href="#hardware-checks" id="toc-hardware-checks" class="nav-link active" data-scroll-target="#hardware-checks">Hardware checks</a>
   <ul>
   <li><a href="#ballast-or-tank-test" id="toc-ballast-or-tank-test" class="nav-link" data-scroll-target="#ballast-or-tank-test">Ballast or tank test</a></li>
-  <li><a href="#update-sg_calib_constants.m" id="toc-update-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a></li>
+  <li><a href="#update-checkout-sheet" id="toc-update-checkout-sheet" class="nav-link" data-scroll-target="#update-checkout-sheet">Update checkout sheet</a></li>
   <li><a href="#if-shipping" id="toc-if-shipping" class="nav-link" data-scroll-target="#if-shipping">If shipping…</a></li>
   </ul></li>
   <li><a href="#mission-planning" id="toc-mission-planning" class="nav-link" data-scroll-target="#mission-planning">Mission planning</a>
@@ -4184,13 +4184,12 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#prepare-basestation" id="toc-prepare-basestation" class="nav-link" data-scroll-target="#prepare-basestation">Prepare basestation</a>
   <ul>
-  <li><a href="#update-constants-files" id="toc-update-constants-files" class="nav-link" data-scroll-target="#update-constants-files">Update “constants” files</a>
-  <ul class="collapse">
-  <li><a href="#update-the-mission-title-in-sg_calib_constants.m" id="toc-update-the-mission-title-in-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-the-mission-title-in-sg_calib_constants.m">Update the mission title in <code>sg_calib_constants.m</code></a></li>
-  <li><a href="#update-coordinates-in-sg_plot_constants.m" id="toc-update-coordinates-in-sg_plot_constants.m" class="nav-link" data-scroll-target="#update-coordinates-in-sg_plot_constants.m">Update coordinates in <code>sg_plot_constants.m</code></a></li>
-  </ul></li>
   <li><a href="#create-the-new-mission-directory" id="toc-create-the-new-mission-directory" class="nav-link" data-scroll-target="#create-the-new-mission-directory">Create the new mission directory</a></li>
   <li><a href="#add-the-mission-to-missions.yml" id="toc-add-the-mission-to-missions.yml" class="nav-link" data-scroll-target="#add-the-mission-to-missions.yml">Add the mission to <code>missions.yml</code></a></li>
+  <li><a href="#update-constants-files" id="toc-update-constants-files" class="nav-link" data-scroll-target="#update-constants-files">Update “constants” files</a>
+  <ul class="collapse">
+  <li><a href="#update-sg_calib_constants.m" id="toc-update-sg_calib_constants.m" class="nav-link" data-scroll-target="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#launch-day-tasks" id="toc-launch-day-tasks" class="nav-link" data-scroll-target="#launch-day-tasks">Launch day tasks</a>
   <ul>
@@ -4268,18 +4267,39 @@ vertical-align: -.125em;
 <p>See <a href="https://docs.google.com/document/d/1Sx_tv-fnL69xdCXWQwYgJ5MQdmun7sLenrywtFPlwvY/edit?tab=t.0#heading=h.2m0cz7fh78at">Tank Ballasting Procedure</a> for a detailed guide of the operational steps (main menu guidance, etc.) to check centers and buoyancy in a tank.</p>
 <ul class="task-list">
 <li><label><input type="checkbox">Use <a href="https://docs.google.com/document/d/1b6X5l-R-8e2ALiu8q5KYue_S4rOvQ0H3Nii5-_5S7o0/edit?usp=drive_link">Tank test and Ballast Calculations</a> to run some calculations on the values collected with the above procedure to confirm that the observed buoyancy and trim centers are appropriate for the planned mission.</label></li>
+<li><label><input type="checkbox">Update <a href="https://docs.google.com/spreadsheets/d/1YsNtV8qwVBUALXFxBaR8tk-P6ZU2w9QV4eZkyafvf_s/edit?gid=0#gid=0">Work Record</a> with relevant info</label></li>
+<li><label><input type="checkbox">Update <a href="https://docs.google.com/spreadsheets/d/1dORG6XC6ikm7x13q_PeKNE1b6C-R49zsDDRrlINzBvM/edit?gid=15308096#gid=15308096">Inventory Tracker</a> if any major sensor changes were made</label></li>
 </ul>
 </section>
-<section id="update-sg_calib_constants.m" class="level3">
-<h3 class="anchored" data-anchor-id="update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></h3>
+<section id="update-checkout-sheet" class="level3">
+<h3 class="anchored" data-anchor-id="update-checkout-sheet">Update checkout sheet</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The checkout sheet is the guide to each glider build and contains all the details needed to set up a glider mission so it’s critical to keep it updated!</p>
+</div>
+</div>
+<p>A new checkout sheet is needed following any work - refurbishments, repairs, sensor installations, or ballasting - with the new mass and any other relevant info such as sensor serial numbers or calibration dates</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Update <code>sg_calib_constants.m</code> on basestation with any mass or calibration changes from refurbishment or repairs and new mission title</label>
+<li><label><input type="checkbox">Create a new checkout sheet</label>
 <ul>
-<li><code>sg_calib_constants.m</code> is located in each gliders home folder (<code>/gliderjail/home/sgXXX</code> ). This will be copied to the mission folder when it is created with <code>newMission.py</code> below</li>
-<li>Before editing, first confirm the existing <code>sg_calib_constants.m</code> is backed up as a copy with the date modified in the name (e.g., <code>sg_calib_constants_2025-08-28.m</code>). If a copy does not exist, make one</li>
-<li>Then, modify the primary <code>sg_calib_constants.m</code> with any needed changes. Note these changes as comments and update the “Last updated” line. Make a copy with the date</li>
+<li>Make a copy of the existing doc and rename with today’s date</li>
+<li>Update the relevant fields with the correct value, any important notes, and the date it was updated</li>
 </ul></li>
 </ul>
+<p>Check sheets are stored in the glider-specific folders in the <a href="https://drive.google.com/drive/u/0/folders/0ADBCQZl7LcMGUk9PVA">NMFS PIC Gliders Shared Drive</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>NMFS PIC Gliders</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── SG273</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>└── SG274</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  ├── sg274 checkout sheet YYYY-MM-DD.xlsx</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  └── sg274 checkout sheet YYYY-MM-DD.xlsx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="if-shipping" class="level3">
 <h3 class="anchored" data-anchor-id="if-shipping">If shipping…</h3>
@@ -4307,19 +4327,19 @@ vertical-align: -.125em;
 <p>Set up folder structure for this mission following the <a href="https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.78r6l01m6htp">PIFSC Glider Data Management Plan</a>. Mission planning and documentation (not related to the basestation) will be stored here.</p>
 <section id="create-a-mission-folder-on-google-drive" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-mission-folder-on-google-drive">Create a mission folder on Google Drive</h3>
-<p>In the <a href="https://drive.google.com/drive/u/0/folders/0ADBCQZl7LcMGUk9PVA">NMFS PIC Gliders Shared Drive</a>, navigate to the ‘missions’ folder and create a new folder named with the glider and mission title. Follow the below structure to create the relevant folders and documents. Template files for a pilot log, pilot schedule, and mission report are available in the main ‘missions’ folder.</p>
+<p>In the <a href="https://drive.google.com/drive/u/0/folders/0ADBCQZl7LcMGUk9PVA">NMFS PIC Gliders Shared Drive</a>, navigate to the ‘missions’ folder and create a new folder named with the mission title. Follow the below structure to create the relevant folders and documents. Template files for a pilot log, pilot schedule, and mission report are available in the main ‘missions’ folder.</p>
 <p>This folder structure is still underdevelopment (we have to see how some projects and missions go to assess what is working or not working!) so the organization at the start of a mission is not critical or set in stone. However, we do want all relevant parts to be created and stored generally together before the mission begins.</p>
-<p>For example, if more than one glider is being flown for a single project, and thus a single pilot schedule exists, it can just live in the main ‘missions’ folder and shortcuts can be added to the glider-specific folder. Alternatively, it may make sense to create a ‘project’ folder (e.g., WHICEAS) within the ‘missions’ folder and have each glider within that project folder.</p>
-<pre><code>sgXXX_YYYYMMDD_location/project
-│   mission report
-├── photos
-│   pilot log
-│   pilot schedule
-└── prep
-    ├── acoustic configuration
-    │   ballasting worksheet
-    │   check sheet
-    └── tracks</code></pre>
+<p>For example, we are still working out how to organize things when more than one glider is flown for a project - each glider has it’s own organizational string (e.g., <code>sgxxx_YYYYMMDD_location</code>, pilot log, and configuration files) but that project would likely have a single pilot schedule and report.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>YYYYMMDD_location/project</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>│   mission report</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>├── photos</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>│   pilot log</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>│   pilot schedule</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>└── prep</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ├── acoustic configuration</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    │   ballasting worksheet</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    │   check sheet</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    └── tracks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See the <a href="https://docs.google.com/document/d/1FCwBSUFHXaw8124u0K0YmNmUrCakKbkyKyzvz7sumNM/edit?tab=t.0#heading=h.78r6l01m6htp">‘missions’ folder section</a> for full details.</p>
 </section>
 <section id="optional-create-a-local-mission-folder" class="level3">
@@ -4355,7 +4375,7 @@ vertical-align: -.125em;
 <li>If there are mission-specific piloting files (e.g. <code>baselog</code>, <code>p######.log</code>, <code>.nc</code>, etc.) those need to be moved using <code>MoveData.py</code> (this is unlikely as it was the old approach) BEFORE setting up the new mission or they may be overwritten</li>
 </ul>
 <div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4364,7 +4384,7 @@ vertical-align: -.125em;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><em>(only if <code>NewMission.py</code> was NOT used to set up the previous mission)</em></p>
 <ul>
@@ -4379,19 +4399,6 @@ vertical-align: -.125em;
 </div>
 </div>
 </div>
-<section id="update-constants-files" class="level2">
-<h2 class="anchored" data-anchor-id="update-constants-files">Update “constants” files</h2>
-<p>These two files exist/have copies in the glider’s home folder and the latest version will be copied to the mission folder when it is created below, so update them in the home directory first.</p>
-<section id="update-the-mission-title-in-sg_calib_constants.m" class="level3">
-<h3 class="anchored" data-anchor-id="update-the-mission-title-in-sg_calib_constants.m">Update the mission title in <code>sg_calib_constants.m</code></h3>
-<p>Check, and if needed, update the mission title in <code>sg_calib_constants.m</code> and check that mass is valid from most recent work records.</p>
-<p>See <a href="#update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></a> section above for more detail</p>
-</section>
-<section id="update-coordinates-in-sg_plot_constants.m" class="level3">
-<h3 class="anchored" data-anchor-id="update-coordinates-in-sg_plot_constants.m">Update coordinates in <code>sg_plot_constants.m</code></h3>
-<p><code>sg_plot_constants.m</code> sets the latitude and longitude bounds/extent for the map in the mission tile on seaglider.pub. The home directory may have some examples for common locations (e.g., Shilshole) that can be copied or new coordinates can be entered.</p>
-</section>
-</section>
 <section id="create-the-new-mission-directory" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-new-mission-directory">Create the new mission directory</h2>
 <ul>
@@ -4399,22 +4406,44 @@ vertical-align: -.125em;
 <li>Use <code>NewMission.py</code> to create a new folder for this specific mission
 <ul>
 <li>The function will set up the mapping of the <code>current</code> folder so all newly created piloting files will be saved here when the glider calls in</li>
-<li>It will also copy general files from the home directory like <code>pagers.yml</code>, all the files that start with <code>.</code> that we don’t really use except <code>.pagers</code>, and piloting files like <code>science</code>, <code>cmdfile</code>, <code>targets</code>, <code>sg_calib_constants.m</code>, and <code>sg_plot_constants.m</code>. The originals stay in the home directory but this provides a starting point for this particular mission</li>
+<li>It will copy or make shortcuts to required piloting files like <code>pagers.yml</code>, <code>cmdfile</code>, <code>sg_calib_constants.m</code>, and <code>sg_plot_constants.m</code>.</li>
 </ul></li>
-<li>To run the function use:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>basepy NewMission.py ./ &lt;newMissionFolderName&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a># note the above uses seaglider.pub&#39;s shortcut to map full python paths</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a># alternatively could use full paths</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<li>Run the function with the below code
 <ul>
-<li><code>&lt;newMissionFolderName&gt;</code> is the folder name that should match the mission title string from <code>sg_calib_constants.m</code> that follows the format of <code>YYYYMMDD_location/project</code> where location/project is something like <code>Oahu</code> or <code>WHICEAS</code>
+<li><code>&lt;newMissionFolderName&gt;</code> is the folder name that matches the mission title string set in <code>sg_calib_constants.m</code> and follows the format of <code>YYYYMMDD_location/project</code> where location/project is something like <code>Oahu</code> or <code>WHICEAS</code>
 <ul>
 <li>Example: <code>20251202_tests_wispr</code></li>
 </ul></li>
+</ul></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>basepy NewMission.py ./ &lt;newMissionFolderName&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a># note the above uses seaglider.pub&#39;s shortcut to map full python paths</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a># alternatively could use full paths</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
 <li>Check that it was set up properly by running <code>ls -la</code> from the home directory</li>
 </ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>What files get copied from where??
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>sg_calib_constants.m</code>, <code>sg_plot_constants.m</code>, <code>sections.yml</code>, <code>cmdfile</code>, <code>targets</code>, <code>science</code>, <code>scicon.sh</code> get copied from previous mission (if it exists) or the home directory. These will need further checking/updating (below)</li>
+<li>It will create a shortcut to <code>pagers.yml</code> and other dot configuration files (in the glider’s home diretory)</li>
+<li>It will create a blank database file <code>sgxxx.db</code></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="add-the-mission-to-missions.yml" class="level2">
 <h2 class="anchored" data-anchor-id="add-the-mission-to-missions.yml">Add the mission to <code>missions.yml</code></h2>
@@ -4430,15 +4459,45 @@ vertical-align: -.125em;
 <li>Update the mission name and folder path in the <code># current missions</code> section</li>
 </ul>
 <p>Example syntax <em>(note the below examples use the OSU naming scheme)</em></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a># long form</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  - </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    glider: 273</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    mission: 20251202_tests_wispr</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    path: sg273/20251202_tests_wispr</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a># condensed</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  - { glider: 273, mission: 20251202_tests_wispr, path: sg273/20251202_tests_wispr, status: complete}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a># long form</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  - </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    glider: 273</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    mission: 20251202_tests_wispr</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    path: sg273/20251202_tests_wispr</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a># condensed</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  - { glider: 273, mission: 20251202_tests_wispr, path: sg273/20251202_tests_wispr, status: complete}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>If anything isn’t working, start over from the original by copying it over from your user directory:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a># from the home directory</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cp ../../username/missions.orig missions.yml</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a># from your user directory</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>cp missions.orig ../gliderjail/home/missions.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="update-constants-files" class="level2">
+<h2 class="anchored" data-anchor-id="update-constants-files">Update “constants” files</h2>
+<p>These two files exist/have copies in the glider’s home folder and the latest version will be copied to the mission folder when it is created below, so update them in the home directory first.</p>
+<section id="update-sg_calib_constants.m" class="level3">
+<h3 class="anchored" data-anchor-id="update-sg_calib_constants.m">Update <code>sg_calib_constants.m</code></h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Update mission title, and any mass or calibration changes from refurbishment or repairs</label>
+<ul>
+<li>Modify the copy of <code>sg_calib_constants.m</code> in the current (newly created) mission folder</li>
+<li>Update the “Last updated” line at the top with today’s date and your initials</li>
+<li>For record keeping, make a copy in the glider’s home folder (<code>/gliderjail/home/sgXXX</code> ) but rename to include the date modified (e.g., <code>sg_calib_constants_2025-08-28.m</code>)</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a># from the glider&#39;s current folder</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cp sg_calib_constants.m ../sg_calib_constants_YYYY-MM-DD.m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h3 id="update-sg_plot_constants.m" class="anchored">Update <code>sg_plot_constants.m</code></h3></li>
+<li><label><input type="checkbox">Update latitude/longitude bounds for the map shown on the mission tile on seaglider.pub</label>
+<ul>
+<li>The home directory may have some examples for common locations (e.g., Shilshole) that can be copied or new coordinates can be entered</li>
+</ul></li>
+</ul>
 <p><sub><a href="#">Back to top</a></sub></p>
+</section>
 </section>
 </section>
 <section id="launch-day-tasks" class="level1">
