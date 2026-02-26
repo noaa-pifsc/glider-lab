@@ -17,7 +17,8 @@ The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/ab
 | [Erik Norris](mailto:erik.norris@noaa.gov)         | Physical Science Technician  | Lab Manager, Pilot, Tech |
 | [Selene Fregosi](mailto:selene.fregosi@noaa.gov)   | Cetacean Acoustician | Pilot, Analyst |
 | [Calla Lloyd-Lim](mailto:calla.lloyd-lim@noaa.gov) | Biological Science Technician | Pilot, Tech |
-| [Jeremy Taylor](mailto:jeremy.taylor@noaa.gov)     | Marine Scientist | Tech | 
+| [Jeremy Taylor](mailto:jeremy.taylor@noaa.gov)     | Marine Scientist | Tech |
+| [Aksel Sloan](mailto:aksel.sloan@noaa.gov)         | Software Engineer | Developer, Analyst | 
 | [Charles Littnan](mailto:charles.littnan@noaa.gov) | Director, PIFSC | |
 
 ## Project Management
