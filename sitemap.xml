@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/wispr-calibration.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
+    <loc>https://noaa-pifsc.github.io/glider-lab/oceanography.html</loc>
+    <lastmod>2026-02-26T23:23:21.098Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/test.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/oceanography.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
-    <lastmod>2026-02-06T21:56:08.966Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/index.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/mission-prep.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/wispr.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
+    <lastmod>2026-02-26T23:23:21.099Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/best-practices.html</loc>
-    <lastmod>2026-02-06T21:56:08.966Z</lastmod>
+    <lastmod>2026-02-26T23:23:21.061Z</lastmod>
   </url>
   <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/data-processing.html</loc>
-    <lastmod>2026-02-06T21:56:08.966Z</lastmod>
+    <loc>https://noaa-pifsc.github.io/glider-lab/wispr.html</loc>
+    <lastmod>2026-02-26T23:23:21.099Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/data-management.html</loc>
+    <lastmod>2026-02-26T23:23:21.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/index.html</loc>
+    <lastmod>2026-02-26T23:23:21.098Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/team-resources.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
-  </url>
-  <url>
-    <loc>https://noaa-pifsc.github.io/glider-lab/gliders.html</loc>
-    <lastmod>2026-02-06T21:56:08.966Z</lastmod>
+    <lastmod>2026-02-26T23:23:21.098Z</lastmod>
   </url>
   <url>
     <loc>https://noaa-pifsc.github.io/glider-lab/missions.html</loc>
-    <lastmod>2026-02-06T21:56:09.004Z</lastmod>
+    <lastmod>2026-02-26T23:23:21.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/data-processing.html</loc>
+    <lastmod>2026-02-26T23:23:21.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/mission-prep.html</loc>
+    <lastmod>2026-02-26T23:23:21.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/wispr-calibration.html</loc>
+    <lastmod>2026-02-26T23:23:21.099Z</lastmod>
+  </url>
+  <url>
+    <loc>https://noaa-pifsc.github.io/glider-lab/gliders.html</loc>
+    <lastmod>2026-02-26T23:23:21.061Z</lastmod>
   </url>
 </urlset>
