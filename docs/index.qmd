@@ -27,7 +27,7 @@ For current Seaglider fleet status, see [this Google Sheet](https://docs.google.
 
 [NMFS PIC Gliders Google Shared Drive](https://drive.google.com/drive/folders/0ADBCQZl7LcMGUk9PVA)(NOAA-only)
 
-[nmfs.pic.gliders email group](https://docs.google.com/document/d/1ZiZGCoczyC9KMqDtPGBvmzCa3XRf_OWzKPr-40zd-vk/edit?tab=t.0)
+[nmfs.pic.gliders email group management](https://docs.google.com/document/d/1ZiZGCoczyC9KMqDtPGBvmzCa3XRf_OWzKPr-40zd-vk/edit?tab=t.0)
 
 <!-- The PIFSC glider team is using GitHub Issues and Projects for project management. Our efforts are heavily inspired and influenced by the Openscapes [GitHub for project management](https://openscapes.github.io/series/core-lessons/github/github-issues.html){target="_blank"} approach. -->
 
@@ -43,6 +43,7 @@ GitHub repos developed by the PIFSC glider team. <!--Issues for these repos are 
 | [agate](https://github.com/sfregosi/agate) | agate: MATLAB-based tools for working with PAM Seagliders |
 | [glider-MHI](https://github.com/sfregosi-noaa/glider-MHI) | Mission-specific analysis repo for 2022-2023 MHI missions | 
 | [glider-CalCurCEAS](https://github.com/sfregosi-noaa/glider-CalCurCEAS) | Mission-specific analysis repo for 2024 CalCurCEAS missons |
+| [glider-WHICEAS](https://github.com/PIFSC-Protected-Species-Division/glider-WHICEAS) | Mission-specific analysis repo for 2026 WHICEAS missions |
 <!-- | [standard-glider-files](https://github.com/SWFSC/standard-glider-files){target="_blank"}       | ESD Glider cache files, as well as standard files that are put on all gliders before deployment | -->
 <!-- | [glider-utils](https://github.com/SWFSC/glider-utils){target="_blank"}                           | Utility functions for processing ESD glider data                                                | -->
 <!-- | [echoview_glider_template](https://github.com/SWFSC/echoview_glider_template){target="_blank"} | Echoview glider templates that are used for acoustic data analysis                              | -->
