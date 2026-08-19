@@ -13,7 +13,7 @@ Our default is to connect the optode to hardware channel 1 (scicon J5 - assuming
 
 Example from IOP. Includes both Tridente and optode.
 
-```{default}
+```text
 # instance tridente of class tridentebb700chla470fdom365 {
 tridentebb700chla470fdom365 = {
  prefix = td
@@ -62,7 +62,7 @@ aa4831 = {
 Example from IOP. Includes both Tridente and optode and uses standard hardware
 channels of 0 for Tridente and 1 for optode.
 
-```{default}
+```text
 tridente = {
  type = tridentebb700chla470fdom365
  hwchan = 0
@@ -79,7 +79,7 @@ optode = {
 ### Example `scicon.sch`
 You will also need tridente and optode entries in your `scicon.sch` file.
 
-```{default}
+```text
 # #### Need to add an example!! IOP did not send one, but Jace probably has one ####
 ```
 
@@ -93,7 +93,7 @@ Here are some setup instructions for getting these sensors set up for standard i
 
 2.  Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):
 
-```{default}
+```text
 term 1 9600 addlf stroke
 set passkey (1000)
 set mode(smart sensor terminal)
