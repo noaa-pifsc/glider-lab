@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -4361,67 +4396,67 @@ vertical-align: -.125em;
 <section id="example-scicon.ins" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.ins">Example <code>scicon.ins</code></h3>
 <p>Example from IOP. Includes both Tridente and optode.</p>
-<pre class="text"><code># instance tridente of class tridentebb700chla470fdom365 {
-tridentebb700chla470fdom365 = {
- prefix = td
- baud = 19200
- cycles = 0
- timeout = 1000
- warmup = 0
- skip = 0
- bufflen = 0
- avg = 0
- dec = 0
- multiline = 0
- power = 0
- terminator = 10
- format = %d, %00, %01, %02
- meta = %9%9%F%n%[Ready: ]getall%r%n%[Ready:]
- column = bb700(100000,0)
- column = chla470(1000,0)
- column = fdom365(1000,0)
-}
-
-# instance optode of class aa4831 {
-aa4831 = {
- prefix = aa4831
- baud = 9600
- cycles = 0
- timeout = 5000
- warmup = 1000
- skip = 0
- bufflen = 0
- avg = 0
- dec = 0
- terminator = 10
- format = %s %d %00 %01 %02 %03 %04
- meta = %[4831]%n%$11%9get all%r%n%[Reference]%[%$23]
- column = O2(1000,0)
- column = airsat(1000,0)
- column = temp(1000,0)
- column = calphase(1000,0)
- column = tcphase(1000,0)
-}</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a># instance tridente of class tridentebb700chla470fdom365 {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tridentebb700chla470fdom365 = {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> prefix = td</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> baud = 19200</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> cycles = 0</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> timeout = 1000</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> warmup = 0</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> skip = 0</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> bufflen = 0</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> avg = 0</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a> dec = 0</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a> multiline = 0</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a> power = 0</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> terminator = 10</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> format = %d, %00, %01, %02</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a> meta = %9%9%F%n%[Ready: ]getall%r%n%[Ready:]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a> column = bb700(100000,0)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a> column = chla470(1000,0)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a> column = fdom365(1000,0)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a># instance optode of class aa4831 {</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>aa4831 = {</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a> prefix = aa4831</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a> baud = 9600</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a> cycles = 0</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a> timeout = 5000</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a> warmup = 1000</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a> skip = 0</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a> bufflen = 0</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a> avg = 0</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a> dec = 0</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a> terminator = 10</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a> format = %s %d %00 %01 %02 %03 %04</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a> meta = %[4831]%n%$11%9get all%r%n%[Reference]%[%$23]</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a> column = O2(1000,0)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a> column = airsat(1000,0)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a> column = temp(1000,0)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a> column = calphase(1000,0)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a> column = tcphase(1000,0)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-scicon.att" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.att">Example <code>scicon.att</code></h3>
 <p>Example from IOP. Includes both Tridente and optode and uses standard hardware channels of 0 for Tridente and 1 for optode.</p>
-<pre class="text"><code>tridente = {
- type = tridentebb700chla470fdom365
- hwchan = 0
- verbose = 2
-}
-
-optode = {
- type = aa4831
- hwchan = 1
- verbose = 2
-}</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tridente = {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> type = tridentebb700chla470fdom365</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> hwchan = 0</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> verbose = 2</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>optode = {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> type = aa4831</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> hwchan = 1</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a> verbose = 2</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-scicon.sch" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.sch">Example <code>scicon.sch</code></h3>
 <p>You will also need tridente and optode entries in your <code>scicon.sch</code> file.</p>
-<pre class="text"><code># #### Need to add an example!! IOP did not send one, but Jace probably has one ####</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a># #### Need to add an example!! IOP did not send one, but Jace probably has one ####</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="set-up-instructions" class="level2">
@@ -4433,18 +4468,18 @@ optode = {
 <li><p>Connect to the optode with the default baud rate (9600). If the sensors are plugged into the glider and the scicon.ins and scicon.att files are correct, you can connect to the sensors via scicon: from the glider menu, hw/loggers/sc/direct (which connects you to scicon) then term 1 9600 addlf stroke (if the optode is connected to hardware channel 1. If it’s connected to hardware channel N, then the command to talk to the sensor would be term N).</p></li>
 <li><p>Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):</p></li>
 </ol>
-<pre class="text"><code>term 1 9600 addlf stroke
-set passkey (1000)
-set mode(smart sensor terminal)
-set  enable comm indicator(no)
-set salinity(0)
-set enable text(no)
-set enable decimalformat(yes)
-set enable rawdata(yes)
-set enable sleep(no)
-set interval(1)
-save
-reset</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>term 1 9600 addlf stroke</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>set passkey (1000)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>set mode(smart sensor terminal)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>set  enable comm indicator(no)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>set salinity(0)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>set enable text(no)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>set enable decimalformat(yes)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>set enable rawdata(yes)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>set enable sleep(no)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>set interval(1)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>save</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>reset</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li>Disconnect from the optode with Ctrl+D, disconnect from scicon with Ctrl+Q</li>
 </ol>
