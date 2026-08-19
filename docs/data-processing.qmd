@@ -5,6 +5,16 @@ title: "Data processing"
 
 There are several steps for data processing following a mission and they fall into two main categories: (1) glider operational and environmental data processing and (2) passive acoustic data processing. 
 
+```{mermaid}
+
+flowchart TD
+
+nc[basestation by-dive .nc] --> |extractPositionalData|
+gps[gps surface table;
+]
+
+```
+
 ### Glider operational and environmental data processing
 
 These data processing steps will generally follow the [Post-mission processing](https://sfregosi.github.io/agate/mission-processing.html) steps outlined in the _**agate**_ documentation. 
@@ -13,7 +23,20 @@ These data processing steps will generally follow the [Post-mission processing](
 
 ### Passive acoustic data processing
 
-See excellent protocols and information on the NMFS PAM-Glider site: [Analysis Methods > Acoustic Data Pre-Processing](https://nmfs-ost.github.io/PAM-Glider/content/data_processing/AcousticData-preprocessing.html)
+See excellent protocols and information on the NMFS PAM Glider site: [Analysis Methods > Acoustic Data Pre-Processing](https://nmfs-ost.github.io/PAM-Glider/content/data_processing/AcousticData-preprocessing.html)
 
 Specifically, the [Seaglider - WISPR](https://nmfs-ost.github.io/PAM-Glider/content/data_processing/seaglider-wispr.html) instructions will apply to the PIFSC Seagliders. 
 
+flowchart TD;
+    sbd[L0 flight: .sbd /.dbd] -->|dbd2netcdf| l1sbd[L1 flight: .sbd.nc];
+    tbd[L0 science: .tbd /.ebd] -->|dbd2netcdf| l1tbd[L1 science: .tbd.nc];
+    l1sbd --- C[ ]:::empty;
+    l1tbd --- C;
+    config[config.yml] --- C;
+    C -->|glide l2| l2[L2: .l2.nc];
+    l2 --- D[ ]:::empty;
+    config --- D;
+    q[Ancillery: .q.nc] --- D;
+    D -->|glide l3| l3[L3: .l3.nc];
+    
+classDef empty fill:none,stroke:none,color:transparent,width:1px,height:1px;

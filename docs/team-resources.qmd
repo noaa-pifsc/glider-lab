@@ -1,6 +1,6 @@
 ---
 title: "Team Resources"
-Subtitle: Links to various resources that don't belong elsewhere
+subtitle: Links to various resources that don't belong elsewhere
 ---
 
 ## Useful guides

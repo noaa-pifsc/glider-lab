@@ -1,0 +1,47 @@
+---
+title: "Calibration information"
+subtitle: "Guide and relevant links for updating calibrations for various sensors"
+---
+
+## Calibration documents
+
+Calibration documents are tracked in GitHub. Individual sensor calibrations can 
+be found in the [calibration](https://github.com/noaa-pifsc/glider-lab/tree/main/calibration) 
+folder, in individual folders by sensor. 
+
+*NOTE:* The [collaborators](https://github.com/noaa-pifsc/glider-lab/tree/main/calibration/hydrophones) 
+folder has copies of calibrations for hydrophones owned by collaborator 
+institutions (OSU and SWFSC). 
+
+
+::: {.callout-note title="WISPR calibration" appearance="minimal"}
+More detailed info on WISPR calibration (which is not tracked in the Seaglider 
+operational files) can be found on the [WISPR calibration page](wispr-calibration.qmd).
+:::
+
+
+## `sg_calib_constants.m`
+
+Calibrations for operational and oceanographic sensors are recorded in the 
+`sg_calib_constants.m` file. Each glider has its own `sg_calib_constants.m` and
+a back up should be made for the version used in each mission. See: [Mission preparation: Updated "constants" files](https://noaa-pifsc.github.io/glider-lab/mission-prep.html#update-constants-files)
+for more info. 
+
+A default example `sg_calib_constants.m` can be found in the [`sg000` subdirectory](https://github.com/iop-apl-uw/basestation3/tree/master/sg000)
+of [`basestation3`](https://github.com/iop-apl-uw/basestation3). 
+
+### RBR Tridente
+
+The RBR Tridente writes out calibrated values so no calibration constants are needed
+in `sg_calib_constants.m`.  The script `tools/GetTridenteChannels.py` will 
+generate a `calibcomm_tridente` parameter to add to the `sg_calib_constants.m`
+file (for display in the plots and as documentation in the netCDF files).  
+
+
+### Aanderaa optode
+
+The optode's calibration constants can be obtained from a selftest capture file 
+(if mounted on a scicon), by using the `tools/GetOptodeConstants.py` script in 
+`basestation3`.  If not, the calibration sheet from the vendor has what you need.
+
+

@@ -69,6 +69,10 @@ website:
         text: Gliders
       - section: Sensors
         contents:
+        - href: sensor-installation.qmd
+          text: Sensor installation
+        - href: calibration.qmd
+          text: Calibration info
         - href: wispr.qmd
           text: WISPR passive acoustics
 

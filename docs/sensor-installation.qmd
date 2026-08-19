@@ -1,0 +1,125 @@
+---
+title: "Sensor installation"
+subtitle: "Guide for installation and set up of oceanographic sensors"
+---
+
+## Scicon set up files
+
+Assuming these sensors will be attached to scicon, .cnf files are not needed. Instead you will need to add the sensors to the `scicon.ins`, `scicon.att`, and `scicon.sch` files - see scicon manual [here](https://www.google.com/url?q=https://iop.apl.washington.edu/iopsg/&source=gmail&ust=1787248388144000&usg=AOvVaw2XBIDTlczbpnvHyewCwCpU).
+
+Our default is to connect the optode to hardware channel 1 (scicon J5 - assuming this is for sg274, that should map to endcap port F) and the Tridente to hardware channel 0 (scicon J4, which should map to endcap port E). You can set them how however you like but you’ll have to adjust the entries in the scicon.att file to point to the correct hardware channels. 
+
+### Example `scicon.ins`
+
+Example from IOP. Includes both Tridente and optode.
+
+```{default}
+# instance tridente of class tridentebb700chla470fdom365 {
+tridentebb700chla470fdom365 = {
+ prefix = td
+ baud = 19200
+ cycles = 0
+ timeout = 1000
+ warmup = 0
+ skip = 0
+ bufflen = 0
+ avg = 0
+ dec = 0
+ multiline = 0
+ power = 0
+ terminator = 10
+ format = %d, %00, %01, %02
+ meta = %9%9%F%n%[Ready: ]getall%r%n%[Ready:]
+ column = bb700(100000,0)
+ column = chla470(1000,0)
+ column = fdom365(1000,0)
+}
+
+# instance optode of class aa4831 {
+aa4831 = {
+ prefix = aa4831
+ baud = 9600
+ cycles = 0
+ timeout = 5000
+ warmup = 1000
+ skip = 0
+ bufflen = 0
+ avg = 0
+ dec = 0
+ terminator = 10
+ format = %s %d %00 %01 %02 %03 %04
+ meta = %[4831]%n%$11%9get all%r%n%[Reference]%[%$23]
+ column = O2(1000,0)
+ column = airsat(1000,0)
+ column = temp(1000,0)
+ column = calphase(1000,0)
+ column = tcphase(1000,0)
+}
+```
+
+### Example `scicon.att`
+
+Example from IOP. Includes both Tridente and optode and uses standard hardware
+channels of 0 for Tridente and 1 for optode.
+
+```{default}
+tridente = {
+ type = tridentebb700chla470fdom365
+ hwchan = 0
+ verbose = 2
+}
+
+optode = {
+ type = aa4831
+ hwchan = 1
+ verbose = 2
+}
+```
+
+### Example `scicon.sch`
+You will also need tridente and optode entries in your `scicon.sch` file.
+
+```{default}
+# #### Need to add an example!! IOP did not send one, but Jace probably has one ####
+```
+
+## Set up instructions
+
+Here are some setup instructions for getting these sensors set up for standard integration into Seaglider. 
+
+### Aanderaa 4831
+
+1. Connect to the optode with the default baud rate (9600). If the sensors are plugged into the glider and the scicon.ins and scicon.att files are correct, you can connect to the sensors via scicon: from the glider menu, hw/loggers/sc/direct  (which connects you to scicon) then term 1 9600 addlf stroke (if the optode is connected to hardware channel 1. If it’s connected to hardware channel N, then the command to talk to the sensor would be term N). 
+
+2.  Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):
+
+```{default}
+term 1 9600 addlf stroke
+set passkey (1000)
+set mode(smart sensor terminal)
+set  enable comm indicator(no)
+set salinity(0)
+set enable text(no)
+set enable decimalformat(yes)
+set enable rawdata(yes)
+set enable sleep(no)
+set interval(1)
+save
+reset
+```
+
+3. Disconnect from the optode with Ctrl+D, disconnect from scicon with Ctrl+Q
+
+
+
+
+### RBRtridente
+
+1. Connect directly to the Tridente (via Scicon) at 115200 baud: from the glider menu, hw/loggers/sc/direct (which connects you to scicon) then term 0 115200  (which connects you to the Tridente on hardware channel 0, at 115200 baud).  Data should start streaming immediately. 
+
+2. Type serial baudrate = 19200  and press return. If that works, you should see “serial baudrate = 19200” echoed to the screen and the data will stop streaming (because you are no longer talking to the Tridente at the correct baud).  If it is not successful, try again. If you are having trouble typing while the data is streaming, you can copy + paste “serial baudrate = 19200” into the window.
+
+3. Disconnect from the Tridente with Ctrl+D, disconnect from scicon with Ctrl+Q
+
+4. Select sample from the menu to verify that the sampling is working.
+
