@@ -1,0 +1,18 @@
+ct = {
+    type = sbect
+	hwchan = 5
+}
+wl = {
+    type = wlbb2flvmt
+	hwchan = 0
+}
+optode = {
+    type = aa4831
+	hwchan = 1
+}
+fet = {
+    type = fet
+	hwchan = 3
+	pumpchan = 4
+	pumptime = 2500
+}

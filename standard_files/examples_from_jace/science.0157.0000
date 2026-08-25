@@ -1,0 +1,9 @@
+// Science for OSU SG686 (serial sensors): CT
+// Edited 12/10/2025 J. Marquardt (Added CT to serial sensors)
+// depth time sample   gcint compass   pressure
+50 seconds=5 sensors=1 gc=60 compass=1 pressure=1
+150 seconds=5 sensors=1 gc=120 compass=1 pressure=1
+250 seconds=10 sensors=1 gc=180 compass=1 pressure=1	
+600 seconds=10 sensors=1 gc=300 compass=1 pressure=1
+970 seconds=50 sensors=1 gc=300 compass=1 pressure=1
+1000 seconds=10 sensors=1 gc=360 compass=1 pressure=1

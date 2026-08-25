@@ -1,0 +1,8 @@
+// Science for OSU SG685 (serial sensors): CT, AA4831, WL_BBFL2
+// depth  time          sample        gcint    profile
+50        seconds=5     sensors=111   gc=60
+150       seconds=5     sensors=111   gc=120
+250       seconds=10    sensors=114   gc=180
+600       seconds=10    sensors=118   gc=300
+970       seconds=50    sensors=110   gc=300
+1000      seconds=10    sensors=110   gc=360
