@@ -5,9 +5,21 @@ subtitle: "Guide for installation and set up of oceanographic sensors"
 
 ## Scicon set up files
 
-Assuming these sensors will be attached to scicon, .cnf files are not needed. Instead you will need to add the sensors to the `scicon.ins`, `scicon.att`, and `scicon.sch` files - see scicon manual [here](https://www.google.com/url?q=https://iop.apl.washington.edu/iopsg/&source=gmail&ust=1787248388144000&usg=AOvVaw2XBIDTlczbpnvHyewCwCpU).
+Assuming these sensors will be attached to scicon, `.cnf` files are not needed. Instead you will need to add the sensors to the `scicon.ins`, `scicon.att`, and `scicon.sch` files - see scicon manual [here](https://www.google.com/url?q=https://iop.apl.washington.edu/iopsg/&source=gmail&ust=1787248388144000&usg=AOvVaw2XBIDTlczbpnvHyewCwCpU).
 
-Our default is to connect the optode to hardware channel 1 (scicon J5 - assuming this is for sg274, that should map to endcap port F) and the Tridente to hardware channel 0 (scicon J4, which should map to endcap port E). You can set them how however you like but you’ll have to adjust the entries in the scicon.att file to point to the correct hardware channels. 
+IOP's default is to connect the optode to hardware channel 1 (scicon J5 - assuming this is for sg274, that should map to endcap port F) and the Tridente to hardware channel 0 (scicon J4, which should map to endcap port E). You can set them how however you like but you’ll have to adjust the entries in the `scicon.att` file to point to the correct hardware channels. 
+
+::: {.callout-note}
+# To check hardware channel:
+
+From the glider menu choose `hw/loggers/sc/direct`. You might want to add 
+`stroke=1` so that the glider doesn't reboot in 10 minutes (i.e., if you're 
+going to be longer than 10 minutes). 
+
+At the `scicon >` prompt, use the `attach` command and note the `hwchan` setting
+for the sensor.
+
+:::
 
 ### Example `scicon.ins`
 
@@ -60,7 +72,8 @@ aa4831 = {
 ### Example `scicon.att`
 
 Example from IOP. Includes both Tridente and optode and uses standard hardware
-channels of 0 for Tridente and 1 for optode.
+channels of 0 for Tridente and 1 for optode. These may need to be changed. See 
+note on how to check this above. 
 
 ```default
 tridente = {
@@ -77,21 +90,71 @@ optode = {
 ```
 
 ### Example `scicon.sch`
-You will also need tridente and optode entries in your `scicon.sch` file.
+
+You will also need Tridente and optode entries in your `scicon.sch` file. Here 
+is an example pieced together from SG274's original and Jace's examples:
 
 ```default
-# #### Need to add an example!! IOP did not send one, but Jace probably has one ####
+ct = {
+ 150,5.0
+ 600,10.0
+ 970,20.0
+ 1000,10.0
+}
+
+optode = {
+   150,5.0
+   600,10.0
+   970,50.0
+   1000,10.0
+}
+
+tridente = {
+   150,5.0
+   250,40.0
+   600,80.0
+}
+
 ```
 
 ## Set up instructions
 
-Here are some setup instructions for getting these sensors set up for standard integration into Seaglider. 
+Here are some setup instructions for getting these sensors set up for standard 
+integration into Seaglider. 
+
+### General direct comms with sensors
+
+Connect to the sensors via `scicon` - from the glider menu, 
+`hw/loggers/sc/direct`
+
+You might want to add 
+`stroke=1` so that the glider doesn't reboot in 10 minutes (i.e., if you're 
+going to be longer than 10 minutes). 
+
+At the `scicon >` prompt, use the `attach` command and note the `hwchan` setting
+for the sensors.
+
+To talk to a specific sensor:
+
+- Use command `term N 9600 addlf stroke` where N is the `hwchan` of the sensor 
+you want to talk to and 9600 is the baud rate for this sensor
+- If you don't add the `stroke` argument here the scicon will reboot in 1 minute 
+(it has a much shorter watchdog timer than the glider). 
+- When you are done with sensor comms, use `Ctrl+D` to return to the scicon 
+prompt and then `Ctrl+Q` to return to the glider menu. 
 
 ### Aanderaa 4831
 
-1. Connect to the optode with the default baud rate (9600). If the sensors are plugged into the glider and the scicon.ins and scicon.att files are correct, you can connect to the sensors via scicon: from the glider menu, hw/loggers/sc/direct  (which connects you to scicon) then term 1 9600 addlf stroke (if the optode is connected to hardware channel 1. If it’s connected to hardware channel N, then the command to talk to the sensor would be term N). 
+1. Connect to the optode with the default baud rate (9600). If the sensors are 
+plugged into the glider and the `scicon.ins` and `scicon.att` files are correct,
+you can connect to the sensors via scicon: 
 
-2.  Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):
+- From the glider menu, `hw/loggers/sc/direct` (which connects you to `scicon`)
+- Then `term 1 9600 addlf stroke` (this assumes `hwchan` is 1, change if needed) 
+
+2. Once connected to the optode, give it the following commands (the sensor will
+likely be streaming data - you just have to type over it, usually easiest done 
+by copying + pasting each line):
 
 ```default
 term 1 9600 addlf stroke
@@ -108,18 +171,26 @@ save
 reset
 ```
 
-3. Disconnect from the optode with Ctrl+D, disconnect from scicon with Ctrl+Q
-
-
+3. Disconnect from the optode with `Ctrl+D`, disconnect from scicon with `Ctrl+Q`
 
 
 ### RBRtridente
 
-1. Connect directly to the Tridente (via Scicon) at 115200 baud: from the glider menu, hw/loggers/sc/direct (which connects you to scicon) then term 0 115200  (which connects you to the Tridente on hardware channel 0, at 115200 baud).  Data should start streaming immediately. 
+1. Connect directly to the Tridente (via scicon) at 115200 baud:
 
-2. Type serial baudrate = 19200  and press return. If that works, you should see “serial baudrate = 19200” echoed to the screen and the data will stop streaming (because you are no longer talking to the Tridente at the correct baud).  If it is not successful, try again. If you are having trouble typing while the data is streaming, you can copy + paste “serial baudrate = 19200” into the window.
+- From the glider menu, `hw/loggers/sc/direct` (which connects you to `scicon`)
+- Then `term 0 115200`  (which connects you to the Tridente on hardware channel 
+0, at 115200 baud)
+- Data should start streaming immediately
 
-3. Disconnect from the Tridente with Ctrl+D, disconnect from scicon with Ctrl+Q
+2. Type `serial baudrate = 19200`  and press return. If that works, you should 
+see `serial baudrate = 19200` echoed to the screen and the data will stop 
+streaming (because you are no longer talking to the Tridente at the correct 
+baud). If it is not successful, try again. If you are having trouble typing 
+while the data is streaming, you can copy + paste `serial baudrate = 19200` into
+the window.
 
-4. Select sample from the menu to verify that the sampling is working.
+3. Disconnect from the Tridente with `Ctrl+D`, disconnect from scicon with `Ctrl+Q`
+
+4. Select `sample` from the menu to verify that the sampling is working.
 
