@@ -4359,6 +4359,7 @@ vertical-align: -.125em;
   </ul></li>
   <li><a href="#set-up-instructions" id="toc-set-up-instructions" class="nav-link" data-scroll-target="#set-up-instructions">Set up instructions</a>
   <ul>
+  <li><a href="#general-direct-comms-with-sensors" id="toc-general-direct-comms-with-sensors" class="nav-link" data-scroll-target="#general-direct-comms-with-sensors">General direct comms with sensors</a></li>
   <li><a href="#aanderaa-4831" id="toc-aanderaa-4831" class="nav-link" data-scroll-target="#aanderaa-4831">Aanderaa 4831</a></li>
   <li><a href="#rbrtridente" id="toc-rbrtridente" class="nav-link" data-scroll-target="#rbrtridente">RBRtridente</a></li>
   </ul></li>
@@ -4391,8 +4392,22 @@ vertical-align: -.125em;
 
 <section id="scicon-set-up-files" class="level2">
 <h2 class="anchored" data-anchor-id="scicon-set-up-files">Scicon set up files</h2>
-<p>Assuming these sensors will be attached to scicon, .cnf files are not needed. Instead you will need to add the sensors to the <code>scicon.ins</code>, <code>scicon.att</code>, and <code>scicon.sch</code> files - see scicon manual <a href="https://www.google.com/url?q=https://iop.apl.washington.edu/iopsg/&amp;source=gmail&amp;ust=1787248388144000&amp;usg=AOvVaw2XBIDTlczbpnvHyewCwCpU">here</a>.</p>
-<p>Our default is to connect the optode to hardware channel 1 (scicon J5 - assuming this is for sg274, that should map to endcap port F) and the Tridente to hardware channel 0 (scicon J4, which should map to endcap port E). You can set them how however you like but you’ll have to adjust the entries in the scicon.att file to point to the correct hardware channels.</p>
+<p>Assuming these sensors will be attached to scicon, <code>.cnf</code> files are not needed. Instead you will need to add the sensors to the <code>scicon.ins</code>, <code>scicon.att</code>, and <code>scicon.sch</code> files - see scicon manual <a href="https://www.google.com/url?q=https://iop.apl.washington.edu/iopsg/&amp;source=gmail&amp;ust=1787248388144000&amp;usg=AOvVaw2XBIDTlczbpnvHyewCwCpU">here</a>.</p>
+<p>IOP’s default is to connect the optode to hardware channel 1 (scicon J5 - assuming this is for sg274, that should map to endcap port F) and the Tridente to hardware channel 0 (scicon J4, which should map to endcap port E). You can set them how however you like but you’ll have to adjust the entries in the <code>scicon.att</code> file to point to the correct hardware channels.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>To check hardware channel:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From the glider menu choose <code>hw/loggers/sc/direct</code>. You might want to add <code>stroke=1</code> so that the glider doesn’t reboot in 10 minutes (i.e., if you’re going to be longer than 10 minutes).</p>
+<p>At the <code>scicon &gt;</code> prompt, use the <code>attach</code> command and note the <code>hwchan</code> setting for the sensor.</p>
+</div>
+</div>
 <section id="example-scicon.ins" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.ins">Example <code>scicon.ins</code></h3>
 <p>Example from IOP. Includes both Tridente and optode.</p>
@@ -4440,7 +4455,7 @@ vertical-align: -.125em;
 </section>
 <section id="example-scicon.att" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.att">Example <code>scicon.att</code></h3>
-<p>Example from IOP. Includes both Tridente and optode and uses standard hardware channels of 0 for Tridente and 1 for optode.</p>
+<p>Example from IOP. Includes both Tridente and optode and uses standard hardware channels of 0 for Tridente and 1 for optode. These may need to be changed. See note on how to check this above.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tridente = {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> type = tridentebb700chla470fdom365</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> hwchan = 0</span>
@@ -4455,18 +4470,54 @@ vertical-align: -.125em;
 </section>
 <section id="example-scicon.sch" class="level3">
 <h3 class="anchored" data-anchor-id="example-scicon.sch">Example <code>scicon.sch</code></h3>
-<p>You will also need tridente and optode entries in your <code>scicon.sch</code> file.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a># #### Need to add an example!! IOP did not send one, but Jace probably has one ####</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You will also need Tridente and optode entries in your <code>scicon.sch</code> file. Here is an example pieced together from SG274’s original and Jace’s examples:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ct = {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> 150,5.0</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> 600,10.0</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> 970,20.0</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> 1000,10.0</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>optode = {</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>   150,5.0</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>   600,10.0</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>   970,50.0</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>   1000,10.0</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>tridente = {</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>   150,5.0</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>   250,40.0</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>   600,80.0</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="set-up-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="set-up-instructions">Set up instructions</h2>
 <p>Here are some setup instructions for getting these sensors set up for standard integration into Seaglider.</p>
+<section id="general-direct-comms-with-sensors" class="level3">
+<h3 class="anchored" data-anchor-id="general-direct-comms-with-sensors">General direct comms with sensors</h3>
+<p>Connect to the sensors via <code>scicon</code> - from the glider menu, <code>hw/loggers/sc/direct</code></p>
+<p>You might want to add <code>stroke=1</code> so that the glider doesn’t reboot in 10 minutes (i.e., if you’re going to be longer than 10 minutes).</p>
+<p>At the <code>scicon &gt;</code> prompt, use the <code>attach</code> command and note the <code>hwchan</code> setting for the sensors.</p>
+<p>To talk to a specific sensor:</p>
+<ul>
+<li>Use command <code>term N 9600 addlf stroke</code> where N is the <code>hwchan</code> of the sensor you want to talk to and 9600 is the baud rate for this sensor</li>
+<li>If you don’t add the <code>stroke</code> argument here the scicon will reboot in 1 minute (it has a much shorter watchdog timer than the glider).</li>
+<li>When you are done with sensor comms, use <code>Ctrl+D</code> to return to the scicon prompt and then <code>Ctrl+Q</code> to return to the glider menu.</li>
+</ul>
+</section>
 <section id="aanderaa-4831" class="level3">
 <h3 class="anchored" data-anchor-id="aanderaa-4831">Aanderaa 4831</h3>
 <ol type="1">
-<li><p>Connect to the optode with the default baud rate (9600). If the sensors are plugged into the glider and the scicon.ins and scicon.att files are correct, you can connect to the sensors via scicon: from the glider menu, hw/loggers/sc/direct (which connects you to scicon) then term 1 9600 addlf stroke (if the optode is connected to hardware channel 1. If it’s connected to hardware channel N, then the command to talk to the sensor would be term N).</p></li>
-<li><p>Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):</p></li>
+<li>Connect to the optode with the default baud rate (9600). If the sensors are plugged into the glider and the <code>scicon.ins</code> and <code>scicon.att</code> files are correct, you can connect to the sensors via scicon:</li>
+</ol>
+<ul>
+<li>From the glider menu, <code>hw/loggers/sc/direct</code> (which connects you to <code>scicon</code>)</li>
+<li>Then <code>term 1 9600 addlf stroke</code> (this assumes <code>hwchan</code> is 1, change if needed)</li>
+</ul>
+<ol start="2" type="1">
+<li>Once connected to the optode, give it the following commands (the sensor will likely be streaming data - you just have to type over it, usually easiest done by copying + pasting each line):</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>term 1 9600 addlf stroke</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>set passkey (1000)</span>
@@ -4481,16 +4532,23 @@ vertical-align: -.125em;
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>save</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>reset</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Disconnect from the optode with Ctrl+D, disconnect from scicon with Ctrl+Q</li>
+<li>Disconnect from the optode with <code>Ctrl+D</code>, disconnect from scicon with <code>Ctrl+Q</code></li>
 </ol>
 </section>
 <section id="rbrtridente" class="level3">
 <h3 class="anchored" data-anchor-id="rbrtridente">RBRtridente</h3>
 <ol type="1">
-<li><p>Connect directly to the Tridente (via Scicon) at 115200 baud: from the glider menu, hw/loggers/sc/direct (which connects you to scicon) then term 0 115200 (which connects you to the Tridente on hardware channel 0, at 115200 baud). Data should start streaming immediately.</p></li>
-<li><p>Type serial baudrate = 19200 and press return. If that works, you should see “serial baudrate = 19200” echoed to the screen and the data will stop streaming (because you are no longer talking to the Tridente at the correct baud). If it is not successful, try again. If you are having trouble typing while the data is streaming, you can copy + paste “serial baudrate = 19200” into the window.</p></li>
-<li><p>Disconnect from the Tridente with Ctrl+D, disconnect from scicon with Ctrl+Q</p></li>
-<li><p>Select sample from the menu to verify that the sampling is working.</p></li>
+<li>Connect directly to the Tridente (via scicon) at 115200 baud:</li>
+</ol>
+<ul>
+<li>From the glider menu, <code>hw/loggers/sc/direct</code> (which connects you to <code>scicon</code>)</li>
+<li>Then <code>term 0 115200</code> (which connects you to the Tridente on hardware channel 0, at 115200 baud)</li>
+<li>Data should start streaming immediately</li>
+</ul>
+<ol start="2" type="1">
+<li><p>Type <code>serial baudrate = 19200</code> and press return. If that works, you should see <code>serial baudrate = 19200</code> echoed to the screen and the data will stop streaming (because you are no longer talking to the Tridente at the correct baud). If it is not successful, try again. If you are having trouble typing while the data is streaming, you can copy + paste <code>serial baudrate = 19200</code> into the window.</p></li>
+<li><p>Disconnect from the Tridente with <code>Ctrl+D</code>, disconnect from scicon with <code>Ctrl+Q</code></p></li>
+<li><p>Select <code>sample</code> from the menu to verify that the sampling is working.</p></li>
 </ol>
 
 
