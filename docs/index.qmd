@@ -4,10 +4,10 @@ subtitle: Protected Species Division, NMFS/PIFSC
 page-layout: full
 ---
 
-[![](https://img.shields.io/github/last-commit/noaa-pifsc/glider-lab)](https://github.com/noaa-pifsc/glider-lab/commits/main)
+[![credit: NOAA Fisheries](https://img.shields.io/github/last-commit/noaa-pifsc/glider-lab)](https://github.com/noaa-pifsc/glider-lab/commits/main)
 ![A researcher prepares a Seaglider for deployment by installing the rudder while it rests on the floor of a small boat.](img/20230426_084840_glider_assembly_in_boat_creditDaveMellinger.jpeg){.bordered-image style="float:right;" width="260"} 
 
-The [Pacific Islands Fisheries Science Center](https://www.fisheries.noaa.gov/about/pacific-islands-fisheries-science-center) has started an underwater glider lab that will start with passive acoustic monitoring for cetaceans in the Pacific Islands region. This website is an in-development manual for all PIFSC glider activities. Please contact a member of the glider team with any questions.
+This site is an in-development manual for underwater glider-based research activities conducted by the Uncrewed Marine Systems (UMPS) Program, Protected Species Division (PSD) at NOAA Fisheries [Pacific Islands Fisheries Science Center (PIFSC)](https://www.fisheries.noaa.gov/about/pacific-islands-fisheries-science-center). Please contact a member of the glider team with any questions.
 
 ## Team Members
 
