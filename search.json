@@ -10,71 +10,25 @@
     ]
   },
   {
-    "objectID": "best-practices.html",
-    "href": "best-practices.html",
-    "title": "Lab values and best practices",
+    "objectID": "team-resources.html",
+    "href": "team-resources.html",
+    "title": "Team Resources",
     "section": "",
-    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.\n\n\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to serve as a central resource for glider team members where all can contribute. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.\n\n\n\n\n Back to top",
+    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\nConnecting to seaglider.pub: A Google Doc guide for different ways to connect to seaglider.pub including using Powershell, TeraTerm, or WinSCP.\n\n\n\n\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\n\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\n\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\n\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\n\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\n\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}",
     "crumbs": [
-      "Best practices",
-      "Lab values & best practices"
+      "Piloting",
+      "Team resources"
     ]
   },
   {
-    "objectID": "wispr-calibration.html",
-    "href": "wispr-calibration.html",
-    "title": "WISPR calibration",
+    "objectID": "team-resources.html#useful-guides",
+    "href": "team-resources.html#useful-guides",
+    "title": "Team Resources",
     "section": "",
-    "text": "DRAFT\nThis page was assembled from a more chaotic but possibly more detailed Google Doc WISPR Sensitivity Measurement"
-  },
-  {
-    "objectID": "wispr-calibration.html#set-up",
-    "href": "wispr-calibration.html#set-up",
-    "title": "WISPR calibration",
-    "section": "Set up",
-    "text": "Set up"
-  },
-  {
-    "objectID": "wispr-calibration.html#procedure",
-    "href": "wispr-calibration.html#procedure",
-    "title": "WISPR calibration",
-    "section": "Procedure",
-    "text": "Procedure\n\nRecord calibration signals\n…\n\n\nProcess calibration sweep recordings\nUse agate to measure the WISPR3 board and preamp sensitivity from the recorded calibration sweep signals. See workflow_wisprSystemSensitivity.m in the agate/example_workflows folder for an example or follow the below steps.\n\n% make sure agate is on the path\naddpath(genpath('C:\\Users\\User.Name\\Documents\\MATLAB\\agate'))\n\nTo preview or browse through the recordings in your preferred analysis software, convert the recorded .dat files to .flac or .wav. This can be useful to pick which file has a full calibration signal that you will want to select in the measurement step.\n\nconvertWispr;\n\n% this call with no input arguments will prompt to select raw file location\n% and output file location and will default to writing flac. Alternatively,\n% specify input arguments to avoid prompts and write to .wav. E.g.,\n% convertWispr('inDir', 'E:/wisprFiles', 'outDir', 'E:/wav', 'outExt', '.wav')\n\nReview the files and find one that has a nice complete calibration signal.\n\n\n\nExample showing three 20 second sweeps from 0 to 100 kHz.\n\n\nDefine the input arguments needed for the measurement step.\n\n% serial number of the WISPR preamp/adc board - must be a string &lt; 16 chars\n% used for filename generation and output file header info\nsn = 'WISPR3_no#';\n\n% fullfile path of calibration recording (as raw .dat file)\nsweep_file = []; % set to [] to be prompted to select file OR define\n% sweep_file = \"E:\\wispr_calibration\\wispr_no2\\250514\\WISPR_250514_213247.dat\"; \n\n% define hydrophone sensitivity, not required, used in output file header\nhydro_sens = -164.5;\n\n% define the amplitude of sine wave sweep (in volts) and sweep duration\n% typically 10 mV and 20 or 60 seconds\namp = 0.010;\ndur = 20; % in seconds\n\n% was a 20 dB attenuator used?\nattenuator = true;\n\n% path to save output calibration files\npath_out = 'C:\\Users\\User.Name\\calibration\\wispr\\preamps';\n\n% OPTIONAL\n% specify an output filename. Default is SN_preamp_gain_YYYY-MM-DD\n% where the timestamp is the date of creation. Do not specify an extension.\nout_file_name = []; % set to [] to use default\n% out_file_name = 'testFile';\n\nRun the measurement function.\n\n% this function will plot the waveform of the specified calibration sweep\n% file, prompt the user to select the start of one complete sweep,\n% calculate the spectrum over the duration of one sweep, save the\n% frequency-dependent gain curve as a .mat and .txt and the plot as .png\n\n[paFreq, paGain] = measureWisprPreampSensitivity(sn, sweep_file, ...\n    hydro_sens, amp, dur, attenuator, path_out, out_file_name);\n\nThis will plot the waveform of the selected sweep file and prompt the user to select the start of a single sweep. This should be the initial increase in the waveform. A single sweep will be extracted from this point and based on the specified sweep duration.\n\n\n\nExample showing selection of a single 20 second sweep from the waveform.\n\n\nThe spectrum of the single sweep will then be calculated and a frequency-dependent sensitivity gain curve will be plotted and saved. The plot will be saved as a .png and the gain curve frequency and gain values will be saved as a .mat file and a .txt file. The .txt file will contain some header information:\n\n\n\nExample sensitivity gain curve output. This curve shape is typical for a WISPR3 sampling at 200 kHz with decimation factor 4. Sensitivity reduced below 10 kHz and then is relatively flat from 10 to 70 kHz after which the anti-aliasing filter causes a steep drop-off in sensitivity to about 90 kHz.\n\n\n\n\nAssemble system sensitivity curve"
-  },
-  {
-    "objectID": "test.html",
-    "href": "test.html",
-    "title": "test",
-    "section": "",
-    "text": "Some text here\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that"
-  },
-  {
-    "objectID": "test.html#heading-2",
-    "href": "test.html#heading-2",
-    "title": "test",
-    "section": "",
-    "text": "More text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that"
-  },
-  {
-    "objectID": "oceanography.html",
-    "href": "oceanography.html",
-    "title": "Some oceanography basics",
-    "section": "",
-    "text": "This page contains some useful definitions and explainations for the various oceanographic/environmental data collected by Seagliders.",
+    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\nConnecting to seaglider.pub: A Google Doc guide for different ways to connect to seaglider.pub including using Powershell, TeraTerm, or WinSCP.\n\n\n\n\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\n\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\n\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\n\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\n\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\n\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}",
     "crumbs": [
       "Piloting",
-      "Oceanography"
-    ]
-  },
-  {
-    "objectID": "oceanography.html#ctd-data",
-    "href": "oceanography.html#ctd-data",
-    "title": "Some oceanography basics",
-    "section": "CTD data",
-    "text": "CTD data\n\nTemperature\nSeaglider CTD measures temperature, conductivity, and pressure and calculates salinity from the CTD data\ntemperature (in-situ): temperature measured at specific depth\npotential temperature (\\({\\theta}\\)): temperature a water parcel would be if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as theta (\\({\\theta}\\))\nconservative temperature: temperature per TEOS-10. For more info see teos-10.org: Conservative Temperature from in-situ temperature\nSeaglider measures raw in-situ temperature, conducts some quality control (qc) assessment, and reports a final corrected temperature as well as a qc matrix on whether to trust that corrected temp or not. In .nc files these are temperature_raw, temperature_raw_qc, temperature, and temperature_qc respectively. It also reports potential temperature, based on corrected salinity, reported as theta and conservative temperature as conservative_temperature.\n\n\nConductivity\nThe CTD measures seawater electrical conductivity. Seaglider measures raw conductivity, conducts some qc, corrects for anomolies, and proivdes a qc matrix for corrected conductivity. In .nc files these are conductivity_raw, conductivity_raw_qc, conductivity, and conductivity_qc respectively.\n\n\nSalinity\nsalinity (in-situ): salinity calculated from in-situ temperature, conductivity, and pressure (aka practical salinity). It is unitless (PSU = pratical salinity units)\nabsolute salinity: absolute salinity per TEOS-10. It is calculated with conductivity and some other factors and the units are g/kg. For more info see teos-10.org: Absolute Salinity from Practical Salinity\nSalinity is calculated/provided in the Seaglider data as raw and corrected salinity. (1) From raw temperature and conductivity. In the .nc file, salinity_raw is from the temperature_raw and conductivity_raw. That has a corresponding qc matrix salinity_raw_qc. (2) Corrected for termal-inertia effects. In the .nc file this is salinity. It also includes a qc matrix salinity_qc. Absolute salinity is included as absolute_salinity.\n\n\nDensity\nSeawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider.\ndensity (in-situ): density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as density_insitu in the Seaglider .nc file. The netCDF attribute states units are g/m3 but the values make more sense as either g/cm3 or kg/m3\npotential density: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in .nc file as density. The .nc attribute states its in units of g/m3 but the values make more sense as either g/cm3 or kg/m3\nsigma (\\({\\sigma}\\)): in-situ density calculated from in-situ temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm3 its 27.5 sigma units\n\\[\n\\sigma = \\rho(S, T, P) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma}\\) is the in-situ density anomaly.\n\\({\\rho(S, T, P)}\\) is the density calculated from in-situ salinity (\\(S\\)), in-situ temperature (\\(T\\)), and in-situ pressure (\\(P\\)).\n\nsigma-t (\\({\\sigma_T}\\)): density calculated using in-situ temperature and salinity but with effect of pressure removed (reference pressure 0)\n\\[\n\\sigma_T = \\rho(S, T, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_t}\\) is the sigma-t density anomaly.\n\\({\\rho(S, T, 0)}\\) is the density calculated from in-situ salinity (\\(S\\)) and in-situ temperature (\\(T\\)), but at surface pressure (0).\n\n\n\n\n\n\n\nWarning\n\n\n\nSeaglider uses sigma-t for ballasting!!\n\n\nsigma-theta (\\({\\sigma_\\theta}\\)): potential density, calculated using potential temperature and in-situ salinity, also referenced to sea surface pressure 0. In the Seaglider .nc file this is sigma_theta\n\\[\n\\sigma_{\\theta} = \\rho(S, \\theta, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_\\theta}\\) is the potential density anomaly.\n\\({\\rho}\\) is the density of the seawater.\n\\(S\\) is the in-situ salinity.\n\\({\\theta}\\) is the potential temperature.\nThe pressure is referenced to the surface (0 decibars).\n\nThe Seaglider .nc file also reports sigma_theta (\\({\\sigma_\\theta}\\)) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: gsw_sigma0 with a reference pressure of 0 m, gsw_sigma3 with a reference pressure of 3000 m, and gsw_sigma4 with a reference pressure of 4000 m. gsw_sigma0 and sigma_theta should be the same (but I haven’t confirmed this!).\n\n\nSound speed\nSeaglider .nc files provides speed of sound in sea water as the sound_velocity output (units m/s). This is also calculated using the the Gibbs-Seawater (GSW) Oceanographic Toolbox, equation gsw_sound_speed.",
-    "crumbs": [
-      "Piloting",
-      "Oceanography"
+      "Team resources"
     ]
   },
   {
@@ -141,6 +95,157 @@
     "crumbs": [
       "Best practices",
       "Mission preparation"
+    ]
+  },
+  {
+    "objectID": "calibration.html",
+    "href": "calibration.html",
+    "title": "Calibration information",
+    "section": "",
+    "text": "Calibration documents are tracked in GitHub. Individual sensor calibrations can be found in the calibration folder, in individual folders by sensor.\nNOTE: The collaborators folder has copies of calibrations for hydrophones owned by collaborator institutions (OSU and SWFSC).\n\n\n\n\n\n\nNoteWISPR calibration\n\n\n\nMore detailed info on WISPR calibration (which is not tracked in the Seaglider operational files) can be found on the WISPR calibration page.",
+    "crumbs": [
+      "Sensors",
+      "Calibration info"
+    ]
+  },
+  {
+    "objectID": "calibration.html#calibration-documents",
+    "href": "calibration.html#calibration-documents",
+    "title": "Calibration information",
+    "section": "",
+    "text": "Calibration documents are tracked in GitHub. Individual sensor calibrations can be found in the calibration folder, in individual folders by sensor.\nNOTE: The collaborators folder has copies of calibrations for hydrophones owned by collaborator institutions (OSU and SWFSC).\n\n\n\n\n\n\nNoteWISPR calibration\n\n\n\nMore detailed info on WISPR calibration (which is not tracked in the Seaglider operational files) can be found on the WISPR calibration page.",
+    "crumbs": [
+      "Sensors",
+      "Calibration info"
+    ]
+  },
+  {
+    "objectID": "calibration.html#sg_calib_constants.m",
+    "href": "calibration.html#sg_calib_constants.m",
+    "title": "Calibration information",
+    "section": "sg_calib_constants.m",
+    "text": "sg_calib_constants.m\nCalibrations for operational and oceanographic sensors are recorded in the sg_calib_constants.m file. Each glider has its own sg_calib_constants.m and a back up should be made for the version used in each mission. See: Mission preparation: Updated “constants” files for more info.\nA default example sg_calib_constants.m can be found in the sg000 subdirectory of basestation3.\n\nRBR Tridente\nThe RBR Tridente writes out calibrated values so no calibration constants are needed in sg_calib_constants.m. The script tools/GetTridenteChannels.py will generate a calibcomm_tridente parameter to add to the sg_calib_constants.m file (for display in the plots and as documentation in the netCDF files).\n\n\nAanderaa optode\nThe optode’s calibration constants can be obtained from a selftest capture file (if mounted on a scicon), by using the tools/GetOptodeConstants.py script in basestation3. If not, the calibration sheet from the vendor has what you need.",
+    "crumbs": [
+      "Sensors",
+      "Calibration info"
+    ]
+  },
+  {
+    "objectID": "best-practices.html",
+    "href": "best-practices.html",
+    "title": "Lab values and best practices",
+    "section": "",
+    "text": "NoteNote\n\n\n\nThis is a living document which shall always be considered a “draft,” as incoming and veteran members of the lab may want to contribute ideas or revisions. This is a place to begin, a place to return to, a place to ground ongoing conversations. Modeled after SWFSC SAEL Lab Manual Shared values and best pratcies.\n\n\n\nCommunication\n\n\nWe use the PIFSC Gliders Google Space and Google Meet for informal discussions between lab members and project teams. To be added to the Google Space please contact Selene Fregosi selene.fregosi@noaa.gov\nWe use GitHub projects to keep track of tasks and projects. All lab members are expected to check & respond to email, chats, and GitHub Projects regularly.\n\n\n\nSafety\n\nLab members are expected to follow all safety protocols. If they are not sure of the protocol, then they should request this information.\nLab members should never feel obligated to perform a task that they do not feel is safe.\nLab members are encouraged to speak up if they feel they need training to perform a specific task safely.\nIf lab members have a safety concern, they should bring it up with their supervisor or the other lab members.\nIf a lab member feels their safety concerns are not being taken seriously, or have any other lab safety questions, they can consult the acting PIFSC Safety Officer .\n\n\n\nData management\n\nWe use Google Drive, Google Cloud Platform, GitHub, and physical PIFSC servers to store and share data, documentation, and resources. More information can be found on the Data Management page.\n\n\n\nWebsite Development\nAs described above, this website is intended to serve as a central resource for glider team members where all can contribute. The website is built using Quarto, which uses text file .qmd files and markdown syntax to build content. .qmd files can be edited in any text editor, RStudio, or VSCode. For help contributing to this website, Use the ‘Report an issue’ link on the top left of this page to create a GitHub Issue and request assistance.\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Best practices",
+      "Lab values & best practices"
+    ]
+  },
+  {
+    "objectID": "oceanography.html",
+    "href": "oceanography.html",
+    "title": "Some oceanography basics",
+    "section": "",
+    "text": "This page contains some useful definitions and explainations for the various oceanographic/environmental data collected by Seagliders.",
+    "crumbs": [
+      "Piloting",
+      "Oceanography"
+    ]
+  },
+  {
+    "objectID": "oceanography.html#ctd-data",
+    "href": "oceanography.html#ctd-data",
+    "title": "Some oceanography basics",
+    "section": "CTD data",
+    "text": "CTD data\n\nTemperature\nSeaglider CTD measures temperature, conductivity, and pressure and calculates salinity from the CTD data\ntemperature (in-situ): temperature measured at specific depth\npotential temperature (\\({\\theta}\\)): temperature a water parcel would be if brought adiabatically to the surface. Water heats up as it is compressed at depth, cools as it expands near surface. This is also referred to as theta (\\({\\theta}\\))\nconservative temperature: temperature per TEOS-10. For more info see teos-10.org: Conservative Temperature from in-situ temperature\nSeaglider measures raw in-situ temperature, conducts some quality control (qc) assessment, and reports a final corrected temperature as well as a qc matrix on whether to trust that corrected temp or not. In .nc files these are temperature_raw, temperature_raw_qc, temperature, and temperature_qc respectively. It also reports potential temperature, based on corrected salinity, reported as theta and conservative temperature as conservative_temperature.\n\n\nConductivity\nThe CTD measures seawater electrical conductivity. Seaglider measures raw conductivity, conducts some qc, corrects for anomolies, and proivdes a qc matrix for corrected conductivity. In .nc files these are conductivity_raw, conductivity_raw_qc, conductivity, and conductivity_qc respectively.\n\n\nSalinity\nsalinity (in-situ): salinity calculated from in-situ temperature, conductivity, and pressure (aka practical salinity). It is unitless (PSU = pratical salinity units)\nabsolute salinity: absolute salinity per TEOS-10. It is calculated with conductivity and some other factors and the units are g/kg. For more info see teos-10.org: Absolute Salinity from Practical Salinity\nSalinity is calculated/provided in the Seaglider data as raw and corrected salinity. (1) From raw temperature and conductivity. In the .nc file, salinity_raw is from the temperature_raw and conductivity_raw. That has a corresponding qc matrix salinity_raw_qc. (2) Corrected for termal-inertia effects. In the .nc file this is salinity. It also includes a qc matrix salinity_qc. Absolute salinity is included as absolute_salinity.\n\n\nDensity\nSeawater density can be calculated a variety of ways, many of which are calculated/reported by the Seaglider.\ndensity (in-situ): density at depth/pressure, calculated from temperature, salinity, and pressure. This is reported as density_insitu in the Seaglider .nc file. The netCDF attribute states units are g/m3 but the values make more sense as either g/cm3 or kg/m3\npotential density: density a parcel of water would be at the surface, calculated similar to density but using potential temperature and a reference pressure of 0. Reported by Seaglider in .nc file as density. The .nc attribute states its in units of g/m3 but the values make more sense as either g/cm3 or kg/m3\nsigma (\\({\\sigma}\\)): in-situ density calculated from in-situ temperature, salinity, and pressure. it is expressed in a shorthand way by subtracting 1000. E.g., if density is 1027.5 g/cm3 its 27.5 sigma units\n\\[\n\\sigma = \\rho(S, T, P) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma}\\) is the in-situ density anomaly.\n\\({\\rho(S, T, P)}\\) is the density calculated from in-situ salinity (\\(S\\)), in-situ temperature (\\(T\\)), and in-situ pressure (\\(P\\)).\n\nsigma-t (\\({\\sigma_T}\\)): density calculated using in-situ temperature and salinity but with effect of pressure removed (reference pressure 0)\n\\[\n\\sigma_T = \\rho(S, T, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_t}\\) is the sigma-t density anomaly.\n\\({\\rho(S, T, 0)}\\) is the density calculated from in-situ salinity (\\(S\\)) and in-situ temperature (\\(T\\)), but at surface pressure (0).\n\n\n\n\n\n\n\nWarning\n\n\n\nSeaglider uses sigma-t for ballasting!!\n\n\nsigma-theta (\\({\\sigma_\\theta}\\)): potential density, calculated using potential temperature and in-situ salinity, also referenced to sea surface pressure 0. In the Seaglider .nc file this is sigma_theta\n\\[\n\\sigma_{\\theta} = \\rho(S, \\theta, 0) - 1000 \\, \\frac{kg}{m^3}\n\\]\nWhere:\n\n\\({\\sigma_\\theta}\\) is the potential density anomaly.\n\\({\\rho}\\) is the density of the seawater.\n\\(S\\) is the in-situ salinity.\n\\({\\theta}\\) is the potential temperature.\nThe pressure is referenced to the surface (0 decibars).\n\nThe Seaglider .nc file also reports sigma_theta (\\({\\sigma_\\theta}\\)) at a few reference pressures following the Gibbs-SeaWater (GSW) Oceanographic Toolbox: gsw_sigma0 with a reference pressure of 0 m, gsw_sigma3 with a reference pressure of 3000 m, and gsw_sigma4 with a reference pressure of 4000 m. gsw_sigma0 and sigma_theta should be the same (but I haven’t confirmed this!).\n\n\nSound speed\nSeaglider .nc files provides speed of sound in sea water as the sound_velocity output (units m/s). This is also calculated using the the Gibbs-Seawater (GSW) Oceanographic Toolbox, equation gsw_sound_speed.",
+    "crumbs": [
+      "Piloting",
+      "Oceanography"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PIFSC Glider Lab",
+    "section": "",
+    "text": "This site is an in-development manual for underwater glider-based research activities conducted by the Uncrewed Marine Systems (UMPS) Program, Protected Species Division (PSD) at NOAA Fisheries Pacific Islands Fisheries Science Center (PIFSC). Please contact a member of the glider team with any questions.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#team-members",
+    "href": "index.html#team-members",
+    "title": "PIFSC Glider Lab",
+    "section": "Team Members",
+    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nCetacean Acoustician\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nJeremy Taylor\nMarine Scientist\nTech\n\n\nAksel Sloan\nSoftware Engineer\nDeveloper, Analyst\n\n\nCharles Littnan\nDirector, PIFSC",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#project-management",
+    "href": "index.html#project-management",
+    "title": "PIFSC Glider Lab",
+    "section": "Project Management",
+    "text": "Project Management\nFor current Seaglider fleet status, see this Google Sheet(NOAA-only)\nNMFS PIC Gliders Google Shared Drive(NOAA-only)\nnmfs.pic.gliders email group management\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo for glider lab resources/issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons\n\n\nglider-WHICEAS\nMission-specific analysis repo for 2026 WHICEAS missions\n\n\n\n\n\n\n\n\n\nDisclaimer\nThis repository is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "wispr-calibration.html",
+    "href": "wispr-calibration.html",
+    "title": "WISPR calibration",
+    "section": "",
+    "text": "DRAFT\nThis page was assembled from a more chaotic but possibly more detailed Google Doc WISPR Sensitivity Measurement"
+  },
+  {
+    "objectID": "wispr-calibration.html#set-up",
+    "href": "wispr-calibration.html#set-up",
+    "title": "WISPR calibration",
+    "section": "Set up",
+    "text": "Set up"
+  },
+  {
+    "objectID": "wispr-calibration.html#procedure",
+    "href": "wispr-calibration.html#procedure",
+    "title": "WISPR calibration",
+    "section": "Procedure",
+    "text": "Procedure\n\nRecord calibration signals\n…\n\n\nProcess calibration sweep recordings\nUse agate to measure the WISPR3 board and preamp sensitivity from the recorded calibration sweep signals. See workflow_wisprSystemSensitivity.m in the agate/example_workflows folder for an example or follow the below steps.\n\n% make sure agate is on the path\naddpath(genpath('C:\\Users\\User.Name\\Documents\\MATLAB\\agate'))\n\nTo preview or browse through the recordings in your preferred analysis software, convert the recorded .dat files to .flac or .wav. This can be useful to pick which file has a full calibration signal that you will want to select in the measurement step.\n\nconvertWispr;\n\n% this call with no input arguments will prompt to select raw file location\n% and output file location and will default to writing flac. Alternatively,\n% specify input arguments to avoid prompts and write to .wav. E.g.,\n% convertWispr('inDir', 'E:/wisprFiles', 'outDir', 'E:/wav', 'outExt', '.wav')\n\nReview the files and find one that has a nice complete calibration signal.\n\n\n\nExample showing three 20 second sweeps from 0 to 100 kHz.\n\n\nDefine the input arguments needed for the measurement step.\n\n% serial number of the WISPR preamp/adc board - must be a string &lt; 16 chars\n% used for filename generation and output file header info\nsn = 'WISPR3_no#';\n\n% fullfile path of calibration recording (as raw .dat file)\nsweep_file = []; % set to [] to be prompted to select file OR define\n% sweep_file = \"E:\\wispr_calibration\\wispr_no2\\250514\\WISPR_250514_213247.dat\"; \n\n% define hydrophone sensitivity, not required, used in output file header\nhydro_sens = -164.5;\n\n% define the amplitude of sine wave sweep (in volts) and sweep duration\n% typically 10 mV and 20 or 60 seconds\namp = 0.010;\ndur = 20; % in seconds\n\n% was a 20 dB attenuator used?\nattenuator = true;\n\n% path to save output calibration files\npath_out = 'C:\\Users\\User.Name\\calibration\\wispr\\preamps';\n\n% OPTIONAL\n% specify an output filename. Default is SN_preamp_gain_YYYY-MM-DD\n% where the timestamp is the date of creation. Do not specify an extension.\nout_file_name = []; % set to [] to use default\n% out_file_name = 'testFile';\n\nRun the measurement function.\n\n% this function will plot the waveform of the specified calibration sweep\n% file, prompt the user to select the start of one complete sweep,\n% calculate the spectrum over the duration of one sweep, save the\n% frequency-dependent gain curve as a .mat and .txt and the plot as .png\n\n[paFreq, paGain] = measureWisprPreampSensitivity(sn, sweep_file, ...\n    hydro_sens, amp, dur, attenuator, path_out, out_file_name);\n\nThis will plot the waveform of the selected sweep file and prompt the user to select the start of a single sweep. This should be the initial increase in the waveform. A single sweep will be extracted from this point and based on the specified sweep duration.\n\n\n\nExample showing selection of a single 20 second sweep from the waveform.\n\n\nThe spectrum of the single sweep will then be calculated and a frequency-dependent sensitivity gain curve will be plotted and saved. The plot will be saved as a .png and the gain curve frequency and gain values will be saved as a .mat file and a .txt file. The .txt file will contain some header information:\n\n\n\nExample sensitivity gain curve output. This curve shape is typical for a WISPR3 sampling at 200 kHz with decimation factor 4. Sensitivity reduced below 10 kHz and then is relatively flat from 10 to 70 kHz after which the anti-aliasing filter causes a steep drop-off in sensitivity to about 90 kHz.\n\n\n\n\nAssemble system sensitivity curve"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "test",
+    "section": "",
+    "text": "Some text here\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that"
+  },
+  {
+    "objectID": "test.html#heading-2",
+    "href": "test.html#heading-2",
+    "title": "test",
+    "section": "",
+    "text": "More text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that\n\n\nMore text - and bullet - points - that are nested - or not nested\n\n\nMore text about gliders and data and stuff like that"
+  },
+  {
+    "objectID": "gliders.html",
+    "href": "gliders.html",
+    "title": "Gliders",
+    "section": "",
+    "text": "We have two Seaglider SGX gliders. These gliders were developed at the University of Washington Applied Physics Laboratory and are currently manufacturered and supported by the Integrated Observational Platforms (IOP) group at UW-APL. These buoyancy driven, autonomous underwater gliders are capable of diving to 1000 m, survey 15-20 km per day, and can be deployed for many weeks. Each glider is equipped with an RBR Legato CTD and WISPR passive acoustic monitoring sensor.",
+    "crumbs": [
+      "Gliders"
+    ]
+  },
+  {
+    "objectID": "gliders.html#fleet-info-and-status",
+    "href": "gliders.html#fleet-info-and-status",
+    "title": "Gliders",
+    "section": "Fleet info and status",
+    "text": "Fleet info and status\nPIFSC Seaglider Inventory Tracker\nPIFSC Seaglider Work Record\n\nSG273\nName and pics coming soon…\n\n\nSG274\nName and pics coming soon…",
+    "crumbs": [
+      "Gliders"
     ]
   },
   {
@@ -251,111 +356,6 @@
     "crumbs": [
       "Best practices",
       "Data processing"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "PIFSC Glider Lab",
-    "section": "",
-    "text": "This site is an in-development manual for underwater glider-based research activities conducted by the Uncrewed Marine Systems (UMPS) Program, Protected Species Division (PSD) at NOAA Fisheries Pacific Islands Fisheries Science Center (PIFSC). Please contact a member of the glider team with any questions.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#team-members",
-    "href": "index.html#team-members",
-    "title": "PIFSC Glider Lab",
-    "section": "Team Members",
-    "text": "Team Members\n\n\n\nName\nJob Title\nGlider Team Role\n\n\n\n\nErin Oleson\nDirector, Protected Species Division\nPrinciple Investigator\n\n\nErik Norris\nPhysical Science Technician\nLab Manager, Pilot, Tech\n\n\nSelene Fregosi\nCetacean Acoustician\nPilot, Analyst\n\n\nCalla Lloyd-Lim\nBiological Science Technician\nPilot, Tech\n\n\nJeremy Taylor\nMarine Scientist\nTech\n\n\nAksel Sloan\nSoftware Engineer\nDeveloper, Analyst\n\n\nCharles Littnan\nDirector, PIFSC",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#project-management",
-    "href": "index.html#project-management",
-    "title": "PIFSC Glider Lab",
-    "section": "Project Management",
-    "text": "Project Management\nFor current Seaglider fleet status, see this Google Sheet(NOAA-only)\nNMFS PIC Gliders Google Shared Drive(NOAA-only)\nnmfs.pic.gliders email group management\n\n\n\nGitHub Repositories\nGitHub repos developed by the PIFSC glider team. \n\n\n\nrepo link\ndescription\n\n\n\n\nglider-lab\nPIFSC Glider Lab website and repo for glider lab resources/issues/tasks\n\n\nagate\nagate: MATLAB-based tools for working with PAM Seagliders\n\n\nglider-MHI\nMission-specific analysis repo for 2022-2023 MHI missions\n\n\nglider-CalCurCEAS\nMission-specific analysis repo for 2024 CalCurCEAS missons\n\n\nglider-WHICEAS\nMission-specific analysis repo for 2026 WHICEAS missions\n\n\n\n\n\n\n\n\n\nDisclaimer\nThis repository is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "gliders.html",
-    "href": "gliders.html",
-    "title": "Gliders",
-    "section": "",
-    "text": "We have two Seaglider SGX gliders. These gliders were developed at the University of Washington Applied Physics Laboratory and are currently manufacturered and supported by the Integrated Observational Platforms (IOP) group at UW-APL. These buoyancy driven, autonomous underwater gliders are capable of diving to 1000 m, survey 15-20 km per day, and can be deployed for many weeks. Each glider is equipped with an RBR Legato CTD and WISPR passive acoustic monitoring sensor.",
-    "crumbs": [
-      "Gliders"
-    ]
-  },
-  {
-    "objectID": "gliders.html#fleet-info-and-status",
-    "href": "gliders.html#fleet-info-and-status",
-    "title": "Gliders",
-    "section": "Fleet info and status",
-    "text": "Fleet info and status\nPIFSC Seaglider Inventory Tracker\nPIFSC Seaglider Work Record\n\nSG273\nName and pics coming soon…\n\n\nSG274\nName and pics coming soon…",
-    "crumbs": [
-      "Gliders"
-    ]
-  },
-  {
-    "objectID": "calibration.html",
-    "href": "calibration.html",
-    "title": "Calibration information",
-    "section": "",
-    "text": "Calibration documents are tracked in GitHub. Individual sensor calibrations can be found in the calibration folder, in individual folders by sensor.\nNOTE: The collaborators folder has copies of calibrations for hydrophones owned by collaborator institutions (OSU and SWFSC).\n\n\n\n\n\n\nNoteWISPR calibration\n\n\n\nMore detailed info on WISPR calibration (which is not tracked in the Seaglider operational files) can be found on the WISPR calibration page.",
-    "crumbs": [
-      "Sensors",
-      "Calibration info"
-    ]
-  },
-  {
-    "objectID": "calibration.html#calibration-documents",
-    "href": "calibration.html#calibration-documents",
-    "title": "Calibration information",
-    "section": "",
-    "text": "Calibration documents are tracked in GitHub. Individual sensor calibrations can be found in the calibration folder, in individual folders by sensor.\nNOTE: The collaborators folder has copies of calibrations for hydrophones owned by collaborator institutions (OSU and SWFSC).\n\n\n\n\n\n\nNoteWISPR calibration\n\n\n\nMore detailed info on WISPR calibration (which is not tracked in the Seaglider operational files) can be found on the WISPR calibration page.",
-    "crumbs": [
-      "Sensors",
-      "Calibration info"
-    ]
-  },
-  {
-    "objectID": "calibration.html#sg_calib_constants.m",
-    "href": "calibration.html#sg_calib_constants.m",
-    "title": "Calibration information",
-    "section": "sg_calib_constants.m",
-    "text": "sg_calib_constants.m\nCalibrations for operational and oceanographic sensors are recorded in the sg_calib_constants.m file. Each glider has its own sg_calib_constants.m and a back up should be made for the version used in each mission. See: Mission preparation: Updated “constants” files for more info.\nA default example sg_calib_constants.m can be found in the sg000 subdirectory of basestation3.\n\nRBR Tridente\nThe RBR Tridente writes out calibrated values so no calibration constants are needed in sg_calib_constants.m. The script tools/GetTridenteChannels.py will generate a calibcomm_tridente parameter to add to the sg_calib_constants.m file (for display in the plots and as documentation in the netCDF files).\n\n\nAanderaa optode\nThe optode’s calibration constants can be obtained from a selftest capture file (if mounted on a scicon), by using the tools/GetOptodeConstants.py script in basestation3. If not, the calibration sheet from the vendor has what you need.",
-    "crumbs": [
-      "Sensors",
-      "Calibration info"
-    ]
-  },
-  {
-    "objectID": "team-resources.html",
-    "href": "team-resources.html",
-    "title": "Team Resources",
-    "section": "",
-    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\nConnecting to seaglider.pub: A Google Doc guide for different ways to connect to seaglider.pub including using Powershell, TeraTerm, or WinSCP.\n\n\n\n\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\n\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\n\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\n\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\n\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\n\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}",
-    "crumbs": [
-      "Piloting",
-      "Team resources"
-    ]
-  },
-  {
-    "objectID": "team-resources.html#useful-guides",
-    "href": "team-resources.html#useful-guides",
-    "title": "Team Resources",
-    "section": "",
-    "text": "Command Line Guide: A Google Doc cheat sheet for some command line basics useful for navigating around the Seaglider basestation\nConnecting to seaglider.pub: A Google Doc guide for different ways to connect to seaglider.pub including using Powershell, TeraTerm, or WinSCP.\n\n\n\n\nVarious kmls and shapefiles relevant to the Pacific Islands Region are included in this repository or in the shapefile_links.md\n\n\n\nSee the WISPR3 GitHub repo for the most up-to-date firmware, documentation, and helper functions: https://github.com/embeddedocean/wispr3\nSpecifically, this includes updated firmware files (and instructions to flash updated firmware) in the ‘Release’ folder and manuals for the WISPR3 file format, serial command interface, and connector specs in the ‘Docs’ folder.\nFor more information on installing, configuring, and controlling WISPR on a Seaglider, see our WISPR page.\n\n\n\nThis is a temporary placeholder for random bits of useful Seaglider info that we haven’t fully organized yet.\n\n\n\nFrom the main menu hardware &gt; modem &gt; remote\nThis will try to make a phone call only (without GPS or uploading anything)\n\n\n\n\nThis is done before a new actual mission or before any refurbishment or extensive testing and repairs in the lab.\n\n\n\nNavigate to the glider’s home directory e.g., /home/jails/noaaosu/gliderjail/home/sgXXX\nUse NewMission.py to create a new folder for this specific mission\n\nThe function will set up the mapping of the current folder so all newly created piloting files will be saved here when the glider calls in\nIt will also copy general files from the home directory like pagers.yml, all the files that start with . that we don’t really use except .pagers, and piloting files like science, cmdfile, targets and sg_calib_constants.m. The originals stay in the home directory but this provides a starting point for this particular mission\n\nTo run the function use:\n\nbasepy NewMission.py ./ &lt;newMissionFolderName&gt;\n\n# note the above uses seaglider.pub's shortcut to map full python paths\n# alternatively could use full paths\n/opt/basestation/bin/python /usr/local/basestation3/NewMission.py ./ &lt;newMissionFolderName&gt;\n\n&lt;newMissionFolderName&gt; is the folder name should follow the format of the mission title string used in sg_calib_constants.m that includes the date (formatted YYYYMMDD and location or project (e.g., 20250918_tests)\nCheck that it was set up properly by running ls -la from the home directory and checking where the current folder points.\n\n\n\n\nUpdate the missions.yml to properly display this mission on the seaglider.pub vis\nThe syntax is very specific and errors can be difficult to debug so it is best practice to create a backup copy before making any changes.\n\nNavigate to your user folder (/home/jails/noaaosu/username) and use cp ../gliderjail/home/missions.yml missions.orig to create a backup of the existing missions.yml in your user directory\nNavigate to /home/jails/noaaosu/gliderjail/home\nOpen missions.yml for editing (using vi or nano)\nCopy the previous mission to the # past missions section if needed\nMark the previous mission as complete by adding the line status: complete\nUpdate the mission name and folder path in the # current missions section\n\nExample syntax:\n# long form\n  - \n    glider: 680\n    mission: CalCurCEAS_Sep2024\n    path: sg680/2024-09-14_CalCurCEAS_Sep2024\n    also: [ {asset: newport} ]\n    \n# condensed\n  - { glider: 680, mission: CalCurCEAS_Sep2024, path: sg680/2024-09-14_CalCurCEAS_Sep2024, status: complete}",
-    "crumbs": [
-      "Piloting",
-      "Team resources"
     ]
   }
 ]
