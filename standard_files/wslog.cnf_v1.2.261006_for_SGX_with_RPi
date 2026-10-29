@@ -1,0 +1,12 @@
+name=WISPR
+prefix=ws
+cmdprefix=$WS_
+baud=9600
+voltage=10
+current=.0592
+warmup=15000
+timeout=7000
+prompt=W>
+datatype=z
+start="%b%<$TME,%s*ff>%r%9%9%b$GMP,%a*ff%r%9%9%9%b$RPI,0,1*ff%r%9%9%9%b$RUN*ee%r%9%9%9%9%9%9"
+stop="%b$EXI*a6%r%9%9%9%9%9%9%9%9"

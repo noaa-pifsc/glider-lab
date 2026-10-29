@@ -1,0 +1,11 @@
+name=PI
+prefix=pi
+cmdprefix=$PI_
+baud=9600
+voltage=14
+current=.38
+warmup=45000
+timeout=7000
+prompt=P>
+start="start,%a,1234567,%<%Y-%m-%dT%H:%M:%SZ>"
+download="%r%ndownload%r%n%9%9%9"

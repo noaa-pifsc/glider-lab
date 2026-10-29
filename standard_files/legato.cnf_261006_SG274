@@ -1,0 +1,16 @@
+name=legato
+prefix=rbr
+timeout=1000
+baud=19200
+warmup=8000
+voltage=10
+headerlines=0
+current=0.02
+format="%d-%d-%d %d:%d:%f, %00, %01, %02, %03"
+query="%F%n%9%F%n%9%F%n%[Ready: ]fetch sleepafter=true%r%n"
+column=conduc(10000,0)
+column=temp(10000,0)
+column=pressure(1000,0)
+column=conducTemp(10000,0)
+power-policy=1
+cycles=0
